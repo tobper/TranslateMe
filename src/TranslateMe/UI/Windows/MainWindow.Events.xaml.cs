@@ -1,0 +1,71 @@
+﻿using System.IO;
+using System.Windows.Input;
+using Microsoft.Win32;
+
+namespace TranslateMe.UI.Windows
+{
+    public partial class MainWindow
+    {
+        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "TranslateMe files (*.tme, *,resx)|*.tme;*.resx|Translation files (*.tme)|*.tme|Resource files (*.resx)|*.resx|All Files (*.*)|*.*"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                var fileExtension = Path.GetExtension(dialog.FileName);
+
+                switch (fileExtension)
+                {
+                    case ".resx":
+                        OpenResourceFile(dialog.FileName);
+                        break;
+
+                    case ".tme":
+                        break;
+
+                    default:
+                        DisplayFileFormatWarning();
+                        break;
+                }
+            }
+        }
+
+        private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Exit();
+        }
+
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsDocumentOpen;
+        }
+
+        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveDocument();
+        }
+
+        private void SaveAs_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsDocumentOpen;
+        }
+
+        private void SaveAs_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveDocumentAs();
+        }
+
+        private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsDocumentOpen;
+        }
+
+        private void Close_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            CloseDocument();
+        }
+    }
+}

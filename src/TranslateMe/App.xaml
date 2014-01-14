@@ -1,0 +1,125 @@
+﻿<Application x:Class="TranslateMe.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+             StartupUri="UI/Windows/MainWindow.xaml">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="DefaultBackground" Color="Transparent" />
+        <SolidColorBrush x:Key="DefaultForeground" Color="#303030" />
+        <SolidColorBrush x:Key="ListItemSelectedForeground" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="ListItemSelectedBackground" Color="SteelBlue" />
+        <SolidColorBrush x:Key="ListItemHoverForeground" Color="#303030" />
+        <SolidColorBrush x:Key="ListItemHoverBackground" Color="LightSteelBlue" />
+        <SolidColorBrush x:Key="ListItemErrorBackground" Color="#80FF8080" />
+
+        <SolidColorBrush x:Key="ColumnHeaderBackground" Color="SteelBlue"/>
+        <SolidColorBrush x:Key="ColumnHeaderForeground" Color="#FFFFFFFF"/>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="{StaticResource DefaultBackground}"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="Cell"/>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="{StaticResource ColumnHeaderBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource ColumnHeaderForeground}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="SeparatorVisibility" Value="Collapsed"/>
+            <Setter Property="SeparatorBrush" Value="{StaticResource ColumnHeaderForeground}" />
+            <Setter Property="Padding" Value="7" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridColumnHeader">
+                        <Grid Name="Root">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SortStates">
+                                    <VisualState x:Name="Unsorted" />
+                                    <VisualState x:Name="SortAscending">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5" To="1.0"/>
+                                            <DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="(RenderTransform).ScaleY" Duration="0:0:0.5" To=".9"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SortDescending">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5" To="1.0"/>
+                                            <DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="(RenderTransform).ScaleY" Duration="0:0:0.5" To="-.9"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Border x:Name="BackgroundRectangle" Background="{TemplateBinding Background}"/>
+
+                            <Grid HorizontalAlignment="Stretch"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Margin="{TemplateBinding Padding}">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <ContentPresenter Content="{TemplateBinding Content}"/>
+
+                                <Path Grid.Column="1" Name="SortIcon" Fill="{TemplateBinding Foreground}" RenderTransformOrigin=".5,.5" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" Stretch="Uniform" Width="8" Margin="4,0,0,0" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z ">
+                                    <Path.RenderTransform>
+                                        <ScaleTransform ScaleX=".9" ScaleY=".9" />
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="TextElement.Foreground" Value="{StaticResource DefaultForeground}"/>
+                                <Setter TargetName="BackgroundRectangle" Property="Background" Value="{StaticResource ListItemHoverBackground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridCell">
+                        <Border Name="CellBorder" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Border>
+                                <ContentPresenter Margin="5"/>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Content.Text, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                <Setter Property="Background" Value="{StaticResource ListItemErrorBackground}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource ListItemHoverBackground}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource ListItemSelectedBackground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateMe", "TranslateMe\TranslateMe.csproj", "{E922E4E1-AC89-4A2F-8E47-71DE3BDB481A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{8DF3AAC6-A6EB-40CF-8059-DEB928C21275}"
+	ProjectSection(SolutionItems) = preProject
+		..\Readme.md = ..\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{E2E30CE7-96B1-4A22-BACF-E6D9043DA37A}"
+	ProjectSection(SolutionItems) = preProject
+		..\docs\Diagrams\File open.vsdx = ..\docs\Diagrams\File open.vsdx
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E922E4E1-AC89-4A2F-8E47-71DE3BDB481A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E922E4E1-AC89-4A2F-8E47-71DE3BDB481A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E922E4E1-AC89-4A2F-8E47-71DE3BDB481A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E922E4E1-AC89-4A2F-8E47-71DE3BDB481A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2E30CE7-96B1-4A22-BACF-E6D9043DA37A} = {8DF3AAC6-A6EB-40CF-8059-DEB928C21275}
+	EndGlobalSection
+EndGlobal
