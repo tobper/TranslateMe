@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using TranslateMe.Model;
 
@@ -16,19 +17,39 @@ namespace TranslateMe.FileHandling
         private static XElement CreateDocumentElement(Document document)
         {
             var documentElement = new XElement("document");
+            var phrases = from phrase in document.Phrases
+                          orderby phrase.Name
+                          select new
+                          {
+                              phrase.Name,
+                              Texts = from translation in phrase.Translations
+                                      select new
+                                      {
+                                          Culture = translation.Culture.Name,
+                                          Value = translation.Text
+                                      }
+                          };
 
-            foreach (var phrase in document.Phrases)
+            foreach (var phrase in phrases)
             {
                 var nameAttribute = new XAttribute("name", phrase.Name);
                 var textElement = new XElement("text", nameAttribute);
 
-                foreach (var translation in phrase.Translations)
+                foreach (var text in phrase.Texts)
                 {
-                    var cultureAttribute = new XAttribute("culture", translation.Culture);
-                    var valueElement = new XElement("value", cultureAttribute);
+                    var valueElement = new XElement("value");
 
-                    if (translation.Text != null)
-                        valueElement.SetValue(translation.Text);
+                    if (text.Culture != string.Empty)
+                    {
+                        var cultureAttribute = new XAttribute("culture", text.Culture);
+
+                        valueElement.Add(cultureAttribute);
+                    }
+
+                    if (text.Value != null)
+                    {
+                        valueElement.SetValue(text.Value);
+                    }
 
                     textElement.Add(valueElement);
                 }
