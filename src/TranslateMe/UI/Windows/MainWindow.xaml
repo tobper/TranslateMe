@@ -6,9 +6,13 @@
         xmlns:w="clr-namespace:TranslateMe.UI.Windows"
         Height="350"
         Width="525"
+        Background="{StaticResource ControlBrush}"
         Closing="Window_Closing">
+
     <Window.Resources>
         <RoutedUICommand x:Key="ExitCommand" Text="E_xit" />
+        <RoutedUICommand x:Key="GenerateResourcesCommand" Text="_Generate resources"/>
+        <RoutedUICommand x:Key="ReloadResourcesCommand" Text="_Reload resources"/>
         <Storyboard x:Key="DisplayOverlay">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Overlay">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
@@ -27,11 +31,10 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
     </Window.Resources>
+    
     <Window.Triggers>
-        <!--<Trigger Property="windows:MainWindow.IsDocumentOpen" SourceName="Window" Value="True">
-            <Setter Property="UIElement.Visibility" TargetName="DocumentControl" Value="Visible"/>
-        </Trigger>-->
         <EventTrigger RoutedEvent="MenuItem.Click" SourceName="SettingsMenuItem" >
             <EventTrigger.Actions>
                 <BeginStoryboard Storyboard="{StaticResource DisplayOverlay}"/>
@@ -43,18 +46,25 @@
             </EventTrigger.Actions>
         </EventTrigger>
     </Window.Triggers>
+
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="Open_Executed" />
-        <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="Save_CanExecute" />
-        <CommandBinding Command="SaveAs" Executed="SaveAs_Executed" CanExecute="SaveAs_CanExecute" />
-        <CommandBinding Command="Close" Executed="Close_Executed" CanExecute="Close_CanExecute" />
+        <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="DocumentCommand_CanExecute" />
+        <CommandBinding Command="SaveAs" Executed="SaveAs_Executed" CanExecute="DocumentCommand_CanExecute" />
+        <CommandBinding Command="Close" Executed="Close_Executed" CanExecute="DocumentCommand_CanExecute" />
         <CommandBinding Command="{StaticResource ExitCommand}" Executed="Exit_Executed" />
+        <CommandBinding Command="{StaticResource GenerateResourcesCommand}" CanExecute="DocumentCommand_CanExecute" Executed="GenerateResources_Executed" />
+        <CommandBinding Command="{StaticResource ReloadResourcesCommand}" CanExecute="DocumentCommand_CanExecute" Executed="ReloadResources_Executed" />
     </Window.CommandBindings>
+
     <Window.InputBindings>
         <KeyBinding Key="F1" Command="Help" />
         <KeyBinding Gesture="" Key="S" Modifiers="Control" Command="Save" />
         <KeyBinding Key="Escape" Command="{StaticResource ExitCommand}" />
+        <KeyBinding Key="G" Modifiers="Control" Command="{StaticResource GenerateResourcesCommand}"/>
+        <KeyBinding Key="R" Modifiers="Control" Command="{StaticResource GenerateResourcesCommand}"/>
     </Window.InputBindings>
+
     <DockPanel>
         <Menu IsMainMenu="True" DockPanel.Dock="Top">
             <MenuItem Header="_File">
@@ -65,9 +75,12 @@
                 <Separator/>
                 <MenuItem InputGestureText="Alt+F4" Command="{StaticResource ExitCommand}" />
             </MenuItem>
-            <MenuItem Header="Translations" IsEnabled="False"></MenuItem>
+            <MenuItem Header="Translations">
+                <MenuItem InputGestureText="Ctrl+G" Command="{StaticResource GenerateResourcesCommand}"/>
+                <MenuItem InputGestureText="Ctrl+R" Command="{StaticResource ReloadResourcesCommand}"/>
+            </MenuItem>
             <MenuItem Header="_Tools">
-                <MenuItem x:Name="SettingsMenuItem" Header="Settings"/>
+                <MenuItem x:Name="SettingsMenuItem" Header="_Settings"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="About" InputGestureText="F1" Command="Help" />
@@ -75,13 +88,14 @@
         </Menu>
         <Grid>
             <c:DocumentControl
-                x:Name="DocumentControl"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
+                Visibility="{Binding ElementName=Window, Path=IsDocumentOpen, Converter={StaticResource VisibilityConverter}}"
                 DataContext="{Binding ElementName=Window, Path=Document}"/>
+
             <Grid
                 x:Name="Overlay"
-                Background="{StaticResource ControlBrush}"
+                Background="{Binding Background, ElementName=Window}"
                 Visibility="Collapsed"
                 Opacity="0">
 

@@ -2,9 +2,9 @@
 using System.Xml.Linq;
 using TranslateMe.Model;
 
-namespace TranslateMe
+namespace TranslateMe.FileHandling
 {
-    class DocumentWriter
+    class DocumentFileWriter
     {
         public void Write(Document document)
         {
@@ -41,7 +41,7 @@ namespace TranslateMe
 
         private static void SaveDocument(Document document, XElement documentElement)
         {
-            var fileName = Path.Combine(document.Directory, document.Name + ".tme");
+            var fileName = Path.Combine(document.Directory, document.Name + ".tmd");
 
             documentElement.Save(fileName);
         }

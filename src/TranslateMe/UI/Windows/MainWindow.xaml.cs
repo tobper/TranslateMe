@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
+using TranslateMe.FileHandling;
 using TranslateMe.Model;
 using TranslateMe.Properties;
 
@@ -30,13 +31,15 @@ namespace TranslateMe.UI.Windows
         public static readonly DependencyProperty IsDocumentModifiedProperty = IsDocumentModifiedPropertyKey.DependencyProperty;
         public static readonly DependencyProperty IsDocumentOpenProperty = IsDocumentOpenPropertyKey.DependencyProperty;
 
-        private readonly DocumentWriter _documentWriter;
-        private readonly ResourceFileParser _resourceFileParser;
+        private readonly DocumentFileReader _documentFileReader;
+        private readonly DocumentFileWriter _documentFileWriter;
+        private readonly ResourceFileReader _resourceFileReader;
 
         public MainWindow()
         {
-            _documentWriter = new DocumentWriter();
-            _resourceFileParser = new ResourceFileParser();
+            _documentFileReader = new DocumentFileReader();
+            _documentFileWriter = new DocumentFileWriter();
+            _resourceFileReader = new ResourceFileReader();
 
             InitializeComponent();
             UpdateTitle();
@@ -90,7 +93,7 @@ namespace TranslateMe.UI.Windows
         private void OpenResourceFile(string fileName)
         {
             var workingDirectory = Path.GetDirectoryName(fileName);
-            var documentName = _resourceFileParser.GetName(fileName);
+            var documentName = _resourceFileReader.GetName(fileName);
 
             if (IsDocumentOpen)
             {
@@ -131,9 +134,17 @@ namespace TranslateMe.UI.Windows
             }
         }
 
+        private void OpenDocumentFile(string fileName)
+        {
+            if (IsDocumentOpen && !CloseDocument())
+                return;
+
+            Document = _documentFileReader.LoadDocument(fileName);
+        }
+
         private void LoadResourcesFile(string fileName)
         {
-            _resourceFileParser.LoadResourceFile(Document, fileName);
+            _resourceFileReader.LoadResource(Document, fileName);
             IsDocumentModified = true;
         }
 
@@ -143,7 +154,7 @@ namespace TranslateMe.UI.Windows
 
             var resourceFiles =
                 from fileName in Directory.GetFiles(directory, Document.Name + "*.resx")
-                let resourceName = _resourceFileParser.GetName(fileName)
+                let resourceName = _resourceFileReader.GetName(fileName)
                 where string.Equals(resourceName, Document.Name, StringComparison.CurrentCultureIgnoreCase)
                 select fileName;
 
@@ -164,7 +175,7 @@ namespace TranslateMe.UI.Windows
 
         private void SaveDocument()
         {
-            _documentWriter.Write(Document);
+            _documentFileWriter.Write(Document);
 
             IsDocumentModified = false;
         }

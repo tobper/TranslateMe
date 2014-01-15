@@ -12,7 +12,7 @@ namespace TranslateMe.UI.Windows
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "TranslateMe files (*.tme, *,resx)|*.tme;*.resx|Translation files (*.tme)|*.tme|Resource files (*.resx)|*.resx|All Files (*.*)|*.*"
+                Filter = "TranslateMe files (*.tmd, *.resx)|*.tmd;*.resx|Translation files (*.tmd)|*.tme|Resource files (*.resx)|*.resx|All Files (*.*)|*.*"
             };
 
             if (dialog.ShowDialog() == true)
@@ -25,7 +25,8 @@ namespace TranslateMe.UI.Windows
                         OpenResourceFile(dialog.FileName);
                         break;
 
-                    case ".tme":
+                    case ".tmd":
+                        OpenDocumentFile(dialog.FileName);
                         break;
 
                     default:

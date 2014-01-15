@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using TranslateMe.Model;
 
-namespace TranslateMe
+namespace TranslateMe.FileHandling
 {
-    class ResourceFileParser
+    class ResourceFileReader
     {
         public CultureInfo GetCulture(string fileName)
         {
@@ -31,7 +31,7 @@ namespace TranslateMe
                        : null;
         }
 
-        public void LoadResourceFile(Document document, string fileName)
+        public void LoadResource(Document document, string fileName)
         {
             var culture = GetCulture(fileName);
             var rootElement = XElement.Load(fileName);
