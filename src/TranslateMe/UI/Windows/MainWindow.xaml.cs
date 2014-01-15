@@ -208,13 +208,5 @@ namespace TranslateMe.UI.Windows
 
             return true;
         }
-
-        private void Exit()
-        {
-            if (CloseDocument())
-            {
-                Application.Current.Shutdown();
-            }
-        }
     }
 }

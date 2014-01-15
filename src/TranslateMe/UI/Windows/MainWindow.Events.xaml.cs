@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using Microsoft.Win32;
 
 namespace TranslateMe.UI.Windows
@@ -35,7 +37,15 @@ namespace TranslateMe.UI.Windows
 
         private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Exit();
+            if (Overlay.Opacity < 1d)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                var storyBoard = (Storyboard)FindResource("HideOverlay");
+                BeginStoryboard(storyBoard);
+            }
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -66,6 +76,11 @@ namespace TranslateMe.UI.Windows
         private void Close_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             CloseDocument();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = !CloseDocument();
         }
     }
 }

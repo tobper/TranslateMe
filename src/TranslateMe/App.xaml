@@ -5,20 +5,81 @@
              StartupUri="UI/Windows/MainWindow.xaml">
     <Application.Resources>
 
-        <SolidColorBrush x:Key="DefaultBackground" Color="Transparent" />
-        <SolidColorBrush x:Key="DefaultForeground" Color="#303030" />
-        <SolidColorBrush x:Key="ListItemSelectedForeground" Color="#FFFFFFFF" />
-        <SolidColorBrush x:Key="ListItemSelectedBackground" Color="SteelBlue" />
-        <SolidColorBrush x:Key="ListItemHoverForeground" Color="#303030" />
-        <SolidColorBrush x:Key="ListItemHoverBackground" Color="LightSteelBlue" />
-        <SolidColorBrush x:Key="ListItemErrorBackground" Color="#80FF8080" />
+        <Color x:Key="ControlColor">#FFF0F0F0</Color>
+        <Color x:Key="TitleAccentColor">#FFFFFFFF</Color>
+        <Color x:Key="TitleBackgroundColor">SteelBlue</Color>
+        <Color x:Key="HoverAccentColor">#303030</Color>
+        <Color x:Key="HoverBackgroundColor">LightSteelBlue</Color>
+        <Color x:Key="SelectedAccentColor">#FFFFFFFF</Color>
+        <Color x:Key="SelectedBackgroundColor">SteelBlue</Color>
+        <Color x:Key="ErrorBackgroundColor">#80FF8080</Color>
 
-        <SolidColorBrush x:Key="ColumnHeaderBackground" Color="SteelBlue"/>
-        <SolidColorBrush x:Key="ColumnHeaderForeground" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ControlBrush" Color="{StaticResource ControlColor}"/>
+        <SolidColorBrush x:Key="TitleAccentBrush" Color="{StaticResource TitleAccentColor}"/>
+        <SolidColorBrush x:Key="TitleBackgroundBrush" Color="{StaticResource TitleBackgroundColor}"/>
+        <SolidColorBrush x:Key="HoverAccentBrush" Color="{StaticResource HoverAccentColor}"/>
+        <SolidColorBrush x:Key="HoverBackgroundBrush" Color="{StaticResource HoverBackgroundColor}"/>
+        <SolidColorBrush x:Key="SelectedAccentBrush" Color="{StaticResource SelectedAccentColor}"/>
+        <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="{StaticResource SelectedBackgroundColor}"/>
+        <SolidColorBrush x:Key="ErrorBackgroundBrush" Color="{StaticResource ErrorBackgroundColor}" />
+
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TitleAccentBrush}"/>
+            <Setter Property="Background" Value="{StaticResource TitleBackgroundBrush}"/>
+            <Setter Property="Padding" Value="7"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource TitleAccentBrush}"/>
+            <Setter Property="Background" Value="{StaticResource TitleBackgroundBrush}"/>
+            <Setter Property="Padding" Value="15,5,15,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrush}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource HoverBackgroundBrush}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource HoverAccentBrush}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource HoverAccentBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="StackPanel" x:Key="ButtonPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="5,0,5,5"/>
+            <Style.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Margin" Value="5,0,5,5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
 
         <Style TargetType="DataGrid">
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Background" Value="{StaticResource DefaultBackground}"/>
+            <Setter Property="Background" Value="{StaticResource ControlBrush}"/>
             <Setter Property="GridLinesVisibility" Value="None"/>
             <Setter Property="HeadersVisibility" Value="Column"/>
             <Setter Property="SelectionMode" Value="Single"/>
@@ -26,13 +87,13 @@
         </Style>
 
         <Style TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="{StaticResource ColumnHeaderBackground}"/>
-            <Setter Property="Foreground" Value="{StaticResource ColumnHeaderForeground}"/>
+            <Setter Property="Background" Value="{StaticResource TitleBackgroundBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TitleAccentBrush}"/>
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="IsTabStop" Value="False" />
             <Setter Property="SeparatorVisibility" Value="Collapsed"/>
-            <Setter Property="SeparatorBrush" Value="{StaticResource ColumnHeaderForeground}" />
+            <Setter Property="SeparatorBrush" Value="{StaticResource TitleAccentBrush}" />
             <Setter Property="Padding" Value="7" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -79,8 +140,8 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="TextElement.Foreground" Value="{StaticResource DefaultForeground}"/>
-                                <Setter TargetName="BackgroundRectangle" Property="Background" Value="{StaticResource ListItemHoverBackground}"/>
+                                <Setter Property="TextElement.Foreground" Value="{StaticResource HoverAccentBrush}"/>
+                                <Setter TargetName="BackgroundRectangle" Property="Background" Value="{StaticResource HoverBackgroundBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -91,6 +152,7 @@
         <Style TargetType="DataGridCell">
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="{StaticResource ControlBrush}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="DataGridCell">
@@ -101,7 +163,7 @@
                                     <Style TargetType="Border">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding Content.Text, RelativeSource={RelativeSource TemplatedParent}}" Value="">
-                                                <Setter Property="Background" Value="{StaticResource ListItemErrorBackground}"/>
+                                                <Setter Property="Background" Value="{StaticResource ErrorBackgroundBrush}"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
@@ -110,10 +172,10 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource ListItemHoverBackground}"/>
+                                <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource HoverBackgroundBrush}"/>
                             </Trigger>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource ListItemSelectedBackground}"/>
+                                <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource SelectedBackgroundBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
