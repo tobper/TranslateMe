@@ -23,6 +23,9 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="MultiLineTextBox" TargetType="TextBox">
+            <Setter Property="AcceptsReturn" Value="True"/>
+        </Style>
     </UserControl.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
