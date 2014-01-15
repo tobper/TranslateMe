@@ -86,6 +86,10 @@
             <Setter Property="SelectionUnit" Value="Cell"/>
         </Style>
 
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
+        </Style>
+        
         <Style TargetType="DataGridColumnHeader">
             <Setter Property="Background" Value="{StaticResource TitleBackgroundBrush}"/>
             <Setter Property="Foreground" Value="{StaticResource TitleAccentBrush}"/>
