@@ -107,7 +107,7 @@ namespace TranslateMe.UI.Windows
                 else
                 {
                     var appendConfirmation = MessageBox.Show(
-                        "Resource file name does not match loaded document. Close current document and load resource in a new document?",
+                        "Resource file name does not match loaded document." + Environment.NewLine + "Close current document and load resource in a new document?",
                         Strings.MessageBoxTitle,
                         MessageBoxButton.YesNoCancel,
                         MessageBoxImage.Question);
