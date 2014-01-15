@@ -34,12 +34,14 @@ namespace TranslateMe.UI.Windows
         private readonly DocumentFileReader _documentFileReader;
         private readonly DocumentFileWriter _documentFileWriter;
         private readonly ResourceFileReader _resourceFileReader;
+        private readonly ResourceFileWriter _resourceFileWriter;
 
         public MainWindow()
         {
             _documentFileReader = new DocumentFileReader();
             _documentFileWriter = new DocumentFileWriter();
             _resourceFileReader = new ResourceFileReader();
+            _resourceFileWriter = new ResourceFileWriter();
 
             InitializeComponent();
             UpdateTitle();
@@ -175,9 +177,14 @@ namespace TranslateMe.UI.Windows
 
         private void SaveDocument()
         {
-            _documentFileWriter.Write(Document);
+            _documentFileWriter.SaveDocument(Document);
 
             IsDocumentModified = false;
+
+            if (Settings.Default.GenerateResourcesOnSave)
+            {
+                GenerateResources();
+            }
         }
 
         private void SaveDocumentAs()
@@ -188,7 +195,7 @@ namespace TranslateMe.UI.Windows
         }
 
         /// <summary>
-        /// Closed the current document.
+        /// Closes the current document.
         /// </summary>
         /// <returns>True if the document was closed, otherwise false.</returns>
         private bool CloseDocument()
@@ -218,6 +225,11 @@ namespace TranslateMe.UI.Windows
             }
 
             return true;
+        }
+
+        private void GenerateResources()
+        {
+            _resourceFileWriter.SaveResources(Document);
         }
     }
 }

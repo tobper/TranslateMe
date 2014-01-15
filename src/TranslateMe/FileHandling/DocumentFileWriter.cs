@@ -6,7 +6,7 @@ namespace TranslateMe.FileHandling
 {
     class DocumentFileWriter
     {
-        public void Write(Document document)
+        public void SaveDocument(Document document)
         {
             var documentElement = CreateDocumentElement(document);
 

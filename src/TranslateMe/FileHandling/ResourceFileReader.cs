@@ -1,7 +1,8 @@
-﻿using System.Globalization;
+﻿using System.Collections;
+using System.Globalization;
 using System.IO;
+using System.Resources;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using TranslateMe.Model;
 
 namespace TranslateMe.FileHandling
@@ -34,14 +35,16 @@ namespace TranslateMe.FileHandling
         public void LoadResource(Document document, string fileName)
         {
             var culture = GetCulture(fileName);
-            var rootElement = XElement.Load(fileName);
 
-            foreach (var dataElement in rootElement.Elements("data"))
+            using (var reader = new ResXResourceReader(fileName))
             {
-                var name = (string)dataElement.Attribute("name");
-                var value = (string)dataElement.Element("value");
+                foreach (DictionaryEntry text in reader)
+                {
+                    var name = (string)text.Key;
+                    var value = (string)text.Value;
 
-                document[name, culture] = value;
+                    document[name, culture] = value;
+                }
             }
         }
     }

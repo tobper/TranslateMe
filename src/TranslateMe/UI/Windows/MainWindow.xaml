@@ -73,11 +73,10 @@
                 <MenuItem Header="_Save as..." InputGestureText="Ctrl+Shift+S" Command="SaveAs" />
                 <MenuItem Header="_Close" Command="Close" />
                 <Separator/>
-                <MenuItem InputGestureText="Alt+F4" Command="{StaticResource ExitCommand}" />
-            </MenuItem>
-            <MenuItem Header="Translations">
                 <MenuItem InputGestureText="Ctrl+G" Command="{StaticResource GenerateResourcesCommand}"/>
                 <MenuItem InputGestureText="Ctrl+R" Command="{StaticResource ReloadResourcesCommand}"/>
+                <Separator/>
+                <MenuItem InputGestureText="Alt+F4" Command="{StaticResource ExitCommand}" />
             </MenuItem>
             <MenuItem Header="_Tools">
                 <MenuItem x:Name="SettingsMenuItem" Header="_Settings"/>
