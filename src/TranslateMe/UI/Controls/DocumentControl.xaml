@@ -42,6 +42,7 @@
         <DataGrid x:Name="Grid"
                   AutoGenerateColumns="False"
                   ItemsSource="{Binding Phrases}"
+                  FrozenColumnCount="1"
                   DataContextChanged="Grid_OnDataContextChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"/>
