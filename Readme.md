@@ -1,0 +1,1 @@
+TranslateMe is a simple program used to make merging of resx files easier. TranslateMe will create a separate file containing all resources from multiple resx files. It will keep the resources sorted and grouped to make it easier to merge resources.
