@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+
+  <Product Id="19AAE7B0-08BE-424E-9EDD-4549A170A65A"
+           Name="TranslateMe"
+           Manufacturer="Tobias Persson"
+           Version="$(var.BuildVersion)"
+           UpgradeCode="D7BB172A-75B0-4839-8DBB-4620B6F2F66C"
+           Language="1033"
+           Codepage="1252">
+
+    <Package Id="*"
+             Description="TranslateMe $(var.BuildVersion) Installer"
+             InstallerVersion="300"
+             Languages="1033"
+             Compressed="yes"
+             SummaryCodepage="1252"
+             InstallScope="perMachine" />
+
+    <!-- Check for .NET4Full -->
+    <PropertyRef Id="NETFRAMEWORK40FULL"/>
+    <Condition Message="TranslateMe requires the full .NET Framework 4. Please install it and then run the installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    </Condition>
+
+    <MajorUpgrade DowngradeErrorMessage="TranslateMe does not support downgrading." />
+
+    <Media Id="1" Cabinet="TranslateMe.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="INSTALLDIR" Name="TranslateMe" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="PMenu" />
+    </Directory>
+
+    <Icon Id="App.ico" SourceFile="$(var.SrcDir)\App.ico" />
+
+    <!-- Icon for Add/remove programs -->
+    <Property Id="ARPPRODUCTICON" Value="App.ico" />
+    
+    <!-- Disable Repair and Change in 'Add/remove programs'-->
+    <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" /> 
+    <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />
+
+    <ComponentGroup Id="Application" Directory="INSTALLDIR" Source="$(var.BinDir)\">
+      <Component Id="App" Guid="9CBD0904-FA07-40B8-8288-E341EBB6A55E">
+        <File Id="TranslateMe.exe" Name="TranslateMe.exe" />
+
+        <Shortcut Id="TranslateMe.Shortcut" Directory="ProgramMenuFolder" Name="TranslateMe" WorkingDirectory="APPLICATIONFOLDER" Target="[#TranslateMe.exe]" />
+
+        <!-- Capabilities keys for Vista/7 "Set Program Access and Defaults" -->
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities" Name="ApplicationDescription" Value="TranslateMe" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities" Name="ApplicationIcon" Value="[APPLICATIONFOLDER]TranslateMe.exe,0" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities" Name="ApplicationName" Value="TranslateMe" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities\DefaultIcon" Value="[APPLICATIONFOLDER]TranslateMe.exe,0" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities\FileAssociations" Name=".tmd" Value="TranslateMe.Document" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities\FileAssociations" Name=".resx" Value="TranslateMe.ResX" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\TranslateMe\Capabilities\shell\Open\command" Value="&quot;[APPLICATIONFOLDER]TranslateMe.exe&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\RegisteredApplications" Name="TranslateMe" Value="SOFTWARE\TranslateMe\Capabilities" Type="string" />
+
+        <!-- App Paths to support Start,Run -> "myapp" -->
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\TranslateMe.exe" Value="[!TranslateMe.exe]" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\TranslateMe.exe" Name="Path" Value="[APPLICATIONFOLDER]" Type="string" />
+
+        <!-- Extend to the "open with" list + Win7 jump menu pinning  -->
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\TranslateMe.exe\SupportedTypes" Name=".tmd" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\TranslateMe.exe\SupportedTypes" Name=".resx" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\TranslateMe.exe\shell\open" Name="FriendlyAppName" Value="TranslateMe" Type="string" />
+
+        <!-- TranslateMe.Document ProgID -->
+        <ProgId Id="TranslateMe.Document" Description="TranslateMe Document" Icon="TranslateMe.exe">
+            <Extension Id="tmd">
+                <Verb Id="open" Command="Open with TranslateMe" Argument="&quot;%1&quot;" TargetFile="TranslateMe.exe" />
+            </Extension>
+        </ProgId>
+      </Component>
+
+      <Component Id="AppConf" Guid="7D3BDEB8-BEF6-426E-BF79-0DE8CFF1F0EB">
+        <File Name="TranslateMe.exe.config" />
+      </Component>
+    </ComponentGroup>
+
+    <Feature Id="Complete" Title="Application" Description="Fully equipped" Display="expand" ConfigurableDirectory="INSTALLDIR" Level="1">
+      <ComponentGroupRef Id="Application" />
+    </Feature>
+  </Product>
+</Wix>
