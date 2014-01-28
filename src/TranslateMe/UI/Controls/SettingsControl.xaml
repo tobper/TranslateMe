@@ -32,6 +32,11 @@
                 </Style>
             </StackPanel.Resources>
 
+            <CheckBox IsChecked="{Binding AutoCheckForUpdates, Mode=TwoWay, Source={x:Static p:Settings.Default}}"
+                      Checked="ToggleButton_OnChecked"
+                      Unchecked="ToggleButton_OnChecked"
+                      Content="Automatically check for updates"/>
+
             <CheckBox IsChecked="{Binding GenerateResourcesOnSave, Mode=TwoWay, Source={x:Static p:Settings.Default}}"
                       Checked="ToggleButton_OnChecked"
                       Unchecked="ToggleButton_OnChecked"

@@ -4,12 +4,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:c="clr-namespace:TranslateMe.UI.Controls"
         xmlns:w="clr-namespace:TranslateMe.UI.Windows"
+        xmlns:cmd="clr-namespace:TranslateMe.Commands"
         Height="350"
         Width="525"
         Background="{StaticResource ControlBrush}"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
+        <cmd:CheckForUpdatesCommand x:Key="CheckForUpdatesCommand" />
         <RoutedUICommand x:Key="ExitCommand" Text="E_xit" />
         <RoutedUICommand x:Key="GenerateResourcesCommand" Text="_Generate resources"/>
         <RoutedUICommand x:Key="ReloadResourcesCommand" Text="_Reload resources"/>
@@ -79,6 +82,7 @@
                 <MenuItem InputGestureText="Alt+F4" Command="{StaticResource ExitCommand}" />
             </MenuItem>
             <MenuItem Header="_Tools">
+                <MenuItem Header="_Check for updates" Command="{StaticResource CheckForUpdatesCommand}" CommandParameter="{Binding ElementName=Window}" />
                 <MenuItem x:Name="SettingsMenuItem" Header="_Settings"/>
             </MenuItem>
             <MenuItem Header="_Help">

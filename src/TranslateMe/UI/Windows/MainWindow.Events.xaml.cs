@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using Microsoft.Win32;
+using TranslateMe.Properties;
 
 namespace TranslateMe.UI.Windows
 {
@@ -72,6 +73,14 @@ namespace TranslateMe.UI.Windows
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = !CloseDocument();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Settings.Default.AutoCheckForUpdates)
+            {
+                CheckForUpdates();
+            }
         }
 
         private void GenerateResources_Executed(object sender, ExecutedRoutedEventArgs e)

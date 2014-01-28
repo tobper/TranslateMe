@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
+using TranslateMe.Commands;
 using TranslateMe.FileHandling;
 using TranslateMe.Model;
 using TranslateMe.Properties;
@@ -198,7 +199,7 @@ namespace TranslateMe.UI.Windows
         /// Closes the current document.
         /// </summary>
         /// <returns>True if the document was closed, otherwise false.</returns>
-        private bool CloseDocument()
+        public bool CloseDocument()
         {
             if (IsDocumentOpen)
             {
@@ -230,6 +231,13 @@ namespace TranslateMe.UI.Windows
         private void GenerateResources()
         {
             _resourceFileWriter.SaveResources(Document);
+        }
+
+        private void CheckForUpdates()
+        {
+            var command = new CheckForUpdatesCommand();
+            if (command.CanExecute(this))
+                command.Execute(this);
         }
     }
 }
