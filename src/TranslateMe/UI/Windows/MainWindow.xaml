@@ -89,7 +89,8 @@
                 <MenuItem Header="About" InputGestureText="F1" Command="Help" />
             </MenuItem>
         </Menu>
-        <Grid>
+        <Grid Background="Transparent"
+              MouseLeftButtonDown="Grid_MouseLeftButtonDown">
             <c:DocumentControl
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"

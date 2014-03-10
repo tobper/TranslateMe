@@ -1,40 +1,23 @@
-﻿using System.IO;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
-using Microsoft.Win32;
 using TranslateMe.Properties;
 
 namespace TranslateMe.UI.Windows
 {
     public partial class MainWindow
     {
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2 && !IsDocumentOpen)
+            {
+                OpenFile();
+            }
+        }
+
         private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog
-            {
-                Filter = "TranslateMe files (*.tmd, *.resx)|*.tmd;*.resx|Translation files (*.tmd)|*.tme|Resource files (*.resx)|*.resx|All Files (*.*)|*.*"
-            };
-
-            if (dialog.ShowDialog() == true)
-            {
-                var fileExtension = Path.GetExtension(dialog.FileName);
-
-                switch (fileExtension)
-                {
-                    case ".resx":
-                        OpenResourceFile(dialog.FileName);
-                        break;
-
-                    case ".tmd":
-                        OpenDocumentFile(dialog.FileName);
-                        break;
-
-                    default:
-                        DisplayFileFormatWarning();
-                        break;
-                }
-            }
+            OpenFile();
         }
 
         private void DocumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)

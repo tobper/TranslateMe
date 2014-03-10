@@ -2,6 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
+using Microsoft.Win32;
 using TranslateMe.Commands;
 using TranslateMe.FileHandling;
 using TranslateMe.Model;
@@ -89,6 +91,34 @@ namespace TranslateMe.UI.Windows
                 if (IsDocumentModified)
                 {
                     Title += " *";
+                }
+            }
+        }
+
+        private void OpenFile()
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "TranslateMe files (*.tmd, *.resx)|*.tmd;*.resx|Translation files (*.tmd)|*.tme|Resource files (*.resx)|*.resx|All Files (*.*)|*.*"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                var fileExtension = Path.GetExtension(dialog.FileName);
+
+                switch (fileExtension)
+                {
+                    case ".resx":
+                        OpenResourceFile(dialog.FileName);
+                        break;
+
+                    case ".tmd":
+                        OpenDocumentFile(dialog.FileName);
+                        break;
+
+                    default:
+                        DisplayFileFormatWarning();
+                        break;
                 }
             }
         }
