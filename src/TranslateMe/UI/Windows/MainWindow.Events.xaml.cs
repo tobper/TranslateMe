@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using TranslateMe.Properties;
@@ -40,6 +41,11 @@ namespace TranslateMe.UI.Windows
         private void Close_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             CloseDocument();
+        }
+
+        private void Find_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            SearchBox.Focus();
         }
 
         private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)

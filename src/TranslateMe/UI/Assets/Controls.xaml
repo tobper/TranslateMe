@@ -1,6 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="clr-namespace:TranslateMe.UI">
+
+    <ui:SearchTermConverter x:Key="SearchTermConverter" />
 
     <Style x:Key="Title" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource TitleAccentBrush}"/>
@@ -56,4 +59,51 @@
         </Style.Resources>
     </Style>
 
+    <Style x:Key="SearchTextBox" TargetType="TextBoxBase">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBoxBase">
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="{Binding ActualHeight, ElementName=PART_ContentHost}"/>
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Focusable="False"
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"/>
+                            <Border x:Name="iconPadding"
+                                    Grid.Column="1"
+                                    Width="{Binding ActualHeight, ElementName=PART_ContentHost}"
+                                    Height="{Binding ActualHeight, ElementName=PART_ContentHost}"
+                                    Padding="2"
+                                    HorizontalAlignment="Right">
+                                <Path Name="icon"
+                                      Style="{StaticResource Find-Path}"
+                                      Fill="{Binding BorderBrush, ElementName=border}"
+                                      RenderTransformOrigin="0.5,0.5"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            <Setter Property="Opacity" TargetName="icon" Value="0.56"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource HoverBackgroundBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource SelectedBackgroundBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using System.Windows;
 
 namespace TranslateMe.Model
 {
+    [DebuggerDisplay("{Name,nq}")]
     public class Phrase : DependencyObject
     {
         public static readonly DependencyProperty NameProperty = DependencyProperty.Register(

@@ -21,5 +21,6 @@
     <SolidColorBrush x:Key="SelectedAccentBrush" Color="{StaticResource SelectedAccentColor}"/>
     <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="{StaticResource SelectedBackgroundColor}"/>
     <SolidColorBrush x:Key="ErrorBackgroundBrush" Color="{StaticResource ErrorBackgroundColor}" />
+    <SolidColorBrush x:Key="MatchBackgroundBrush" Color="{StaticResource HoverBackgroundColor}"/>
 
 </ResourceDictionary>
