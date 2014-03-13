@@ -8,5 +8,17 @@
     <Setting Name="AutoCheckForUpdates" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="WindowSize" Type="System.Windows.Size" Scope="User">
+      <Value Profile="(Default)">525,350</Value>
+    </Setting>
+    <Setting Name="WindowLeft" Type="System.Nullable&lt;System.Double&gt;" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WindowTop" Type="System.Nullable&lt;System.Double&gt;" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WindowState" Type="System.Windows.WindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

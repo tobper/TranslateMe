@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 
 namespace TranslateMe
@@ -14,6 +15,13 @@ namespace TranslateMe
             {
                 items.Remove(item);
             }
+        }
+
+        public static void Update<T>(this T settings, Action<T> action)
+            where T : SettingsBase
+        {
+            action(settings);
+            settings.Save();
         }
     }
 }

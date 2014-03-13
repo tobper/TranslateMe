@@ -5,11 +5,12 @@
         xmlns:c="clr-namespace:TranslateMe.UI.Controls"
         xmlns:w="clr-namespace:TranslateMe.UI.Windows"
         xmlns:cmd="clr-namespace:TranslateMe.Commands"
-        Height="350"
-        Width="525"
         Background="{StaticResource ControlBrush}"
         Closing="Window_Closing"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        SizeChanged="Window_OnSizeChanged"
+        StateChanged="Window_OnStateChanged"
+        LocationChanged="Window_OnLocationChanged">
 
     <Window.Resources>
         <cmd:CheckForUpdatesCommand x:Key="CheckForUpdatesCommand" />

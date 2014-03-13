@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using TranslateMe.Properties;
@@ -55,7 +56,16 @@ namespace TranslateMe.UI.Windows
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = !CloseDocument();
+            if (CloseDocument())
+            {
+                _windowLocationSaveMethod.Dispose();
+                _windowSizeSaveMethod.Dispose();
+                _windowStateSaveMethod.Dispose();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -64,6 +74,21 @@ namespace TranslateMe.UI.Windows
             {
                 CheckForUpdates();
             }
+        }
+
+        private void Window_OnLocationChanged(object sender, EventArgs e)
+        {
+            _windowLocationSaveMethod.CallDelayed();
+        }
+
+        private void Window_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            _windowSizeSaveMethod.CallDelayed(e.NewSize);
+        }
+
+        private void Window_OnStateChanged(object sender, EventArgs e)
+        {
+            _windowStateSaveMethod.CallDelayed();
         }
 
         private void GenerateResources_Executed(object sender, ExecutedRoutedEventArgs e)

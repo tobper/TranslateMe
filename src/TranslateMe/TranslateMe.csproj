@@ -95,6 +95,10 @@
     <Compile Include="Commands\UpdateApplicationCommand.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FileHandling\ResourceFileWriter.cs" />
+    <Compile Include="IMethodThrottle.cs" />
+    <Compile Include="MethodThrottle.cs">
+      <DependentUpon>IMethodThrottle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Document.cs" />
     <Compile Include="Model\GitHub\GitHubAsset.cs" />
     <Compile Include="Model\GitHub\GitHubRelease.cs" />

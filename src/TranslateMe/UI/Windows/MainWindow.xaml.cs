@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
-using System.Windows.Input;
 using Microsoft.Win32;
 using TranslateMe.Commands;
 using TranslateMe.FileHandling;
@@ -34,6 +33,9 @@ namespace TranslateMe.UI.Windows
         public static readonly DependencyProperty IsDocumentModifiedProperty = IsDocumentModifiedPropertyKey.DependencyProperty;
         public static readonly DependencyProperty IsDocumentOpenProperty = IsDocumentOpenPropertyKey.DependencyProperty;
 
+        private readonly IMethodThrottle _windowLocationSaveMethod;
+        private readonly IMethodThrottle<Size> _windowSizeSaveMethod;
+        private readonly IMethodThrottle _windowStateSaveMethod;
         private readonly DocumentFileReader _documentFileReader;
         private readonly DocumentFileWriter _documentFileWriter;
         private readonly ResourceFileReader _resourceFileReader;
@@ -41,12 +43,19 @@ namespace TranslateMe.UI.Windows
 
         public MainWindow()
         {
+            var windowThrottleInterval = TimeSpan.FromSeconds(1);
+
+            _windowLocationSaveMethod = new MethodThrottle(SaveWindowLocation, windowThrottleInterval);
+            _windowSizeSaveMethod = new MethodThrottle<Size>(SaveWindowSize, windowThrottleInterval);
+            _windowStateSaveMethod = new MethodThrottle(SaveWindowState, windowThrottleInterval);
+
             _documentFileReader = new DocumentFileReader();
             _documentFileWriter = new DocumentFileWriter();
             _resourceFileReader = new ResourceFileReader();
             _resourceFileWriter = new ResourceFileWriter();
 
             InitializeComponent();
+            SetupInitialWindow();
             UpdateTitle();
         }
 
@@ -268,6 +277,48 @@ namespace TranslateMe.UI.Windows
             var command = new CheckForUpdatesCommand();
             if (command.CanExecute(this))
                 command.Execute(this);
+        }
+
+        private void SetupInitialWindow()
+        {
+            if (Settings.Default.WindowLeft != null)
+                Left = Settings.Default.WindowLeft.Value;
+
+            if (Settings.Default.WindowTop != null)
+                Top = Settings.Default.WindowTop.Value;
+
+            Width = Settings.Default.WindowSize.Width;
+            Height = Settings.Default.WindowSize.Height;
+            WindowState = Settings.Default.WindowState;
+        }
+
+        private void SaveWindowLocation()
+        {
+            Settings.Default.Update(s =>
+            {
+                s.WindowLeft = Left;
+                s.WindowTop = Top;
+            });
+        }
+
+        private static void SaveWindowSize(Size newSize)
+        {
+            Settings.Default.Update(s =>
+            {
+                s.WindowSize = newSize;
+            });
+        }
+
+        private void SaveWindowState()
+        {
+            var state = WindowState;
+            if (state == WindowState.Minimized)
+                state = WindowState.Normal;
+
+            Settings.Default.Update(s =>
+            {
+                s.WindowState = state;
+            });
         }
     }
 }
