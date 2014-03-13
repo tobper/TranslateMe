@@ -56,6 +56,7 @@ namespace TranslateMe.UI.Windows
 
             InitializeComponent();
             SetupInitialWindow();
+            LoadCommandLineFile();
             UpdateTitle();
         }
 
@@ -295,6 +296,15 @@ namespace TranslateMe.UI.Windows
             Width = Settings.Default.WindowSize.Width;
             Height = Settings.Default.WindowSize.Height;
             WindowState = Settings.Default.WindowState;
+        }
+
+        private void LoadCommandLineFile()
+        {
+            var args = Environment.GetCommandLineArgs();
+            if (args.Length > 1)
+            {
+                OpenFile(args[1]);
+            }
         }
 
         private void SaveWindowLocation()
