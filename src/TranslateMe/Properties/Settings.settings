@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TranslateMe.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="GenerateResourcesOnSave" Type="System.Boolean" Scope="User">
+    <Setting Name="GenerateResourcesOnSave" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="AutoCheckForUpdates" Type="System.Boolean" Scope="User">
+    <Setting Name="AutoCheckForUpdates" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
