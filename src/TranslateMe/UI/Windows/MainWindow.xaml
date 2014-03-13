@@ -10,7 +10,11 @@
         Loaded="Window_Loaded"
         SizeChanged="Window_OnSizeChanged"
         StateChanged="Window_OnStateChanged"
-        LocationChanged="Window_OnLocationChanged">
+        LocationChanged="Window_OnLocationChanged"
+        AllowDrop="True"
+        DragEnter="Window_OnDrag"
+        DragOver="Window_OnDrag"
+        Drop="Window_OnDrop">
 
     <Window.Resources>
         <cmd:CheckForUpdatesCommand x:Key="CheckForUpdatesCommand" />

@@ -104,7 +104,7 @@ namespace TranslateMe.UI.Windows
             }
         }
 
-        private void OpenFile()
+        private void DisplayFileOpenDialog()
         {
             var dialog = new OpenFileDialog
             {
@@ -113,22 +113,27 @@ namespace TranslateMe.UI.Windows
 
             if (dialog.ShowDialog() == true)
             {
-                var fileExtension = Path.GetExtension(dialog.FileName);
+                OpenFile(dialog.FileName);
+            }
+        }
 
-                switch (fileExtension)
-                {
-                    case ".resx":
-                        OpenResourceFile(dialog.FileName);
-                        break;
+        private void OpenFile(string fileName)
+        {
+            var fileExtension = Path.GetExtension(fileName);
 
-                    case ".tmd":
-                        OpenDocumentFile(dialog.FileName);
-                        break;
+            switch (fileExtension)
+            {
+                case ".resx":
+                    OpenResourceFile(fileName);
+                    break;
 
-                    default:
-                        DisplayFileFormatWarning();
-                        break;
-                }
+                case ".tmd":
+                    OpenDocumentFile(fileName);
+                    break;
+
+                default:
+                    DisplayFileFormatWarning();
+                    break;
             }
         }
 

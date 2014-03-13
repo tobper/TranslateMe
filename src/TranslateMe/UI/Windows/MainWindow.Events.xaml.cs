@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -12,13 +13,13 @@ namespace TranslateMe.UI.Windows
         {
             if (e.ClickCount == 2 && !IsDocumentOpen)
             {
-                OpenFile();
+                DisplayFileOpenDialog();
             }
         }
 
         private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            OpenFile();
+            DisplayFileOpenDialog();
         }
 
         private void DocumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -89,6 +90,35 @@ namespace TranslateMe.UI.Windows
         private void Window_OnStateChanged(object sender, EventArgs e)
         {
             _windowStateSaveMethod.CallDelayed();
+        }
+
+        private void Window_OnDrag(object sender, DragEventArgs e)
+        {
+            var isDataValid = false;
+            var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files != null && files.Length > 0)
+            {
+                var file = files[0];
+                var ext = Path.GetExtension(file);
+
+                if (ext == ".resx" || ext == ".tmd")
+                {
+                    isDataValid = true;
+                }
+            }
+
+            e.Effects = isDataValid ? DragDropEffects.Move : DragDropEffects.None;
+            e.Handled = true;
+        }
+
+        private void Window_OnDrop(object sender, DragEventArgs e)
+        {
+            var files = (string[])e.Data.GetData(DataFormats.FileDrop, true);
+
+            if (files != null && files.Length > 0)
+            {
+                OpenFile(files[0]);
+            }
         }
 
         private void GenerateResources_Executed(object sender, ExecutedRoutedEventArgs e)
