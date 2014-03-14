@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="UI\Assets\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UI\Assets\Controls.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,9 +107,11 @@
     <Compile Include="Model\GitHub\GitHubAsset.cs" />
     <Compile Include="Model\GitHub\GitHubRelease.cs" />
     <Compile Include="Model\Phrase.cs" />
+    <Compile Include="Model\Support\IndexedCollection.cs" />
     <Compile Include="Model\Translation.cs" />
     <Compile Include="FileHandling\ResourceFileReader.cs" />
     <Compile Include="FileHandling\DocumentFileReader.cs" />
+    <Compile Include="Model\TranslationCollection.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
+using System.Net.Sockets;
 
 namespace TranslateMe.Model
 {
@@ -11,7 +14,9 @@ namespace TranslateMe.Model
             Directory = directory;
             Name = name;
             Cultures = new ObservableCollection<CultureInfo>();
+            Cultures.CollectionChanged += CulturesOnCollectionChanged;
             Phrases = new ObservableCollection<Phrase>();
+            Phrases.CollectionChanged += PhrasesOnCollectionChanged;
         }
 
         public string Directory { get; private set; }
@@ -23,14 +28,13 @@ namespace TranslateMe.Model
         {
             get
             {
-                var translation = Phrases.
-                    Where(p => p.Name == name).
-                    SelectMany(p => p.Translations).
-                    FirstOrDefault(t => t.Culture.Equals(culture));
+                var texts = from phrase in Phrases
+                            where phrase.Name == name
+                            from translation in phrase.Translations
+                            where translation.Culture.Equals(culture)
+                            select translation.Text;
 
-                return translation != null
-                           ? translation.Text
-                           : null;
+                return texts.FirstOrDefault();
             }
             set
             {
@@ -42,11 +46,43 @@ namespace TranslateMe.Model
                 var phrase = Phrases.FirstOrDefault(p => p.Name == name);
                 if (phrase == null)
                 {
-                    phrase = new Phrase(Cultures, name);
+                    phrase = new Phrase
+                    {
+                        Name = name,
+                    };
+
                     Phrases.Add(phrase);
                 }
 
-                phrase[culture].Text = value;
+                phrase.Translations[culture].Text = value;
+            }
+        }
+
+        private void CulturesOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs eventArgs)
+        {
+            if (eventArgs.NewItems != null)
+            {
+                foreach (CultureInfo culture in eventArgs.NewItems)
+                {
+                    foreach (var phrase in Phrases)
+                    {
+                        phrase.Translations.Add(new Translation(culture));
+                    }
+                }
+            }
+        }
+
+        private void PhrasesOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs eventArgs)
+        {
+            if (eventArgs.NewItems != null)
+            {
+                foreach (Phrase phrase in eventArgs.NewItems)
+                {
+                    foreach (var culture in Cultures)
+                    {
+                        phrase.Translations.Add(new Translation(culture));
+                    }
+                }
             }
         }
     }

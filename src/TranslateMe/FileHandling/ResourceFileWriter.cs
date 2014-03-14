@@ -1,18 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Resources;
-using System.Security.Cryptography;
-using System.Xml.Linq;
 using TranslateMe.Model;
 
 namespace TranslateMe.FileHandling
 {
     class ResourceFileWriter
     {
-        private static readonly XNamespace XmlNamespace = "http://www.w3.org/XML/1998/namespace";
-
         public void SaveResources(Document document)
         {
             foreach (var culture in document.Cultures)
@@ -29,7 +24,7 @@ namespace TranslateMe.FileHandling
                         select new
                         {
                             phrase.Name,
-                            Value = phrase[culture].Text
+                            Value = phrase.Translations[culture].Text
                         };
 
             using (var writer = new ResXResourceWriter(fileName))
