@@ -95,7 +95,9 @@
             </MenuItem>
         </Menu>
         <Grid Background="Transparent"
-              MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+              MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+              KeyboardNavigation.TabNavigation="Cycle">
+
             <c:DocumentControl
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
