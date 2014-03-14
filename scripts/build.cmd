@@ -1,6 +1,6 @@
 @echo off
 
-set version=%appveyor_projectversion%
+set version=%APPVEYOR_BUILD_VERSION%
 set configuration=Release
 
 set wixSource=src\TranslateMe
@@ -9,8 +9,9 @@ set wixFiles=src\Installation
 set wixObj=%wixFiles%\obj
 set wixBin=%wixFiles%\bin
 
-set msiFile=%wixBin%\TranslateMe-%version%.msi
-set artifactFolder=%OutFolder%
+set msiFileName=TranslateMe-%version%.msi
+set msiFile=%wixBin%\%msiFileName%
+set artifactFolder=artifacts
 set artifactAppFolder=%artifactFolder%\TranslateMe-%version%
 
 call :verifyWixPath
@@ -52,16 +53,20 @@ goto :eof
 	exit /b
 
 :copyArtifacts
-	if not "%OutFolder%"=="" (
-		call :header "Copying artifacts"
+	call :header "Copying artifacts"
 
-		copy %msiFile% %artifactFolder%
+	md %artifactFolder%
+	md %artifactAppFolder%
 
-		md %artifactAppFolder%
-		copy src\Translateme\bin\%configuration%\TranslateMe.exe %artifactAppFolder%
-		copy src\Translateme\bin\%configuration%\TranslateMe.exe.config %artifactAppFolder%
-	)
+	call :copyFile %msiFileName% %msiFile% %artifactFolder%
+	call :copyFile TranslateMe.exe src\Translateme\bin\%configuration%\TranslateMe.exe %artifactAppFolder%
+	call :copyFile TranslateMe.exe.config src\Translateme\bin\%configuration%\TranslateMe.exe.config %artifactAppFolder%
 
+	exit /b
+
+:copyFile
+	echo | set /p="Copying %~1 to %~3"
+	copy %~2 %~3
 	exit /b
 
 :header

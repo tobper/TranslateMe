@@ -1,14 +1,7 @@
 Param (
-    $variables = @{},        
-    $artifacts = @{},
-    $scriptPath,
-    $buildFolder,
-    $srcFolder,
-    $outFolder,
-    $tempFolder,
-    $projectName,
+    $githubToken,
     $projectVersion,
-    $projectBuildNumber
+    $artifacts = @{}
 )
 
 function Write-Header
@@ -94,8 +87,7 @@ function Get-ContentType
     }
 }
 
-$token = $variables.secureToken
 $version = "v$projectVersion"
 $files = $artifacts.values | foreach { $_.path }
 
-Publish-Release $token "tobper" "TranslateMe" $version $files
+Publish-Release $githubToken "tobper" "TranslateMe" $version $files
