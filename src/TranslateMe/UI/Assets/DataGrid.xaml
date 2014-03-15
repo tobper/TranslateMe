@@ -162,35 +162,36 @@
 
     <Style TargetType="DataGridCell">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{StaticResource ControlBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ControlBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridCell">
-                    <Border Name="CellBorder" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}">
-                        <Border>
-                            <ContentPresenter Margin="5"/>
-                            <Border.Style>
-                                <Style TargetType="Border">
-                                    <Style.Triggers>
-                                        <MultiDataTrigger>
-                                            <MultiDataTrigger.Conditions>
-                                                <Condition Binding="{Binding Content.Text, RelativeSource={RelativeSource TemplatedParent}}" Value=""/>
-                                                <Condition Binding="{Binding IsNewItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}}" Value="False"/>
-                                            </MultiDataTrigger.Conditions>
-                                            <Setter Property="Background" Value="{StaticResource ErrorBackgroundBrush}"/>
-                                        </MultiDataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Border.Style>
-                        </Border>
+                    <Border BorderThickness="1"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter Name="ContentPresenter" Margin="4"/>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Content.Text, ElementName=ContentPresenter}" Value=""/>
+                                <Condition Binding="{Binding IsNewItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="BorderBrush" Value="{StaticResource ErrorBackgroundBrush}"/>
+                            <Setter Property="Background" Value="{StaticResource ErrorBackgroundBrush}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource SelectedBackgroundBrush}"/>
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource SelectedAccentBrush}"/>
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource HoverBackgroundBrush}"/>
+                            <Setter Property="Background" Value="{StaticResource HoverBackgroundBrush}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundBrush}"/>
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource HoverAccentBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="CellBorder" Property="Background" Value="{StaticResource SelectedBackgroundBrush}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource SelectedBackgroundBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
