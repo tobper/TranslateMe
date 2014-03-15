@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="ControlColor">#FFF0F0F0</Color>
+    <Color x:Key="SeparatorColor">#FFD7D7D7</Color>
     <Color x:Key="TitleAccentColor">#FFFFFFFF</Color>
     <Color x:Key="TitleBackgroundColor">SteelBlue</Color>
     <Color x:Key="HoverAccentColor">#303030</Color>
@@ -12,6 +13,7 @@
     <Color x:Key="ErrorBackgroundColor">#80FF8080</Color>
 
     <SolidColorBrush x:Key="ControlBrush" Color="{StaticResource ControlColor}"/>
+    <SolidColorBrush x:Key="SeparatorBrush" Color="{StaticResource SeparatorColor}"/>
     <SolidColorBrush x:Key="TitleAccentBrush" Color="{StaticResource TitleAccentColor}"/>
     <SolidColorBrush x:Key="TitleBackgroundBrush" Color="{StaticResource TitleBackgroundColor}"/>
     <SolidColorBrush x:Key="HoverAccentBrush" Color="{StaticResource HoverAccentColor}"/>
