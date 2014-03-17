@@ -52,9 +52,10 @@ namespace TranslateMe.UI.Controls
             var column = new DataGridTextColumn
             {
                 Header = culture.DisplayName,
-                Width = 175,
                 Binding = new Binding("Translations[" + culture.Name + "].Text"),
-                EditingElementStyle = (Style)FindResource("DataGridTextBoxStyle")
+                EditingElementStyle = (Style)FindResource("DataGridTextBoxStyle"),
+                MinWidth = 100,
+                Width = 175
             };
 
             if (culture.Equals(CultureInfo.InvariantCulture))

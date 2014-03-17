@@ -40,7 +40,7 @@
                 <DataGridTextColumn Header="Name"
                                     Binding="{Binding Name}"
                                     EditingElementStyle="{StaticResource DataGridTextBoxStyle}"
-                                    Width="150"/>
+                                    MinWidth="100"/>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>
