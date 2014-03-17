@@ -58,7 +58,7 @@ namespace TranslateMe.UI.Controls
                 Header = header,
                 Width = 175,
                 Binding = new Binding("Translations[" + culture.Name + "].Text"),
-                EditingElementStyle = (Style)FindResource("MultiLineTextBox")
+                EditingElementStyle = (Style)FindResource("DataGridTextBoxStyle")
             });
         }
 
