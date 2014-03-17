@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows;
@@ -17,7 +18,7 @@ namespace TranslateMe.UI.Controls
 
         private void Grid_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            RemoveColumns(Grid.Columns);
+            ResetColumns(Grid.Columns);
 
             if (e.OldValue != null)
             {
@@ -69,12 +70,14 @@ namespace TranslateMe.UI.Controls
             }
         }
 
-        private static void RemoveColumns(IList columns)
+        private static void ResetColumns(IList<DataGridColumn> columns)
         {
             for (var i = columns.Count - 1; i >= 1; i--)
             {
                 columns.RemoveAt(i);
             }
+
+            columns[0].Width = DataGridLength.Auto;
         }
     }
 }
