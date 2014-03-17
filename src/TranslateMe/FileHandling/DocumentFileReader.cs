@@ -25,7 +25,7 @@ namespace TranslateMe.FileHandling
                         into text
                         group text by text.CultureName
                         into cultureGroup
-                        let culture = new CultureInfo(cultureGroup.Key)
+                        let culture = new CultureInfo(cultureGroup.Key ?? string.Empty)
                         from text in cultureGroup
                         select new
                         {
