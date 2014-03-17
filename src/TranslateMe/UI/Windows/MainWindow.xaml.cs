@@ -179,6 +179,7 @@ namespace TranslateMe.UI.Windows
             else
             {
                 CreateNewDocument(workingDirectory, documentName);
+                IsDocumentModified = false;
             }
         }
 
