@@ -19,6 +19,7 @@
     <Window.Resources>
         <cmd:CheckForUpdatesCommand x:Key="CheckForUpdatesCommand" />
         <RoutedUICommand x:Key="ExitCommand" Text="E_xit" />
+        <RoutedUICommand x:Key="EscapeKeyCommand"/>
         <RoutedUICommand x:Key="GenerateResourcesCommand" Text="_Generate resources"/>
         <RoutedUICommand x:Key="ReloadResourcesCommand" Text="_Reload resources"/>
         <Storyboard x:Key="DisplayOverlay">
@@ -70,6 +71,7 @@
         <CommandBinding Command="Close" Executed="Close_Executed" CanExecute="DocumentCommand_CanExecute" />
         <CommandBinding Command="Find" Executed="Find_Executed" CanExecute="DocumentCommand_CanExecute" />
         <CommandBinding Command="{StaticResource ExitCommand}" Executed="Exit_Executed" />
+        <CommandBinding Command="{StaticResource EscapeKeyCommand}" Executed="EscapeKey_Executed" />
         <CommandBinding Command="{StaticResource GenerateResourcesCommand}" CanExecute="DocumentCommand_CanExecute" Executed="GenerateResources_Executed" />
         <CommandBinding Command="{StaticResource ReloadResourcesCommand}" CanExecute="DocumentCommand_CanExecute" Executed="ReloadResources_Executed" />
     </Window.CommandBindings>
@@ -77,7 +79,7 @@
     <Window.InputBindings>
         <KeyBinding Key="F1" Command="Help" />
         <KeyBinding Gesture="" Key="S" Modifiers="Control" Command="Save" />
-        <KeyBinding Key="Escape" Command="{StaticResource ExitCommand}" />
+        <KeyBinding Key="Escape" Command="{StaticResource EscapeKeyCommand}" />
         <KeyBinding Key="G" Modifiers="Control" Command="{StaticResource GenerateResourcesCommand}"/>
         <KeyBinding Key="R" Modifiers="Control" Command="{StaticResource GenerateResourcesCommand}"/>
     </Window.InputBindings>

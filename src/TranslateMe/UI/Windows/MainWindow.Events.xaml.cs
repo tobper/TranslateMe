@@ -50,11 +50,12 @@ namespace TranslateMe.UI.Windows
 
         private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if (Overlay.Opacity < 1d)
-            {
-                //Application.Current.Shutdown();
-            }
-            else
+            Application.Current.Shutdown();
+        }
+
+        private void EscapeKey_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Overlay.Opacity == 1d)
             {
                 var storyBoard = (Storyboard)FindResource("HideOverlay");
                 BeginStoryboard(storyBoard);
