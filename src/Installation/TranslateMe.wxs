@@ -3,16 +3,16 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 
-  <Product Id="19AAE7B0-08BE-424E-9EDD-4549A170A65A"
+  <Product Id="*"
            Name="TranslateMe"
            Manufacturer="Tobias Persson"
-           Version="$(var.BuildVersion)"
+           Version="$(var.Version)"
            UpgradeCode="D7BB172A-75B0-4839-8DBB-4620B6F2F66C"
            Language="1033"
            Codepage="1252">
 
     <Package Id="*"
-             Description="TranslateMe $(var.BuildVersion) Installer"
+             Description="TranslateMe $(var.Version) Installer"
              InstallerVersion="300"
              Languages="1033"
              Compressed="yes"
@@ -25,7 +25,8 @@
       <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
     </Condition>
 
-    <MajorUpgrade DowngradeErrorMessage="TranslateMe does not support downgrading." />
+    <MajorUpgrade DowngradeErrorMessage="TranslateMe does not support downgrading."
+                  Schedule="afterInstallExecute"/>
 
     <Media Id="1" Cabinet="TranslateMe.cab" EmbedCab="yes" />
 

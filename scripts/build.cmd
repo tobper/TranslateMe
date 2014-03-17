@@ -36,7 +36,7 @@ goto :eof
 :buildInstallation
 	call :header "Creating msi package"
 
-	candle.exe -ext WixUIExtension -ext WixNetFxExtension -out %wixObj%\ -dSrcDir=%wixSource% -dBinDir=%wixBinaries% -dBuildVersion=%version% %wixFiles%\TranslateMe.wxs
+	candle.exe -ext WixUIExtension -ext WixNetFxExtension -out %wixObj%\ -dSrcDir=%wixSource% -dBinDir=%wixBinaries% -dVersion=%version% %wixFiles%\TranslateMe.wxs
 
 	if errorlevel 1 (
 		echo MSI creation failed [Candle error %errorlevel%]
