@@ -22,24 +22,32 @@
         <RoutedUICommand x:Key="GenerateResourcesCommand" Text="_Generate resources"/>
         <RoutedUICommand x:Key="ReloadResourcesCommand" Text="_Reload resources"/>
         <Storyboard x:Key="DisplayOverlay">
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Overlay">
+            <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsEnabled" Storyboard.TargetName="SearchBox">
+                <DiscreteBooleanKeyFrame KeyTime="0" Value="False"/>
+            </BooleanAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="Overlay">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimation Storyboard.TargetName="Overlay"
                              Storyboard.TargetProperty="Opacity"
                              Duration="0:0:0.2"
+                             From="0.0"
                              To="1.0"/>
         </Storyboard>
         <Storyboard x:Key="HideOverlay">
-            <DoubleAnimation Storyboard.TargetName="Overlay"
-                             Storyboard.TargetProperty="Opacity"
-                             Duration="0:0:0.2"
-                             To="0"/>
+            <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsEnabled" Storyboard.TargetName="SearchBox">
+                <DiscreteBooleanKeyFrame KeyTime="0:0:0.2" Value="true"/>
+            </BooleanAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Overlay">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
             </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Storyboard.TargetName="Overlay"
+                             Storyboard.TargetProperty="Opacity"
+                             Duration="0:0:0.2"
+                             From="1.0"
+                             To="0.0"/>
         </Storyboard>
-        <BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     </Window.Resources>
     
     <Window.Triggers>
@@ -119,10 +127,11 @@
               KeyboardNavigation.TabNavigation="Cycle">
 
             <c:DocumentControl
+                x:Name="DocumentControl"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 DataContext="{Binding ElementName=Window, Path=Document}"
-                Visibility="{Binding ElementName=Window, Path=IsDocumentOpen, Converter={StaticResource VisibilityConverter}}"
+                Visibility="{Binding ElementName=Window, Path=IsDocumentOpen, Converter={StaticResource BoolToVisibilityConverter}}"
                 ui:SearchProperties.SearchTerm="{Binding ElementName=SearchBox, Path=SearchTerm, NotifyOnTargetUpdated=True}"/>
 
             <Grid
