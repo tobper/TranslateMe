@@ -163,8 +163,8 @@
 
     <Style TargetType="DataGridCell">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Background" Value="{StaticResource ControlBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ControlBrush}"/>
+        <Setter Property="Background" Value="{StaticResource GridCellBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource GridCellBackgroundBrush}"/>
         <Setter Property="ui:SearchProperties.IsMatch">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource SearchTermConverter}">
