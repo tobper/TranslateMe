@@ -52,7 +52,7 @@ namespace TranslateMe.UI.Windows
         {
             if (Overlay.Opacity < 1d)
             {
-                Application.Current.Shutdown();
+                //Application.Current.Shutdown();
             }
             else
             {
