@@ -49,17 +49,23 @@ namespace TranslateMe.UI.Controls
 
         private void AddColumn(CultureInfo culture)
         {
-            var header = culture.Equals(CultureInfo.InvariantCulture)
-                             ? "<Default>"
-                             : culture.DisplayName;
-
-            Grid.Columns.Add(new DataGridTextColumn
+            var column = new DataGridTextColumn
             {
-                Header = header,
+                Header = culture.DisplayName,
                 Width = 175,
                 Binding = new Binding("Translations[" + culture.Name + "].Text"),
                 EditingElementStyle = (Style)FindResource("DataGridTextBoxStyle")
-            });
+            };
+
+            if (culture.Equals(CultureInfo.InvariantCulture))
+            {
+                column.Header = "<Default>";
+                Grid.Columns.Insert(1, column);
+            }
+            else
+            {
+                Grid.Columns.Add(column);
+            }
         }
 
         private static void RemoveColumns(IList columns)
