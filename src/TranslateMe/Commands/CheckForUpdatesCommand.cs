@@ -17,9 +17,9 @@ namespace TranslateMe.Commands
             _gitHubClient = new GitHubClient();
         }
 
-        public override void Execute(MainWindow window)
+        public async override void Execute(MainWindow window)
         {
-            var release = _gitHubClient.GetLatestRelease();
+            var release = await _gitHubClient.GetLatestRelease();
             if (release == null)
                 return;
 

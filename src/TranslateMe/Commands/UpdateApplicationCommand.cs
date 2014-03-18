@@ -16,10 +16,10 @@ namespace TranslateMe.Commands
             _gitHubClient = new GitHubClient();
         }
 
-        public override void Execute(GitHubRelease release)
+        public async override void Execute(GitHubRelease release)
         {
             var asset = GetInstallationAsset(release);
-            var fileName = _gitHubClient.DownloadAsset(release, asset);
+            var fileName = await _gitHubClient.DownloadAsset(release, asset);
 
             StartInstallation(fileName);
             Shutdown();

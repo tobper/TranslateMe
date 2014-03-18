@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.Threading.Tasks;
 using TranslateMe.Model.GitHub;
 
 namespace TranslateMe.Commands.Support
@@ -18,7 +19,7 @@ namespace TranslateMe.Commands.Support
             GitHubReleasesSerializer = new DataContractJsonSerializer(typeof(GitHubRelease[]));
         }
 
-        public string DownloadAsset(GitHubRelease release, GitHubAsset asset)
+        public async Task<string> DownloadAsset(GitHubRelease release, GitHubAsset asset)
         {
             var tempPath = Path.GetTempPath();
             var tempFileName = Path.Combine(tempPath, asset.Name);
@@ -28,18 +29,18 @@ namespace TranslateMe.Commands.Support
                 var downloadUrl = string.Format(AssetBaseUrl, release.TagName, asset.Name);
                 var webClient = CreateWebClient();
 
-                webClient.DownloadFile(downloadUrl, tempFileName);
+                await webClient.DownloadFileTaskAsync(downloadUrl, tempFileName);
             }
 
             return tempFileName;
         }
 
-        public GitHubRelease GetLatestRelease()
+        public async Task<GitHubRelease> GetLatestRelease()
         {
             try
             {
                 var webClient = CreateWebClient();
-                var json = webClient.DownloadData(ReleaseUrl);
+                var json = await webClient.DownloadDataTaskAsync(ReleaseUrl);
                 var stream = new MemoryStream(json);
                 var releases = (GitHubRelease[])GitHubReleasesSerializer.ReadObject(stream);
 
