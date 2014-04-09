@@ -1,15 +1,17 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using TranslateMe.Model;
 using TranslateMe.Properties;
 
 namespace TranslateMe.UI.Windows
 {
     public partial class MainWindow
     {
+        private Document _documentBackup;
+
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 2 && !IsDocumentOpen)

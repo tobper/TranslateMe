@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows;
@@ -9,7 +8,7 @@ using TranslateMe.Model;
 
 namespace TranslateMe.UI.Controls
 {
-    public partial class DocumentControl : UserControl
+    public partial class DocumentControl
     {
         public DocumentControl()
         {

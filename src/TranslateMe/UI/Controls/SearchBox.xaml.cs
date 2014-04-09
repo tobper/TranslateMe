@@ -1,9 +1,5 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using TranslateMe.Model;
-using TranslateMe.UI.Windows;
 
 namespace TranslateMe.UI.Controls
 {

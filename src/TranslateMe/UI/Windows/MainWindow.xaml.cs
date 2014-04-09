@@ -2,18 +2,15 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using Microsoft.Win32;
 using TranslateMe.Commands;
 using TranslateMe.FileHandling;
 using TranslateMe.Model;
 using TranslateMe.Properties;
-using TranslateMe.UI.Controls;
 
 namespace TranslateMe.UI.Windows
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private static readonly DependencyPropertyKey IsDocumentModifiedPropertyKey = DependencyProperty.RegisterReadOnly(
             "IsDocumentModified",
@@ -77,8 +74,6 @@ namespace TranslateMe.UI.Windows
             }
         }
 
-        private Document DocumentBackup;
-        
 
         public bool IsDocumentModified
         {
@@ -146,15 +141,15 @@ namespace TranslateMe.UI.Windows
             }
 
             // create a Backup of phrases
-            DocumentBackup = new Document(Document.Directory, Document.Name);
+            _documentBackup = new Document(Document.Directory, Document.Name);
             foreach (var culture in Document.Cultures)
             {
-                DocumentBackup.Cultures.Add(culture);
+                _documentBackup.Cultures.Add(culture);
             }
 
             foreach (var phrase in Document.Phrases)
             {
-                DocumentBackup.Phrases.Add(phrase);
+                _documentBackup.Phrases.Add(phrase);
             }
         }
 
@@ -209,11 +204,6 @@ namespace TranslateMe.UI.Windows
                 return;
 
             Document = _documentFileReader.LoadDocument(fileName);
-
-            //foreach (var phrase in Document.Phrases)
-            //{
-            //    phrase.
-            //}
         }
 
         private void LoadResourcesFile(string fileName)
@@ -263,8 +253,6 @@ namespace TranslateMe.UI.Windows
         private void SaveDocumentAs()
         {
             throw new NotImplementedException();
-
-            SaveDocument();
         }
 
         /// <summary>
@@ -302,7 +290,7 @@ namespace TranslateMe.UI.Windows
 
         private void GenerateResources()
         {
-            _resourceFileWriter.SaveResources(DocumentBackup);
+            _resourceFileWriter.SaveResources(_documentBackup);
         }
 
         private void CheckForUpdates()
@@ -366,9 +354,9 @@ namespace TranslateMe.UI.Windows
         private void SearchBox_OnTextChanged(object sender, string text)
         {
             if (text == string.Empty)
-                Document.RestorePrases(DocumentBackup);
+                Document.RestorePrases(_documentBackup);
             else
-                Document.UpdatePhrases(DocumentBackup, text);
+                Document.UpdatePhrases(_documentBackup, text);
 
             IsDocumentModified = true;
         }
