@@ -6,7 +6,5 @@
              GotFocus="SearchBox_OnGotFocus">
     <TextBox Name="TextBox"
              Style="{StaticResource SearchTextBox}"
-             Text="{Binding Text, ElementName=UserControl, UpdateSourceTrigger=PropertyChanged}"
-             TextChanged="TextBox_OnTextChanged"
-             KeyDown="TextBox_OnKeyDown"/>
+             Text="{Binding Text, ElementName=UserControl, UpdateSourceTrigger=PropertyChanged}"/>
 </UserControl>

@@ -1,0 +1,2338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AktivitetTyp_AnsokanIngenKontakt" xml:space="preserve">
+    <value>ApplicationNoContact</value>
+  </data>
+  <data name="AktivitetTyp_AnsokanPinkod" xml:space="preserve">
+    <value>Pin-Codes</value>
+  </data>
+  <data name="AktivitetTyp_AnsokanVantarPaKund" xml:space="preserve">
+    <value>ApplicationWaitingForCust.</value>
+  </data>
+  <data name="AktivitetTyp_AnsokanVantarPaPinkod" xml:space="preserve">
+    <value>WaitingforPinCode</value>
+  </data>
+  <data name="AktivitetTyp_AvslagFolkiaErbjudK365" xml:space="preserve">
+    <value>RejectFolkiaOffer365</value>
+  </data>
+  <data name="AktivitetTyp_InnanInkassoKontakt" xml:space="preserve">
+    <value>CollectionList</value>
+  </data>
+  <data name="AktivitetTyp_InnanPaminnelseKontakt" xml:space="preserve">
+    <value>ReminderList</value>
+  </data>
+  <data name="AktivitetTyp_KontrolleraKunduppgift" xml:space="preserve">
+    <value>CheckCustomerData</value>
+  </data>
+  <data name="AktivitetTyp_RegisterVard" xml:space="preserve">
+    <value>Failed E-mails</value>
+  </data>
+  <data name="AktivitetTyp_RegisterVardSMS" xml:space="preserve">
+    <value>Failed SMS</value>
+  </data>
+  <data name="AktivitetTyp_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="AktivitetTyp_TolkaInkommandeMail" xml:space="preserve">
+    <value>IncomingMail</value>
+  </data>
+  <data name="AktivitetTyp_TolkaInkommandeSms" xml:space="preserve">
+    <value>IncomingSms</value>
+  </data>
+  <data name="AktivitetTyp_ValkomstInformationKund" xml:space="preserve">
+    <value>CustomerWelcomeBack</value>
+  </data>
+  <data name="alert_ansokan_behandlad" xml:space="preserve">
+    <value>Are you sure you want to mark  the application as processed?</value>
+  </data>
+  <data name="alert_Faktura_SkickaFakturaMail" xml:space="preserve">
+    <value>Are you sure you want to Send Email Invoice?</value>
+  </data>
+  <data name="alert_Faktura_ändraKrav" xml:space="preserve">
+    <value>Are you sure you want to change the requirement?</value>
+  </data>
+  <data name="alert_kund_updateStatus" xml:space="preserve">
+    <value>Are you sure you want to mark the customer as Identified?</value>
+  </data>
+  <data name="alert_saknarlosenkalkyl" xml:space="preserve">
+    <value>The loan can be redeemed but the calculation must be done manually by CS agent</value>
+  </data>
+  <data name="alert_skicka_kreditMail" xml:space="preserve">
+    <value>Are you sure you want to send credit mail to the Customer ?</value>
+  </data>
+  <data name="alert_SkickaMail" xml:space="preserve">
+    <value>Are you sure about sending this email?</value>
+  </data>
+  <data name="Ansokan_Avslagkontakt" xml:space="preserve">
+    <value>Reject contact</value>
+  </data>
+  <data name="ansokan_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ansokan_erbjudande_drop" xml:space="preserve">
+    <value>{0}, fee: {1} Adm.fee: {2} Interest: {3}%</value>
+  </data>
+  <data name="ansokan_ingafler" xml:space="preserve">
+    <value>there are no more applicantions to handle!</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanAvbruten" xml:space="preserve">
+    <value>Cancel </value>
+  </data>
+  <data name="ansokan_knapp_AnsokanAvslagen" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanAvslagKontakt" xml:space="preserve">
+    <value>Rejection informed</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanBehandla" xml:space="preserve">
+    <value>Mark as handled</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanForceraGodkand" xml:space="preserve">
+    <value>Manually approve </value>
+  </data>
+  <data name="ansokan_knapp_AnsokanGodkand" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanGodkandPrel" xml:space="preserve">
+    <value>Preliminary approved </value>
+  </data>
+  <data name="ansokan_knapp_AnsokanGodkandUnLock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanIngenKundkontakt" xml:space="preserve">
+    <value>No contact</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanJusteraBelopp" xml:space="preserve">
+    <value>Adjust amount</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanKontraktSkickat" xml:space="preserve">
+    <value>Contract sent</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanKontroll" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanPausad" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanPinkod" xml:space="preserve">
+    <value>PIN code's letter</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanSpara" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanUtbetald" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="ansokan_knapp_AnsokanVantarPaKund" xml:space="preserve">
+    <value>Waiting for customer</value>
+  </data>
+  <data name="ansokan_knapp_hamta" xml:space="preserve">
+    <value>Update the list</value>
+  </data>
+  <data name="ansokan_knapp_LanVillAngra" xml:space="preserve">
+    <value>Wish to regrett</value>
+  </data>
+  <data name="ansokan_knapp_LanVillFortidsLosa" xml:space="preserve">
+    <value>Prepay</value>
+  </data>
+  <data name="ansokan_kreditupplysning_address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ansokan_kreditupplysning_alder" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="ansokan_kreditupplysning_anledning" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ansokan_kreditupplysning_anmarkningar" xml:space="preserve">
+    <value>Payment remarks</value>
+  </data>
+  <data name="ansokan_kreditupplysning_anmarkningarsumma" xml:space="preserve">
+    <value>Payment remark sum</value>
+  </data>
+  <data name="ansokan_kreditupplysning_bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="ansokan_kreditupplysning_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ansokan_kreditupplysning_beslut" xml:space="preserve">
+    <value>Decision</value>
+  </data>
+  <data name="ansokan_kreditupplysning_civilstand" xml:space="preserve">
+    <value>Marital status</value>
+  </data>
+  <data name="ansokan_kreditupplysning_civilstandforandring" xml:space="preserve">
+    <value>Change marital status</value>
+  </data>
+  <data name="ansokan_kreditupplysning_civilstandpartnernamn" xml:space="preserve">
+    <value>Name of partner</value>
+  </data>
+  <data name="ansokan_kreditupplysning_civilstandpartnerpnr" xml:space="preserve">
+    <value>Partners Civic registration </value>
+  </data>
+  <data name="ansokan_kreditupplysning_clearing" xml:space="preserve">
+    <value>Cl nr</value>
+  </data>
+  <data name="ansokan_kreditupplysning_epost" xml:space="preserve">
+    <value>E-mail </value>
+  </data>
+  <data name="ansokan_kreditupplysning_inkomst" xml:space="preserve">
+    <value>Income</value>
+  </data>
+  <data name="ansokan_kreditupplysning_inkomstar" xml:space="preserve">
+    <value>Annual income</value>
+  </data>
+  <data name="ansokan_kreditupplysning_ip" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="ansokan_kreditupplysning_kampanj" xml:space="preserve">
+    <value>Campaign </value>
+  </data>
+  <data name="ansokan_kreditupplysning_kommun" xml:space="preserve">
+    <value>Municipality</value>
+  </data>
+  <data name="ansokan_kreditupplysning_kon" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="ansokan_kreditupplysning_kontonr" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="ansokan_kreditupplysning_kredituplysning" xml:space="preserve">
+    <value>Credit report information</value>
+  </data>
+  <data name="ansokan_kreditupplysning_lan" xml:space="preserve">
+    <value>County</value>
+  </data>
+  <data name="ansokan_kreditupplysning_land" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="ansokan_kreditupplysning_mobil" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="ansokan_kreditupplysning_namn" xml:space="preserve">
+    <value>Name </value>
+  </data>
+  <data name="ansokan_kreditupplysning_pnr" xml:space="preserve">
+    <value>Civic registration  </value>
+  </data>
+  <data name="ansokan_kreditupplysning_registrerade" xml:space="preserve">
+    <value>Registered information</value>
+  </data>
+  <data name="ansokan_kreditupplysning_rubrik" xml:space="preserve">
+    <value>Credit report and the users registered information</value>
+  </data>
+  <data name="ansokan_kreditupplysning_saknas" xml:space="preserve">
+    <value>Credit report missing</value>
+  </data>
+  <data name="ansokan_kreditupplysning_tele" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="ansokan_kreditupplysning_upplysare" xml:space="preserve">
+    <value>Credit reporter</value>
+  </data>
+  <data name="ansokan_kreditupplysning_upplysningutford" xml:space="preserve">
+    <value>Date of credit report</value>
+  </data>
+  <data name="ansokan_kreditupplysning_ursprung" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="ansokan_last" xml:space="preserve">
+    <value>Application is locked</value>
+  </data>
+  <data name="ansokan_lastav" xml:space="preserve">
+    <value>Application is locked by : {0}</value>
+  </data>
+  <data name="ansokan_loptid" xml:space="preserve">
+    <value>Loan time</value>
+  </data>
+  <data name="ansokan_maxbelopp" xml:space="preserve">
+    <value>Max amount</value>
+  </data>
+  <data name="ansokan_nextcheckbox" xml:space="preserve">
+    <value>Next application automatically </value>
+  </data>
+  <data name="Ansokan_ny" xml:space="preserve">
+    <value>Loan Application</value>
+  </data>
+  <data name="Ansokan_ny_kund" xml:space="preserve">
+    <value>NEW CUSTOMER</value>
+  </data>
+  <data name="Ansokan_ny_skapa" xml:space="preserve">
+    <value>Create new application</value>
+  </data>
+  <data name="ansokan_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ansokan_regelrubrik_beskrivning" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ansokan_regelrubrik_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ansokan_regelrubrik_epost" xml:space="preserve">
+    <value>E-mail </value>
+  </data>
+  <data name="ansokan_regelrubrik_kontonr" xml:space="preserve">
+    <value>Account nr</value>
+  </data>
+  <data name="ansokan_regelrubrik_mobiltelefon" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="ansokan_regelrubrik_namn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ansokan_regelrubrik_PNR" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="ansokan_regelrubrik_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ansokan_regelrubrik_regel" xml:space="preserve">
+    <value>Rule</value>
+  </data>
+  <data name="ansokan_regelrubrik_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ansokan_regelrubrik_telefon" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="ansokan_rubrik_alla" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="ansokan_rubrik_anledning" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ansokan_rubrik_ansokan" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="ansokan_rubrik_ansokanstatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ansokan_rubrik_anvandare" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ansokan_rubrik_avslag" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="ansokan_rubrik_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ansokan_rubrik_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ansokan_rubrik_externalansokan" xml:space="preserve">
+    <value>Externally application</value>
+  </data>
+  <data name="ansokan_rubrik_externalreferens" xml:space="preserve">
+    <value>External reference </value>
+  </data>
+  <data name="ansokan_rubrik_fgse" xml:space="preserve">
+    <value>FolkgiroSE</value>
+  </data>
+  <data name="ansokan_rubrik_folklan" xml:space="preserve">
+    <value>Folklån</value>
+  </data>
+  <data name="ansokan_rubrik_gammlavarde" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="ansokan_rubrik_godkanda" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="ansokan_rubrik_handlaggare" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="ansokan_rubrik_id" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="ansokan_rubrik_ingenkontakt" xml:space="preserve">
+    <value>No contact</value>
+  </data>
+  <data name="ansokan_rubrik_inkluderarranta" xml:space="preserve">
+    <value>Accrued Interest</value>
+  </data>
+  <data name="ansokan_rubrik_kommentar" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ansokan_rubrik_kostnadlosalan" xml:space="preserve">
+    <value>Cost to redeem the loan</value>
+  </data>
+  <data name="ansokan_rubrik_kundid" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="ansokan_rubrik_kundnamn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ansokan_rubrik_land" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="ansokan_rubrik_loghandelse" xml:space="preserve">
+    <value>Change  </value>
+  </data>
+  <data name="ansokan_rubrik_logtyp" xml:space="preserve">
+    <value>Logotype</value>
+  </data>
+  <data name="ansokan_rubrik_loptid" xml:space="preserve">
+    <value>Loan time</value>
+  </data>
+  <data name="ansokan_rubrik_mldk" xml:space="preserve">
+    <value>DK</value>
+  </data>
+  <data name="ansokan_rubrik_mlee" xml:space="preserve">
+    <value>EE</value>
+  </data>
+  <data name="ansokan_rubrik_mlfi" xml:space="preserve">
+    <value>FI</value>
+  </data>
+  <data name="ansokan_rubrik_mlno" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="ansokan_rubrik_mlse" xml:space="preserve">
+    <value>SE</value>
+  </data>
+  <data name="ansokan_rubrik_paborjade" xml:space="preserve">
+    <value>Started </value>
+  </data>
+  <data name="ansokan_rubrik_pnr" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="ansokan_rubrik_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ansokan_rubrik_rantesats" xml:space="preserve">
+    <value>Interest rate</value>
+  </data>
+  <data name="ansokan_rubrik_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ansokan_rubrik_ursprung" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="ansokan_rubrik_utbetald" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="ansokan_rubrik_varde" xml:space="preserve">
+    <value>After</value>
+  </data>
+  <data name="Ansokan_Skicka_KreditMail" xml:space="preserve">
+    <value>Send Credit Mail</value>
+  </data>
+  <data name="ansokan_skuld_belopp" xml:space="preserve">
+    <value>Debt Amount</value>
+  </data>
+  <data name="ansokan_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Ansokan_Unlock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="ansokan_utbetalad" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="ansokan_utbetalad_belopp" xml:space="preserve">
+    <value>Paid Amount</value>
+  </data>
+  <data name="AnsokanStatus_Avbruten" xml:space="preserve">
+    <value>Interrupted</value>
+  </data>
+  <data name="AnsokanStatus_AvbrutenBegard" xml:space="preserve">
+    <value>Interreupted requested</value>
+  </data>
+  <data name="AnsokanStatus_Avslagen" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="AnsokanStatus_Behandlad" xml:space="preserve">
+    <value>Handled</value>
+  </data>
+  <data name="AnsokanStatus_Fel" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="AnsokanStatus_ForUtbetalning" xml:space="preserve">
+    <value>To payment</value>
+  </data>
+  <data name="AnsokanStatus_Godkand" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="AnsokanStatus_GodkandPrel" xml:space="preserve">
+    <value>Preliminary approved </value>
+  </data>
+  <data name="AnsokanStatus_HanterasKT" xml:space="preserve">
+    <value>HandleKT</value>
+  </data>
+  <data name="AnsokanStatus_InfoInnanAnsokan" xml:space="preserve">
+    <value>Registered</value>
+  </data>
+  <data name="AnsokanStatus_IngenKundkontakt" xml:space="preserve">
+    <value>No contact</value>
+  </data>
+  <data name="AnsokanStatus_KontraktInkommit" xml:space="preserve">
+    <value>Contract  received</value>
+  </data>
+  <data name="AnsokanStatus_KontraktSkickat" xml:space="preserve">
+    <value>Contract sent </value>
+  </data>
+  <data name="AnsokanStatus_ManuellBedomning" xml:space="preserve">
+    <value>Manual </value>
+  </data>
+  <data name="AnsokanStatus_ManuellMenLagre" xml:space="preserve">
+    <value>Lower amount</value>
+  </data>
+  <data name="AnsokanStatus_MaxBeloppDefinierad" xml:space="preserve">
+    <value>ApprovedStep1</value>
+  </data>
+  <data name="AnsokanStatus_Pausad" xml:space="preserve">
+    <value>Follow-up</value>
+  </data>
+  <data name="AnsokanStatus_Startad" xml:space="preserve">
+    <value>Started </value>
+  </data>
+  <data name="AnsokanStatus_TeknisktFel" xml:space="preserve">
+    <value>TechnicalError</value>
+  </data>
+  <data name="AnsokanStatus_Utbetalad" xml:space="preserve">
+    <value>Paid </value>
+  </data>
+  <data name="AnsokanStatus_UtbetalningAterkallad" xml:space="preserve">
+    <value>Payment recalled</value>
+  </data>
+  <data name="AnsokanStatus_UtbetalningPagar" xml:space="preserve">
+    <value>Payment in progress</value>
+  </data>
+  <data name="AnsokanStatus_VantarPaKund" xml:space="preserve">
+    <value>Waiting for customer</value>
+  </data>
+  <data name="anvandare_funktionNamn" xml:space="preserve">
+    <value>Function Name</value>
+  </data>
+  <data name="anvandare_Inaktiv" xml:space="preserve">
+    <value>Show Inactive</value>
+  </data>
+  <data name="anvandare_loggin" xml:space="preserve">
+    <value>Logged in user : {0}</value>
+  </data>
+  <data name="anvandare_rollNamn" xml:space="preserve">
+    <value>Roll Name</value>
+  </data>
+  <data name="AterbetalningTillKund" xml:space="preserve">
+    <value>RefundToCustomer</value>
+  </data>
+  <data name="AutoPlacering" xml:space="preserve">
+    <value>Complete Placement</value>
+  </data>
+  <data name="AutoPlaceringFaktura" xml:space="preserve">
+    <value>AutoPlacedInvoice</value>
+  </data>
+  <data name="BankEn_Alandsbanken" xml:space="preserve">
+    <value>Alandsbanken</value>
+  </data>
+  <data name="BankEn_Danskebank" xml:space="preserve">
+    <value>Danskebank</value>
+  </data>
+  <data name="BankEn_DnB" xml:space="preserve">
+    <value>DnB</value>
+  </data>
+  <data name="BankEn_Fokus" xml:space="preserve">
+    <value>Fokus</value>
+  </data>
+  <data name="BankEn_Handelsbanken" xml:space="preserve">
+    <value>Handelsbanken</value>
+  </data>
+  <data name="BankEn_Nordea" xml:space="preserve">
+    <value>Nordea</value>
+  </data>
+  <data name="BankEn_Osuuspankki" xml:space="preserve">
+    <value>Osuuspankki</value>
+  </data>
+  <data name="BankEn_Ovriga" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="BankEn_Postbank" xml:space="preserve">
+    <value>Postbank</value>
+  </data>
+  <data name="BankEn_Saastopankki" xml:space="preserve">
+    <value>Saastopankki</value>
+  </data>
+  <data name="BankEn_Sampo" xml:space="preserve">
+    <value>Sampo</value>
+  </data>
+  <data name="BankEn_SEB" xml:space="preserve">
+    <value>SEB</value>
+  </data>
+  <data name="BankEn_Spankki" xml:space="preserve">
+    <value>Spankki</value>
+  </data>
+  <data name="BankEn_SparBank1Oslo" xml:space="preserve">
+    <value>SparBank1Oslo</value>
+  </data>
+  <data name="BankEn_SWEDBank" xml:space="preserve">
+    <value>Swedbank</value>
+  </data>
+  <data name="belopp_kvar" xml:space="preserve">
+    <value>Amount remaining</value>
+  </data>
+  <data name="betalning_knapp_BetalningBacka" xml:space="preserve">
+    <value>Reverse payment</value>
+  </data>
+  <data name="betalning_knapp_BetalningBekrafta" xml:space="preserve">
+    <value>Mark as paid</value>
+  </data>
+  <data name="betalning_knapp_BetalningKontrollera" xml:space="preserve">
+    <value>Check payment</value>
+  </data>
+  <data name="betalning_knapp_BetalningKorOm" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="betalningar_bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="betalningar_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="betalningar_fulltnamn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="betalningar_handl" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="betalningar_knapp_hamta" xml:space="preserve">
+    <value>Retrieve</value>
+  </data>
+  <data name="betalningar_kontonummer" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="betalningar_kryssruta_alla" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="betalningar_kryssruta_bearbetning" xml:space="preserve">
+    <value>Processing </value>
+  </data>
+  <data name="betalningar_kryssruta_godkanda" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="betalningar_kryssruta_koade" xml:space="preserve">
+    <value>Queue</value>
+  </data>
+  <data name="betalningar_kryssruta_misslyckade" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="betalningar_kundid" xml:space="preserve">
+    <value>Customer ID</value>
+  </data>
+  <data name="betalningar_meddelande" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="betalningar_orderstatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="betalningar_pnr" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="betalningar_referens" xml:space="preserve">
+    <value>Reference   </value>
+  </data>
+  <data name="betalningar_typ" xml:space="preserve">
+    <value>Type </value>
+  </data>
+  <data name="BetalningsformagaBeraknad" xml:space="preserve">
+    <value>Ability to pay: Calculated</value>
+  </data>
+  <data name="BetalningsformagaBevisad" xml:space="preserve">
+    <value>Ability to pay: Proved </value>
+  </data>
+  <data name="BetalningStatus_Bekraftad" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="BetalningStatus_FelEnligtGlue" xml:space="preserve">
+    <value>Error from Glue</value>
+  </data>
+  <data name="BetalningStatus_FelVidAnrop" xml:space="preserve">
+    <value>Error from Glue</value>
+  </data>
+  <data name="BetalningStatus_Forbered" xml:space="preserve">
+    <value>Prepared</value>
+  </data>
+  <data name="BetalningStatus_Forbereds" xml:space="preserve">
+    <value>Preparing</value>
+  </data>
+  <data name="BetalningStatus_Koad" xml:space="preserve">
+    <value>Queued</value>
+  </data>
+  <data name="BetalningStatus_Misslyckad" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="BetalningStatus_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="BetalningStatus_Studsad" xml:space="preserve">
+    <value>Bounce</value>
+  </data>
+  <data name="BetalningStatus_Utfor" xml:space="preserve">
+    <value>Perform</value>
+  </data>
+  <data name="BetalningStatus_Utford" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="BetalningTillInkasso" xml:space="preserve">
+    <value>PaymentToCollection</value>
+  </data>
+  <data name="BG" xml:space="preserve">
+    <value>BG</value>
+  </data>
+  <data name="blocking_aktiv" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="blocking_anvandare" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="blocking_beskrivning" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="blocking_land" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="blocking_nyblock" xml:space="preserve">
+    <value>Create new block</value>
+  </data>
+  <data name="blocking_orsak" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="blocking_skapad" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="blocking_skapadav" xml:space="preserve">
+    <value>Agent </value>
+  </data>
+  <data name="blocking_text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="blocking_titel" xml:space="preserve">
+    <value>Block</value>
+  </data>
+  <data name="blocking_typ" xml:space="preserve">
+    <value>Type </value>
+  </data>
+  <data name="blocking_upphor" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="blockning_knapp_BlockningNy" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="blockning_knapp_BlockningSpara" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="blockning_knapp_BlockningTabort" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="BlockningOrsak_Bedrageri" xml:space="preserve">
+    <value>Fraud</value>
+  </data>
+  <data name="BlockningOrsak_Diverse" xml:space="preserve">
+    <value>Various</value>
+  </data>
+  <data name="BlockningOrsak_EgenBegaran" xml:space="preserve">
+    <value>Own request</value>
+  </data>
+  <data name="BlockningOrsak_InkassoAvslut" xml:space="preserve">
+    <value>Collection end</value>
+  </data>
+  <data name="BlockningOrsak_XDagarEfterAngring" xml:space="preserve">
+    <value>X days past regretted</value>
+  </data>
+  <data name="BlockningOrsak_XDagarEfterForfDatum" xml:space="preserve">
+    <value>X days past due date</value>
+  </data>
+  <data name="BlockningOrsak_XGangerAngring" xml:space="preserve">
+    <value>x times loan regretted</value>
+  </data>
+  <data name="BlockningTyp_FGKontoNummer" xml:space="preserve">
+    <value>FG account number</value>
+  </data>
+  <data name="BlockningTyp_KontoNummer" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="BlockningTyp_PersonNummer" xml:space="preserve">
+    <value>Civic registration#</value>
+  </data>
+  <data name="BlockningTyp_TelefonNummer" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="CustomerPayment" xml:space="preserve">
+    <value>CustomerPayment</value>
+  </data>
+  <data name="Data_Behandlad" xml:space="preserve">
+    <value>Treated</value>
+  </data>
+  <data name="Data_EjBehandlad" xml:space="preserve">
+    <value>Not Treated</value>
+  </data>
+  <data name="DecisionForGrantingProductAmount_Missing" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="DecisionForGrantingProductAmount_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="DecisionForGrantingProductAmount_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DecisionForGrantingProductAmount_YesOnCompletion" xml:space="preserve">
+    <value>Yes on completion</value>
+  </data>
+  <data name="detalj_anvandare" xml:space="preserve">
+    <value>User Info</value>
+  </data>
+  <data name="detaljsok_soktext" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="detaljsok_vadsoka" xml:space="preserve">
+    <value>Search </value>
+  </data>
+  <data name="DK" xml:space="preserve">
+    <value>Denmark</value>
+  </data>
+  <data name="DokumentId" xml:space="preserve">
+    <value>DocumentId</value>
+  </data>
+  <data name="DokumentNamn" xml:space="preserve">
+    <value>DocumentName</value>
+  </data>
+  <data name="domain_Namn" xml:space="preserve">
+    <value>Domain Name</value>
+  </data>
+  <data name="efter_Namn" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="EjIdentifierbar" xml:space="preserve">
+    <value>NotIdentifiable</value>
+  </data>
+  <data name="EmailPostkontor" xml:space="preserve">
+    <value>EmailPostoffice</value>
+  </data>
+  <data name="erbjudande_aktiva" xml:space="preserve">
+    <value>Active offers</value>
+  </data>
+  <data name="erbjudande_kanal" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="erbjudande_kod" xml:space="preserve">
+    <value>Campaign code</value>
+  </data>
+  <data name="erbjudande_namn" xml:space="preserve">
+    <value>Offer</value>
+  </data>
+  <data name="erbjudande_ny" xml:space="preserve">
+    <value>New offer</value>
+  </data>
+  <data name="erbjudande_rabatt" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="erbjudande_rabatttyp" xml:space="preserve">
+    <value>Type of offer</value>
+  </data>
+  <data name="erbjudande_slut" xml:space="preserve">
+    <value>Valid to</value>
+  </data>
+  <data name="erbjudande_start" xml:space="preserve">
+    <value>Valid from</value>
+  </data>
+  <data name="erbjudande_tidigare" xml:space="preserve">
+    <value>Previous offers</value>
+  </data>
+  <data name="erbjudande_typ" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="erbjudande_utnyttjat" xml:space="preserve">
+    <value>Utilized</value>
+  </data>
+  <data name="ErbjudandeTyp_Opersonlig_Kod" xml:space="preserve">
+    <value>Impersonal</value>
+  </data>
+  <data name="ErbjudandeTyp_Personlig_IngenKod" xml:space="preserve">
+    <value>Personal without code</value>
+  </data>
+  <data name="ErbjudandeTyp_Personlig_Kod" xml:space="preserve">
+    <value>Personal with code</value>
+  </data>
+  <data name="ErbjudandeTyp_Personlig_Staende" xml:space="preserve">
+    <value>Personal permanent</value>
+  </data>
+  <data name="ErbjudandeTyp_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="errorpage_ettfelhar" xml:space="preserve">
+    <value>A system error has occurred</value>
+  </data>
+  <data name="errorpage_visa" xml:space="preserve">
+    <value>Show details</value>
+  </data>
+  <data name="faktura_ansokan" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="faktura_attbetalabelopp" xml:space="preserve">
+    <value>Amount to pay</value>
+  </data>
+  <data name="faktura_bankgiro" xml:space="preserve">
+    <value>Bankgiro</value>
+  </data>
+  <data name="faktura_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="faktura_beloppBetala" xml:space="preserve">
+    <value>Amount to pay</value>
+  </data>
+  <data name="faktura_betalningsreferens" xml:space="preserve">
+    <value>Payment reference</value>
+  </data>
+  <data name="faktura_betaltbelopp" xml:space="preserve">
+    <value>Paid Amount</value>
+  </data>
+  <data name="faktura_betaltdatum" xml:space="preserve">
+    <value>Payment date</value>
+  </data>
+  <data name="faktura_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="faktura_fakturahandelse" xml:space="preserve">
+    <value>Invoice events</value>
+  </data>
+  <data name="faktura_fakturaid" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="faktura_fakturanr" xml:space="preserve">
+    <value>Invoice number</value>
+  </data>
+  <data name="faktura_forfallodatum" xml:space="preserve">
+    <value>Due date</value>
+  </data>
+  <data name="faktura_gammaltvarde" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="faktura_handelse" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="faktura_handelse_BeloppNerJust" xml:space="preserve">
+    <value>Down adjust amount</value>
+  </data>
+  <data name="faktura_handelse_Betalning" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="faktura_handelse_BetalningMotKontrakt" xml:space="preserve">
+    <value>Payment against contract</value>
+  </data>
+  <data name="faktura_handelse_Fordransald" xml:space="preserve">
+    <value>Receivable sold</value>
+  </data>
+  <data name="faktura_handelse_ForfalloDatumJust" xml:space="preserve">
+    <value>Adjust due date</value>
+  </data>
+  <data name="faktura_handelse_Inkasso" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="faktura_handelse_InkassoAterkallad" xml:space="preserve">
+    <value>Collection withdrawn</value>
+  </data>
+  <data name="faktura_handelse_InkassoAvslutOK" xml:space="preserve">
+    <value>Collection Completed </value>
+  </data>
+  <data name="faktura_handelse_InkassoAvslutSparrad" xml:space="preserve">
+    <value>Collection End Blocked  </value>
+  </data>
+  <data name="faktura_handelse_Inkassovarsel" xml:space="preserve">
+    <value>Collection notice</value>
+  </data>
+  <data name="faktura_handelse_Krediterad" xml:space="preserve">
+    <value>Credited</value>
+  </data>
+  <data name="faktura_handelse_Kundforlust" xml:space="preserve">
+    <value>Customer Loss</value>
+  </data>
+  <data name="faktura_handelse_Makulerad" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="faktura_handelse_OcrNummerJust" xml:space="preserve">
+    <value>OCR updated</value>
+  </data>
+  <data name="faktura_handelse_Paminnelse" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="faktura_handelse_PaminnelseAterkallad" xml:space="preserve">
+    <value>Reminder withdrawn</value>
+  </data>
+  <data name="faktura_handelse_PaminnelseInkassoAktiv" xml:space="preserve">
+    <value>Activate demand</value>
+  </data>
+  <data name="faktura_handelse_PaminnelseInkassoPaus" xml:space="preserve">
+    <value>Stop demand</value>
+  </data>
+  <data name="faktura_handelse_PaymentToCollection" xml:space="preserve">
+    <value>Payment to collection</value>
+  </data>
+  <data name="faktura_handelse_PreBeloppNerJust" xml:space="preserve">
+    <value>Unconfirmed adjust amount</value>
+  </data>
+  <data name="faktura_handelse_PreBetalning" xml:space="preserve">
+    <value>Unconfirmed payment </value>
+  </data>
+  <data name="faktura_handelse_PreForfalloDatumJust" xml:space="preserve">
+    <value>Unconfirmed adjust due date</value>
+  </data>
+  <data name="faktura_handelse_PreMakulerad" xml:space="preserve">
+    <value>Unconfirmed cancellation</value>
+  </data>
+  <data name="faktura_handelse_PrePaminnelseInkassoAktiv" xml:space="preserve">
+    <value>Unconfirmed activated demand</value>
+  </data>
+  <data name="faktura_handelse_PrePaminnelseInkassoPaus" xml:space="preserve">
+    <value>Unconfirmed stopped demand</value>
+  </data>
+  <data name="faktura_handelse_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="faktura_handelse_SkapadDatum" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="faktura_handelse_SkapaKreditFaktura" xml:space="preserve">
+    <value>Create credit invoice</value>
+  </data>
+  <data name="faktura_handelse_SkapaRanteFaktura" xml:space="preserve">
+    <value>Create interest invoice</value>
+  </data>
+  <data name="faktura_handelse_Slutbetald" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="faktura_handlaggare" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="faktura_inkasoo_kort" xml:space="preserve">
+    <value>Col:</value>
+  </data>
+  <data name="faktura_inkasso" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="faktura_justeraBelopp" xml:space="preserve">
+    <value>Adjust</value>
+  </data>
+  <data name="faktura_justeraForfallo" xml:space="preserve">
+    <value>Adjust</value>
+  </data>
+  <data name="faktura_knapp_FakturaBeloppNedJust" xml:space="preserve">
+    <value>New amount</value>
+  </data>
+  <data name="faktura_knapp_FakturaBetalningForslag" xml:space="preserve">
+    <value>Payment plan</value>
+  </data>
+  <data name="faktura_knapp_FakturaForfalloDatumJust" xml:space="preserve">
+    <value>Adjust due date</value>
+  </data>
+  <data name="faktura_knapp_FakturaKravkodJust" xml:space="preserve">
+    <value>Change demand</value>
+  </data>
+  <data name="faktura_knapp_FakturaKravkodJust_KravkodTyp_Normal" xml:space="preserve">
+    <value>Change demand</value>
+  </data>
+  <data name="faktura_knapp_FakturaKravkodJust_KravkodTyp_StopPaminnelseInkasso" xml:space="preserve">
+    <value>Reset demand</value>
+  </data>
+  <data name="faktura_knapp_FakturaMail" xml:space="preserve">
+    <value>Send Invoice E-mail</value>
+  </data>
+  <data name="faktura_knapp_FakturaMakulera" xml:space="preserve">
+    <value>Cancel </value>
+  </data>
+  <data name="faktura_knapp_FakturaPaminnelseAterkallad" xml:space="preserve">
+    <value>Reminder withdrawn</value>
+  </data>
+  <data name="faktura_knapp_FakturaPaminnelseInkassoAktiv" xml:space="preserve">
+    <value>Activate demand</value>
+  </data>
+  <data name="faktura_knapp_FakturaPaminnelseInkassoPaus" xml:space="preserve">
+    <value>Pause demand</value>
+  </data>
+  <data name="faktura_knapp_FakturaPDF" xml:space="preserve">
+    <value>Show Invoice</value>
+  </data>
+  <data name="faktura_knapp_FakturaRegisteraBetalning" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="faktura_knapp_FakturaSMS" xml:space="preserve">
+    <value>Send SMS</value>
+  </data>
+  <data name="faktura_kommentar" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="faktura_krav" xml:space="preserve">
+    <value>Demand</value>
+  </data>
+  <data name="faktura_krav_KravkodTyp_Normal" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="faktura_krav_KravkodTyp_StopPaminnelseInkasso" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="faktura_lanid" xml:space="preserve">
+    <value>Loan</value>
+  </data>
+  <data name="faktura_makulera_kort" xml:space="preserve">
+    <value>Cncl:</value>
+  </data>
+  <data name="faktura_makulerad" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="faktura_nyttbeloppmindrean" xml:space="preserve">
+    <value>New amount less than</value>
+  </data>
+  <data name="faktura_OCR" xml:space="preserve">
+    <value>Reference number</value>
+  </data>
+  <data name="faktura_paminnelse" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="faktura_paminnelse_kort" xml:space="preserve">
+    <value>Rmd:</value>
+  </data>
+  <data name="faktura_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="faktura_registrera_betalning" xml:space="preserve">
+    <value>Register payment</value>
+  </data>
+  <data name="faktura_skadenmakuleras" xml:space="preserve">
+    <value>The invoice will be cancelled, do you want to proceed?</value>
+  </data>
+  <data name="faktura_slutbetald" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="faktura_slutbetald_kort" xml:space="preserve">
+    <value>EndP:</value>
+  </data>
+  <data name="faktura_valjnyttforfallodatum" xml:space="preserve">
+    <value>Choose new due date</value>
+  </data>
+  <data name="FakturaKopia" xml:space="preserve">
+    <value>Invoice copy</value>
+  </data>
+  <data name="fakturaNr_kort" xml:space="preserve">
+    <value>InvNr:</value>
+  </data>
+  <data name="fakturarader" xml:space="preserve">
+    <value>Invoice Details</value>
+  </data>
+  <data name="fakura_handelse_Fordransald" xml:space="preserve">
+    <value>Receivable sold</value>
+  </data>
+  <data name="FI" xml:space="preserve">
+    <value>Finland</value>
+  </data>
+  <data name="fil" xml:space="preserve">
+    <value>File </value>
+  </data>
+  <data name="file_Felaktig" xml:space="preserve">
+    <value>Wrong file type/large size</value>
+  </data>
+  <data name="file_virus" xml:space="preserve">
+    <value>File contains virus</value>
+  </data>
+  <data name="ForfallerNastaManad" xml:space="preserve">
+    <value>Expires next month</value>
+  </data>
+  <data name="forsta_Namn" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="generell_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="generell_pnr" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="generell_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Gift" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="Glue_Express" xml:space="preserve">
+    <value>Glue</value>
+  </data>
+  <data name="Glue_Plus" xml:space="preserve">
+    <value>Glue</value>
+  </data>
+  <data name="Glue_Standard" xml:space="preserve">
+    <value>Glue</value>
+  </data>
+  <data name="godkann" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="historik_ansokan" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="historik_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="historik_beslutstext" xml:space="preserve">
+    <value>Decision</value>
+  </data>
+  <data name="historik_betalatbelopp" xml:space="preserve">
+    <value>Paid Amount</value>
+  </data>
+  <data name="historik_betaldatum" xml:space="preserve">
+    <value>Payment Date</value>
+  </data>
+  <data name="historik_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="historik_faktura" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="historik_fakturabelopp" xml:space="preserve">
+    <value>Invoice amount</value>
+  </data>
+  <data name="historik_fakturanr" xml:space="preserve">
+    <value>InvoiceNr</value>
+  </data>
+  <data name="historik_forfallodatum" xml:space="preserve">
+    <value>Due date</value>
+  </data>
+  <data name="historik_handelse" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="historik_inkomst" xml:space="preserve">
+    <value>Income</value>
+  </data>
+  <data name="historik_kreditniva" xml:space="preserve">
+    <value>Credit Level</value>
+  </data>
+  <data name="historik_kredituplysare" xml:space="preserve">
+    <value>Credit reporter</value>
+  </data>
+  <data name="historik_kreditupplysning" xml:space="preserve">
+    <value>Credit report</value>
+  </data>
+  <data name="historik_kundkort" xml:space="preserve">
+    <value>Customer card</value>
+  </data>
+  <data name="historik_loptid" xml:space="preserve">
+    <value>Loan time</value>
+  </data>
+  <data name="historik_ocr" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="historik_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="historik_referens" xml:space="preserve">
+    <value>Reference   </value>
+  </data>
+  <data name="historik_score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="historik_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="IdHandling" xml:space="preserve">
+    <value>ID-info</value>
+  </data>
+  <data name="InkomstAr" xml:space="preserve">
+    <value>Income year</value>
+  </data>
+  <data name="InkomstManad" xml:space="preserve">
+    <value>Income month</value>
+  </data>
+  <data name="Invoice_CreatePaymentPlan" xml:space="preserve">
+    <value>Payment plan</value>
+  </data>
+  <data name="knapp_kontroll" xml:space="preserve">
+    <value> Calculate</value>
+  </data>
+  <data name="knapp_losalan" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Kommentar" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="KommunikationFaktura" xml:space="preserve">
+    <value>Invoice events</value>
+  </data>
+  <data name="KommunikationInformation" xml:space="preserve">
+    <value>General information</value>
+  </data>
+  <data name="KommunikationKampanj" xml:space="preserve">
+    <value>Campaigns</value>
+  </data>
+  <data name="KommunikationPaminnelse" xml:space="preserve">
+    <value>Reminders</value>
+  </data>
+  <data name="kon_Kvinna" xml:space="preserve">
+    <value>Woman</value>
+  </data>
+  <data name="kon_Man" xml:space="preserve">
+    <value>Man</value>
+  </data>
+  <data name="Kontakttyp" xml:space="preserve">
+    <value>Contact type</value>
+  </data>
+  <data name="KontaktTyp_Brev" xml:space="preserve">
+    <value>Postal</value>
+  </data>
+  <data name="Kontakttyp_EjÖnskas" xml:space="preserve">
+    <value>Not Required</value>
+  </data>
+  <data name="KontaktTyp_HandlKommentar" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="KontaktTyp_Mail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="KontaktTyp_Sms" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="KontaktTyp_Telefon" xml:space="preserve">
+    <value>Phone   </value>
+  </data>
+  <data name="KontaktTyp_Web" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="Kontakttyp_Önskas" xml:space="preserve">
+    <value>Require</value>
+  </data>
+  <data name="Konto" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="KopplaBet_FakturaNummer" xml:space="preserve">
+    <value>InvoiceNr</value>
+  </data>
+  <data name="KopplaBet_felaktigt_fakturanummer" xml:space="preserve">
+    <value>Incorrect invoiceNr</value>
+  </data>
+  <data name="KopplaBet_KopplaBetalning" xml:space="preserve">
+    <value>Connect payment</value>
+  </data>
+  <data name="KopplaBet_OCR" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="KopplaBet_redan_kopplad" xml:space="preserve">
+    <value>The payment is already connected to an invoice</value>
+  </data>
+  <data name="KorrAvPlaceringFaktura" xml:space="preserve">
+    <value>AdjustPlacedInvoice</value>
+  </data>
+  <data name="kort_Namn" xml:space="preserve">
+    <value>Short Name</value>
+  </data>
+  <data name="Kostnad" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="KostnadJustering" xml:space="preserve">
+    <value>AdjustCosts</value>
+  </data>
+  <data name="Kreditniva_hog" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Kreditniva_lag" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="KreditUpplysningStatus_Avslag" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="KreditUpplysningStatus_Godkand" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="KreditUpplysningStatus_Kontroll" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="KreditUpplysningStatus_KontrollBelopp" xml:space="preserve">
+    <value>Control amount</value>
+  </data>
+  <data name="KreditUpplysningStatus_Ogiltig" xml:space="preserve">
+    <value>Not valid</value>
+  </data>
+  <data name="KreditUpplysningStatus_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="kund_adress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="kund_adress2" xml:space="preserve">
+    <value>Second address</value>
+  </data>
+  <data name="kund_aktivalan" xml:space="preserve">
+    <value>Loan</value>
+  </data>
+  <data name="Kund_Aktivitet" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="kund_bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="kund_behandladeansok" xml:space="preserve">
+    <value>Treated applications</value>
+  </data>
+  <data name="kund_clearingNummer" xml:space="preserve">
+    <value>CL-nr</value>
+  </data>
+  <data name="kund_efternamn" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="kund_ePost" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="kund_epostStatus" xml:space="preserve">
+    <value>E-mailStatus</value>
+  </data>
+  <data name="kund_fakturor" xml:space="preserve">
+    <value>Invoices</value>
+  </data>
+  <data name="kund_filer" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="kund_fornamn" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="kund_fulltnamn" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="kund_historik" xml:space="preserve">
+    <value>Customer history</value>
+  </data>
+  <data name="Kund_Händelsetyp" xml:space="preserve">
+    <value>Select Event Type</value>
+  </data>
+  <data name="kund_knapp_KundAvBlockad" xml:space="preserve">
+    <value>Unblock</value>
+  </data>
+  <data name="kund_knapp_KundBlockad" xml:space="preserve">
+    <value>Block</value>
+  </data>
+  <data name="kund_knapp_KundSpara" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="kund_knapp_KundStatusUpd" xml:space="preserve">
+    <value>Mark as Identified</value>
+  </data>
+  <data name="kund_knapp_SkickaSMS" xml:space="preserve">
+    <value>Send   </value>
+  </data>
+  <data name="kund_kommunikation" xml:space="preserve">
+    <value>Communication</value>
+  </data>
+  <data name="kund_kontaktlogg" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="kund_kontoNummer" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="kund_kreditupplysningar" xml:space="preserve">
+    <value>Credit report</value>
+  </data>
+  <data name="kund_LeveransTyp" xml:space="preserve">
+    <value>Delivery</value>
+  </data>
+  <data name="kund_mobilNummer" xml:space="preserve">
+    <value>Mobile number</value>
+  </data>
+  <data name="kund_mobilnummerStatus" xml:space="preserve">
+    <value>MobileStatus</value>
+  </data>
+  <data name="kund_pagaendeansok" xml:space="preserve">
+    <value>Ongoing applications</value>
+  </data>
+  <data name="kund_postNummer" xml:space="preserve">
+    <value>ZIP code</value>
+  </data>
+  <data name="kund_postOrt" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="kund_skapanyansok" xml:space="preserve">
+    <value>Create a new application</value>
+  </data>
+  <data name="kund_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="kund_telefonNummer" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="Kund_totalt_kosnad" xml:space="preserve">
+    <value>Tot. Cost</value>
+  </data>
+  <data name="kund_uppgifter" xml:space="preserve">
+    <value>Customer information</value>
+  </data>
+  <data name="kunddata_Anvandare" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="kunddata_Flyttad" xml:space="preserve">
+    <value>Moved</value>
+  </data>
+  <data name="kunddata_Inkomst" xml:space="preserve">
+    <value>Income</value>
+  </data>
+  <data name="kunddata_Kommentar" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="kunddata_kostnad" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="kunddata_KundDataTyp" xml:space="preserve">
+    <value>Customer data type</value>
+  </data>
+  <data name="kunddata_OvrigIntakt" xml:space="preserve">
+    <value>Other income</value>
+  </data>
+  <data name="kunddata_Sakerhet" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="kunddata_Skapad" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="kunddata_SlutDatum" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="kunddata_spara" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="kunddata_tabkunddata" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="kunddata_tabort" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="kunddata_Tillgang" xml:space="preserve">
+    <value>Asset</value>
+  </data>
+  <data name="kunddata_typ" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="kunddata_Ursprung" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="kunddata_Varde" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="KundId_kort" xml:space="preserve">
+    <value>SSN:</value>
+  </data>
+  <data name="kundkort_adress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="kundkort_ansokan" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="kundkort_bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="kundkort_bankuppgifter" xml:space="preserve">
+    <value>Bank details</value>
+  </data>
+  <data name="kundkort_clearingnr" xml:space="preserve">
+    <value>CL nr</value>
+  </data>
+  <data name="kundkort_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="kundkort_epost" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="kundkort_handlaggare" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="kundkort_kommentar" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="kundkort_kontaktyp" xml:space="preserve">
+    <value>Contact type</value>
+  </data>
+  <data name="kundkort_kontonr" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="kundkort_kundid" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="Kundkort_kundProgarm" xml:space="preserve">
+    <value>CustomerProgram</value>
+  </data>
+  <data name="kundkort_mobil" xml:space="preserve">
+    <value>Mobil phone</value>
+  </data>
+  <data name="kundkort_namn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="kundkort_nykontakt" xml:space="preserve">
+    <value>Notes </value>
+  </data>
+  <data name="kundkort_personnummer" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="kundkort_pinkodsForsok" xml:space="preserve">
+    <value>SINSINSINSIINSINISNINSS</value>
+  </data>
+  <data name="kundkort_pnr" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="kundkort_postnr" xml:space="preserve">
+    <value>ZIP code</value>
+  </data>
+  <data name="kundkort_postort" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="kundkort_sms" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="kundkort_telefon" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="KundStatus_Bekraftad" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="KundStatus_Blockad" xml:space="preserve">
+    <value>Blocked</value>
+  </data>
+  <data name="KundStatus_Identifierad" xml:space="preserve">
+    <value>Identified</value>
+  </data>
+  <data name="KundStatus_Ny" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="KundStatus_Obekraftad" xml:space="preserve">
+    <value>Unconfirmed</value>
+  </data>
+  <data name="KundStatus_Varning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="label_visa" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="lagga_anvandare" xml:space="preserve">
+    <value>Add New User</value>
+  </data>
+  <data name="lagga_funktion" xml:space="preserve">
+    <value>Edit Function</value>
+  </data>
+  <data name="lan_angra_avgift" xml:space="preserve">
+    <value>Regrett fee</value>
+  </data>
+  <data name="lan_angra_datum_senast" xml:space="preserve">
+    <value>Regrett- latest date</value>
+  </data>
+  <data name="lan_belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lan_datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="lan_externlanid" xml:space="preserve">
+    <value>External loan ID</value>
+  </data>
+  <data name="lan_kreditdatum" xml:space="preserve">
+    <value>Credit date</value>
+  </data>
+  <data name="lan_LanStatus" xml:space="preserve">
+    <value>Loan status</value>
+  </data>
+  <data name="lan_loptid" xml:space="preserve">
+    <value>Loan time</value>
+  </data>
+  <data name="lan_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="lan_rubrik_avgift" xml:space="preserve">
+    <value>Fee</value>
+  </data>
+  <data name="lan_rubrik_villangradatum" xml:space="preserve">
+    <value>Regret-date</value>
+  </data>
+  <data name="lan_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="lan_titel" xml:space="preserve">
+    <value>Loan</value>
+  </data>
+  <data name="lan_utbetalad" xml:space="preserve">
+    <value>Paid </value>
+  </data>
+  <data name="LanStatus_Aktiv" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="LanStatus_Angrad" xml:space="preserve">
+    <value>Regretted</value>
+  </data>
+  <data name="LanStatus_Aterbetald" xml:space="preserve">
+    <value>Repaid</value>
+  </data>
+  <data name="LanStatus_Avvikelse" xml:space="preserve">
+    <value>Irregularity</value>
+  </data>
+  <data name="LanStatus_Bedrageri" xml:space="preserve">
+    <value>Fraud</value>
+  </data>
+  <data name="LanStatus_FortidsLost" xml:space="preserve">
+    <value>Prepaid</value>
+  </data>
+  <data name="LanStatus_Inkasso" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="LanStatus_Makulerad" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="LanStatus_VillAngra" xml:space="preserve">
+    <value>Wish to regrett</value>
+  </data>
+  <data name="LanStatus_VillFortidsLosa" xml:space="preserve">
+    <value>Prepay </value>
+  </data>
+  <data name="lanUppsagning_Id" xml:space="preserve">
+    <value>Loan Termination</value>
+  </data>
+  <data name="lanUppsagning_lanUppsagningInfo" xml:space="preserve">
+    <value>Loan Termination Info</value>
+  </data>
+  <data name="lanUppsagning_lanUppsagningStatus" xml:space="preserve">
+    <value>Warning Status</value>
+  </data>
+  <data name="lanUppsagningInfo_Typ" xml:space="preserve">
+    <value>Info Type</value>
+  </data>
+  <data name="LeveransTyp_Brev" xml:space="preserve">
+    <value>Letter</value>
+  </data>
+  <data name="LeveransTyp_Mail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="LeveransTyp_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="lista_Anvandare" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="Manuell_SEB" xml:space="preserve">
+    <value>Manual </value>
+  </data>
+  <data name="ManuellAtgardKravs" xml:space="preserve">
+    <value>RequireManualTreatment</value>
+  </data>
+  <data name="ManuellPlacering" xml:space="preserve">
+    <value>ManualPlacement</value>
+  </data>
+  <data name="ManuellPlaceringFaktura" xml:space="preserve">
+    <value>ManuallyPlacedInvoice</value>
+  </data>
+  <data name="master_ansokningar" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="master_bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="master_betallista" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="master_detaljsok" xml:space="preserve">
+    <value>Detailed search</value>
+  </data>
+  <data name="master_inloggadsom" xml:space="preserve">
+    <value>Logged on as</value>
+  </data>
+  <data name="master_kundkort" xml:space="preserve">
+    <value>Customer card</value>
+  </data>
+  <data name="master_laddaUpp_Transaktion" xml:space="preserve">
+    <value>Upload Transaction File</value>
+  </data>
+  <data name="master_land" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="master_land_dk" xml:space="preserve">
+    <value>Denmark</value>
+  </data>
+  <data name="master_land_ee" xml:space="preserve">
+    <value>Estonia</value>
+  </data>
+  <data name="master_land_fi" xml:space="preserve">
+    <value>Finland</value>
+  </data>
+  <data name="master_land_no" xml:space="preserve">
+    <value>Norway</value>
+  </data>
+  <data name="master_land_se" xml:space="preserve">
+    <value>Sweden</value>
+  </data>
+  <data name="master_parseTransaktion" xml:space="preserve">
+    <value>Parse Transaction</value>
+  </data>
+  <data name="master_PnrOrKundId" xml:space="preserve">
+    <value>Civic registration or Customer ID </value>
+  </data>
+  <data name="master_processTransaktion" xml:space="preserve">
+    <value>Run Placement Process</value>
+  </data>
+  <data name="master_sok" xml:space="preserve">
+    <value>Search </value>
+  </data>
+  <data name="master_sparrlista" xml:space="preserve">
+    <value>Blocklist</value>
+  </data>
+  <data name="master_sprak" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="master_sprak_da" xml:space="preserve">
+    <value>Danish</value>
+  </data>
+  <data name="master_sprak_ee" xml:space="preserve">
+    <value>Estonian</value>
+  </data>
+  <data name="master_sprak_en" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="master_sprak_no" xml:space="preserve">
+    <value>Norwegian</value>
+  </data>
+  <data name="master_sprak_sv" xml:space="preserve">
+    <value>Swedish</value>
+  </data>
+  <data name="master_start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="master_visaprocessResult" xml:space="preserve">
+    <value>Manual Placement</value>
+  </data>
+  <data name="master_visaTransaktion" xml:space="preserve">
+    <value>View Transaction</value>
+  </data>
+  <data name="Meddelande" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="meny_betalningsordrar" xml:space="preserve">
+    <value>Payment Order</value>
+  </data>
+  <data name="meny_erbjudanden" xml:space="preserve">
+    <value>Offers</value>
+  </data>
+  <data name="meny_godkannPrel" xml:space="preserve">
+    <value>Prel approved app.</value>
+  </data>
+  <data name="meny_smsInstallningar" xml:space="preserve">
+    <value>SMS settings</value>
+  </data>
+  <data name="meny_Verktyg" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>Norway</value>
+  </data>
+  <data name="NordeaInb_ladda_upp" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="NordeaInb_produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="NordeaInb_valj_fil" xml:space="preserve">
+    <value>Choose file</value>
+  </data>
+  <data name="NoTreatmentInFOSS" xml:space="preserve">
+    <value>NoTreatmentInFOSS</value>
+  </data>
+  <data name="Ny_kreditupplysning" xml:space="preserve">
+    <value>New Credit report</value>
+  </data>
+  <data name="OCR" xml:space="preserve">
+    <value>OCR</value>
+  </data>
+  <data name="Ogift" xml:space="preserve">
+    <value>Unmarried</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Okand" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="outbound_atgard" xml:space="preserve">
+    <value>Measure</value>
+  </data>
+  <data name="outbound_ingenKontakt" xml:space="preserve">
+    <value>If no contact</value>
+  </data>
+  <data name="outbound_KontaktLog" xml:space="preserve">
+    <value>Create contact log</value>
+  </data>
+  <data name="outbound_Kundlofte" xml:space="preserve">
+    <value>Customer Promise:</value>
+  </data>
+  <data name="outbound_marksomBehandlad" xml:space="preserve">
+    <value>Mark as Handled</value>
+  </data>
+  <data name="outbound_Mottagare" xml:space="preserve">
+    <value>Recipients</value>
+  </data>
+  <data name="outbound_nyansokan" xml:space="preserve">
+    <value>New Application</value>
+  </data>
+  <data name="outbound_Nyepost" xml:space="preserve">
+    <value>New E- mail</value>
+  </data>
+  <data name="outbound_Nytt mobilnummer" xml:space="preserve">
+    <value>New Mobile Number</value>
+  </data>
+  <data name="Ovriga" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="OvrigIntakt" xml:space="preserve">
+    <value>Other earnings</value>
+  </data>
+  <data name="PaidOut" xml:space="preserve">
+    <value>Paid Out</value>
+  </data>
+  <data name="PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="placering_alla" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Q_Acceptera" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Q_InformeraOmNyaFörutsättningar" xml:space="preserve">
+    <value>InformIfNewConditions</value>
+  </data>
+  <data name="Q_IngetLånOmNyaFörutsättningar" xml:space="preserve">
+    <value>NofutherLoansIfnewConditions</value>
+  </data>
+  <data name="Q_INöd" xml:space="preserve">
+    <value>Need</value>
+  </data>
+  <data name="Q_KanDuBetalaTillbaka" xml:space="preserve">
+    <value>Canyoupayback</value>
+  </data>
+  <data name="Q_LämnatKorrektInformation" xml:space="preserve">
+    <value>ProvidedAccurateInformation</value>
+  </data>
+  <data name="Q_MedvetenOmHögRänta" xml:space="preserve">
+    <value>AwareOfHighInterest </value>
+  </data>
+  <data name="Q_TillåtAttAnvändaData" xml:space="preserve">
+    <value>AllowedToUseTheData</value>
+  </data>
+  <data name="RaaInb_Behandlad_datum" xml:space="preserve">
+    <value>Treated date</value>
+  </data>
+  <data name="RaaInb_Belopp" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="RaaInb_Datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="RaaInb_OCR" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="RaaInb_Produkt" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="redigera_Roll" xml:space="preserve">
+    <value>Edit Roll</value>
+  </data>
+  <data name="regel_BefintligaLanKtrl" xml:space="preserve">
+    <value>Current loan</value>
+  </data>
+  <data name="regel_BefintligAnsokanKtrl" xml:space="preserve">
+    <value>Current application</value>
+  </data>
+  <data name="regel_Betalningsformaga" xml:space="preserve">
+    <value>Aaffordability</value>
+  </data>
+  <data name="regel_EPostVerifiera" xml:space="preserve">
+    <value>Control e-mail</value>
+  </data>
+  <data name="regel_FGKontoNummerBlock" xml:space="preserve">
+    <value>Gironumber blocked</value>
+  </data>
+  <data name="regel_FGOcrKontroll" xml:space="preserve">
+    <value>OCR control </value>
+  </data>
+  <data name="regel_FolkiaKreditBedomning" xml:space="preserve">
+    <value>Credit Assessment </value>
+  </data>
+  <data name="regel_FolkiaScoring" xml:space="preserve">
+    <value>FolkiaScoring</value>
+  </data>
+  <data name="regel_KontoNummerBlock" xml:space="preserve">
+    <value>Account number blocked</value>
+  </data>
+  <data name="regel_KontoNummerVerifiera" xml:space="preserve">
+    <value>Control account number</value>
+  </data>
+  <data name="regel_KreditUpplysning" xml:space="preserve">
+    <value>Credit report</value>
+  </data>
+  <data name="regel_KreditUpplysningPost" xml:space="preserve">
+    <value>Credit report-2</value>
+  </data>
+  <data name="regel_KunddataAndrad" xml:space="preserve">
+    <value>Customer information changed</value>
+  </data>
+  <data name="regel_KunddataEgenKtrl" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <data name="regel_KunddataEgenKtrlForInkasso" xml:space="preserve">
+    <value>Customer data for collection</value>
+  </data>
+  <data name="regel_KundDataRegistrering" xml:space="preserve">
+    <value>Customer data</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="regel_KundenHarPassivSkuld" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="regel_KundIdentifierad" xml:space="preserve">
+    <value>Customer Identified </value>
+  </data>
+  <data name="regel_KundKreditAvtal" xml:space="preserve">
+    <value>Credit agreement</value>
+  </data>
+  <data name="regel_KundSkuld" xml:space="preserve">
+    <value>CustomerDebt</value>
+  </data>
+  <data name="regel_NyKund" xml:space="preserve">
+    <value>New customer</value>
+  </data>
+  <data name="regel_PersonAlder" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="regel_PersonNummerBlock" xml:space="preserve">
+    <value>Civic registration blocked</value>
+  </data>
+  <data name="regel_PersonUpplysning" xml:space="preserve">
+    <value>Personal Enlightenment</value>
+  </data>
+  <data name="regel_Pinkod" xml:space="preserve">
+    <value>Pin code</value>
+  </data>
+  <data name="regel_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="regel_SveaAnsokan" xml:space="preserve">
+    <value>Svea application</value>
+  </data>
+  <data name="regel_TelefonNummerBlock" xml:space="preserve">
+    <value>Phone number blocked</value>
+  </data>
+  <data name="regel_TelefonNummerUpplysning" xml:space="preserve">
+    <value>Telephone Information</value>
+  </data>
+  <data name="regel_TelefonNummerVerifiera" xml:space="preserve">
+    <value>Control phone number</value>
+  </data>
+  <data name="regel_TvattaPengarKtrl" xml:space="preserve">
+    <value>Money Laundering</value>
+  </data>
+  <data name="regelresultatvisa_epost" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="regelresultatvisa_konto" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="regelresultatvisa_kontrollav" xml:space="preserve">
+    <value>Control of rule</value>
+  </data>
+  <data name="regelresultatvisa_kontrollerad" xml:space="preserve">
+    <value>Controlled</value>
+  </data>
+  <data name="regelresultatvisa_sok" xml:space="preserve">
+    <value>Search  </value>
+  </data>
+  <data name="regelresultatvisa_telefon" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="RegisterStatus_Bekraftad" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="RegisterStatus_Fel" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RegisterStatus_Ny" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="RegisterStatus_Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="roll_Lista" xml:space="preserve">
+    <value>Roll List</value>
+  </data>
+  <data name="Saknas" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="SE" xml:space="preserve">
+    <value>Sweden</value>
+  </data>
+  <data name="Send_Email" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
+  <data name="show_credit_agreement_email" xml:space="preserve">
+    <value>Credit Agreement</value>
+  </data>
+  <data name="Skild" xml:space="preserve">
+    <value>Divorced</value>
+  </data>
+  <data name="Skulder" xml:space="preserve">
+    <value>Liabilities</value>
+  </data>
+  <data name="SkuldTillKund" xml:space="preserve">
+    <value>DebtToCustomer</value>
+  </data>
+  <data name="sms_Innehåll" xml:space="preserve">
+    <value>Contents</value>
+  </data>
+  <data name="sms_Meddelandetyp" xml:space="preserve">
+    <value>MessageType</value>
+  </data>
+  <data name="sms_nymall" xml:space="preserve">
+    <value>New Template</value>
+  </data>
+  <data name="sms_Rubrik" xml:space="preserve">
+    <value>Headline</value>
+  </data>
+  <data name="SokTyp_AnsokanArendenummer" xml:space="preserve">
+    <value>File number</value>
+  </data>
+  <data name="SokTyp_BetalningArendenummer" xml:space="preserve">
+    <value>File number</value>
+  </data>
+  <data name="SokTyp_BetalningKontonummer" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="SokTyp_BetalningMeddelande" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="SokTyp_BetalningReferens" xml:space="preserve">
+    <value>Reference   </value>
+  </data>
+  <data name="SokTyp_FakturaNummer" xml:space="preserve">
+    <value>Invoice number</value>
+  </data>
+  <data name="SokTyp_GiroNummer" xml:space="preserve">
+    <value>Gironumber</value>
+  </data>
+  <data name="SokTyp_Kontonummer" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="SokTyp_KundEpost" xml:space="preserve">
+    <value>E-mail </value>
+  </data>
+  <data name="SokTyp_KundFulltNamn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SokTyp_KundId" xml:space="preserve">
+    <value>Customer number</value>
+  </data>
+  <data name="SokTyp_KundPersonnummer" xml:space="preserve">
+    <value>Civic registration</value>
+  </data>
+  <data name="SokTyp_KundTelefonnummer" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="SokTyp_OcrNummer" xml:space="preserve">
+    <value>Reference number</value>
+  </data>
+  <data name="spara" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="spara_KreditUpplysning" xml:space="preserve">
+    <value>Save Credit info</value>
+  </data>
+  <data name="telefoncheck_kontrollknapp" xml:space="preserve">
+    <value>Control number</value>
+  </data>
+  <data name="telefoncheck_rubrik" xml:space="preserve">
+    <value>Control phone number</value>
+  </data>
+  <data name="Tillgang" xml:space="preserve">
+    <value>Asset</value>
+  </data>
+  <data name="transaktion_antal" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="transaktion_atgardList" xml:space="preserve">
+    <value>Measure List</value>
+  </data>
+  <data name="transaktion_atgardTyp" xml:space="preserve">
+    <value>Measure Type</value>
+  </data>
+  <data name="transaktion_auto" xml:space="preserve">
+    <value>Complete Placement</value>
+  </data>
+  <data name="transaktion_Datum" xml:space="preserve">
+    <value>Transaction Date</value>
+  </data>
+  <data name="transaktion_filNamn" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="transaktion_filterSok" xml:space="preserve">
+    <value>Filter Search</value>
+  </data>
+  <data name="transaktion_franDatum" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="transaktion_kopplad" xml:space="preserve">
+    <value>Invoice/Customer</value>
+  </data>
+  <data name="transaktion_koppladhuvud" xml:space="preserve">
+    <value>InvoiceNr/CustomerId</value>
+  </data>
+  <data name="transaktion_korProcess" xml:space="preserve">
+    <value>Run Process</value>
+  </data>
+  <data name="transaktion_manual" xml:space="preserve">
+    <value>Need manual placement</value>
+  </data>
+  <data name="transaktion_manuelPlacering" xml:space="preserve">
+    <value>Manual payment placement</value>
+  </data>
+  <data name="transaktion_markBehandlad" xml:space="preserve">
+    <value>Mark as Handled</value>
+  </data>
+  <data name="transaktion_placerTyp" xml:space="preserve">
+    <value>Placement Type</value>
+  </data>
+  <data name="transaktion_tillDatum" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="transaktion_totaltBelopp" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="transaktion_Typ" xml:space="preserve">
+    <value>Transaction</value>
+  </data>
+  <data name="transaktion_valjTransaktion" xml:space="preserve">
+    <value>Choose Bank</value>
+  </data>
+  <data name="uppsagning_faktura_belopp" xml:space="preserve">
+    <value>Invoice Amount</value>
+  </data>
+  <data name="uppsagning_varningdataum" xml:space="preserve">
+    <value>Warning Date</value>
+  </data>
+  <data name="uppsagninginfo_varning_belop" xml:space="preserve">
+    <value>Warning Amount</value>
+  </data>
+  <data name="visa_rapport" xml:space="preserve">
+    <value>Show PDF</value>
+  </data>
+  <data name="Välj_produkt" xml:space="preserve">
+    <value>Select Product </value>
+  </data>
+  <data name="Yrke" xml:space="preserve">
+    <value>Profession</value>
+  </data>
+</root>

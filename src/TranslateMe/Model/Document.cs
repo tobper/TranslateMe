@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
+using System.Resources;
 
 namespace TranslateMe.Model
 {
@@ -53,6 +54,29 @@ namespace TranslateMe.Model
                 }
 
                 phrase.Translations[culture].Text = value;
+            }
+        }
+
+        public void UpdatePhrases(Document documentBackup, string searchTerm)
+        {
+            //reset phrases to backup pharses
+            Phrases.Clear();
+            foreach (var phrase in documentBackup.Phrases)
+            {
+                Phrases.Add(phrase);
+            }
+
+            // search
+            while (Phrases.Any(p => !p.Name.Contains(searchTerm)))
+                Phrases.Remove(p => !p.Name.Contains(searchTerm));
+        }
+
+        public void RestorePrases(Document documentBackup)
+        {
+            Phrases.Clear();
+            foreach (var phrase in documentBackup.Phrases)
+            {
+                Phrases.Add(phrase);
             }
         }
 
