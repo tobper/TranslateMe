@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -10,7 +11,7 @@ namespace TranslateMe.UI.Windows
 {
     public partial class MainWindow
     {
-        private Document _documentBackup;
+        
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -137,6 +138,31 @@ namespace TranslateMe.UI.Windows
 
         private void ReloadResources_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+        }
+
+        private void PhrasesOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            // here we only need to add the new phrase address in _documentBackup.phrases 
+            // or remove the specific phrase address in _documentBackup.phrases if this phrase is removed in VisualDocument.phrases
+
+            if (MainDocument.LockWriteOperation)
+                return;
+
+            if (e.NewItems != null)
+            {
+                foreach (Phrase phrase in e.NewItems)
+                {
+                    MainDocument.Phrases.Add(phrase);
+                }
+            }
+
+            if (e.OldItems != null)
+            {
+                foreach (Phrase phrase in e.OldItems)
+                {
+                    MainDocument.Phrases.Remove(phrase);
+                }
+            }
         }
     }
 }
