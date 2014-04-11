@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Navigation;
 using Microsoft.Win32;
 using TranslateMe.Commands;
 using TranslateMe.FileHandling;
@@ -10,7 +11,7 @@ using TranslateMe.Properties;
 
 namespace TranslateMe.UI.Windows
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private static readonly DependencyPropertyKey IsDocumentModifiedPropertyKey = DependencyProperty.RegisterReadOnly(
             "IsDocumentModified",
@@ -58,9 +59,11 @@ namespace TranslateMe.UI.Windows
             SetupInitialWindow();
             LoadCommandLineFile();
             UpdateTitle();
+
+            Window.SearchBox.OnTextChanged += SearchBox_OnTextChanged;
         }
 
-        public Document Document
+        public Document VisualDocument
         {
             get { return (Document)GetValue(DocumentProperty); }
             set
@@ -71,6 +74,8 @@ namespace TranslateMe.UI.Windows
                 UpdateTitle();
             }
         }
+
+        public Document MainDocument;
 
         public bool IsDocumentModified
         {
@@ -94,9 +99,9 @@ namespace TranslateMe.UI.Windows
         {
             Title = Strings.ApplicationName;
 
-            if (Document != null)
+            if (VisualDocument != null)
             {
-                Title += " - " + Document.Name;
+                Title += " - " + VisualDocument.Name;
 
                 if (IsDocumentModified)
                 {
@@ -136,7 +141,21 @@ namespace TranslateMe.UI.Windows
                     DisplayFileFormatWarning();
                     break;
             }
-        }
+
+            // create a Backup of phrases
+            MainDocument = new Document(VisualDocument.Directory, VisualDocument.Name);
+            foreach (var culture in VisualDocument.Cultures)
+            {
+                MainDocument.Cultures.Add(culture);
+            }
+
+            foreach (var phrase in VisualDocument.Phrases)
+            {
+                MainDocument.Phrases.Add(phrase);
+            }
+
+            VisualDocument.Phrases.CollectionChanged += PhrasesOnCollectionChanged;
+        }       
 
         private void OpenResourceFile(string fileName)
         {
@@ -145,7 +164,7 @@ namespace TranslateMe.UI.Windows
 
             if (IsDocumentOpen)
             {
-                var resourceMatchesDocument = string.Equals(Document.Name, documentName, StringComparison.CurrentCultureIgnoreCase);
+                var resourceMatchesDocument = string.Equals(VisualDocument.Name, documentName, StringComparison.CurrentCultureIgnoreCase);
                 if (resourceMatchesDocument)
                 {
                     LoadResourcesFile(fileName);
@@ -188,23 +207,24 @@ namespace TranslateMe.UI.Windows
             if (IsDocumentOpen && !CloseDocument())
                 return;
 
-            Document = _documentFileReader.LoadDocument(fileName);
+            VisualDocument = _documentFileReader.LoadDocument(fileName);
         }
 
         private void LoadResourcesFile(string fileName)
         {
-            _resourceFileReader.LoadResource(Document, fileName);
+            _resourceFileReader.LoadResource(VisualDocument, fileName);
+            
             IsDocumentModified = true;
         }
 
         private void CreateNewDocument(string directory, string documentName)
         {
-            Document = new Document(directory, documentName);
+            VisualDocument = new Document(directory, documentName);
 
             var resourceFiles =
-                from fileName in Directory.GetFiles(directory, Document.Name + "*.resx")
+                from fileName in Directory.GetFiles(directory, VisualDocument.Name + "*.resx")
                 let resourceName = _resourceFileReader.GetName(fileName)
-                where string.Equals(resourceName, Document.Name, StringComparison.CurrentCultureIgnoreCase)
+                where string.Equals(resourceName, VisualDocument.Name, StringComparison.CurrentCultureIgnoreCase)
                 select fileName;
 
             foreach (var resourceFile in resourceFiles)
@@ -224,7 +244,7 @@ namespace TranslateMe.UI.Windows
 
         private void SaveDocument()
         {
-            _documentFileWriter.SaveDocument(Document);
+            _documentFileWriter.SaveDocument(VisualDocument);
 
             IsDocumentModified = false;
 
@@ -237,8 +257,6 @@ namespace TranslateMe.UI.Windows
         private void SaveDocumentAs()
         {
             throw new NotImplementedException();
-
-            SaveDocument();
         }
 
         /// <summary>
@@ -268,7 +286,7 @@ namespace TranslateMe.UI.Windows
                     }
                 }
 
-                Document = null;
+                VisualDocument = null;
             }
 
             return true;
@@ -276,7 +294,7 @@ namespace TranslateMe.UI.Windows
 
         private void GenerateResources()
         {
-            _resourceFileWriter.SaveResources(Document);
+            _resourceFileWriter.SaveResources(MainDocument);
         }
 
         private void CheckForUpdates()
@@ -335,6 +353,16 @@ namespace TranslateMe.UI.Windows
             {
                 s.WindowState = state;
             });
+        }
+
+        private void SearchBox_OnTextChanged(object sender, string text)
+        {
+            if (text == string.Empty)
+                VisualDocument.RestorePrases(MainDocument);
+            else
+                VisualDocument.UpdatePhrases(MainDocument, text);
+
+            IsDocumentModified = true;
         }
     }
 }

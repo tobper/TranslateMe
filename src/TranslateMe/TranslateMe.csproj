@@ -105,6 +105,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\CheckForUpdatesCommand.cs" />
+    <Compile Include="FileHandling\FilterCommand.cs" />
     <Compile Include="Commands\Support\Command.cs" />
     <Compile Include="Commands\Support\GitHubClient.cs" />
     <Compile Include="Commands\UpdateApplicationCommand.cs" />
