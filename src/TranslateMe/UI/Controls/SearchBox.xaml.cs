@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace TranslateMe.UI.Controls
 {
@@ -20,10 +19,14 @@ namespace TranslateMe.UI.Controls
 
         public static readonly DependencyProperty SearchTermProperty = SearchTermPropertyKey.DependencyProperty;
 
+        public delegate void TextChangedEventHandler(object sender, string newText);
+        public event TextChangedEventHandler OnTextChanged;
+
+
         public SearchBox()
         {
             InitializeComponent();
-            TextBox.IsKeyboardFocusedChanged += (s, e) => UpdateSearchTerm();
+            //TextBox.IsKeyboardFocusedChanged += (s, e) => UpdateSearchTerm();
             TextBox.TextChanged += (s, e) => UpdateSearchTerm();
         }
 
@@ -32,6 +35,7 @@ namespace TranslateMe.UI.Controls
             var value = (TextBox.IsKeyboardFocused) ? Text : string.Empty;
 
             SetValue(SearchTermPropertyKey, value);
+            OnTextChanged(this.TextBox, value);
         }
 
         public string Text
@@ -48,14 +52,6 @@ namespace TranslateMe.UI.Controls
         private void SearchBox_OnGotFocus(object sender, RoutedEventArgs e)
         {
             TextBox.Focus();
-        }
-
-        private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void TextBox_OnKeyDown(object sender, KeyEventArgs e)
-        {
         }
     }
 }
