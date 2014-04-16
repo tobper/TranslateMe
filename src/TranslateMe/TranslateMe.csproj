@@ -110,6 +110,8 @@
     <Compile Include="Commands\UpdateApplicationCommand.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FileHandling\ResourceFileWriter.cs" />
+    <Compile Include="Filtering\FilterExtensions.cs" />
+    <Compile Include="Filtering\IFilterValueProvider.cs" />
     <Compile Include="IMethodThrottle.cs" />
     <Compile Include="MethodThrottle.cs">
       <DependentUpon>IMethodThrottle.cs</DependentUpon>
@@ -137,8 +139,9 @@
     <Compile Include="UI\Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SearchProperties.cs" />
-    <Compile Include="UI\SearchTermConverter.cs" />
+    <Compile Include="Filtering\FilterProperties.cs" />
+    <Compile Include="Filtering\FilterTextBooleanConverter.cs" />
+    <Compile Include="Filtering\FilterTextVisibilityConverter.cs" />
     <Compile Include="UI\Windows\MainWindow.Events.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

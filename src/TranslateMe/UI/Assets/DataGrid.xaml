@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="clr-namespace:TranslateMe.UI">
+    xmlns:ui="clr-namespace:TranslateMe.UI"
+    xmlns:filtering="clr-namespace:TranslateMe.Filtering">
 
     <Style TargetType="DataGrid">
         <Setter Property="BorderThickness" Value="0"/>
@@ -10,7 +11,7 @@
         <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource SeparatorBrush}"/>
         <Setter Property="HeadersVisibility" Value="All"/>
         <Setter Property="SelectionMode" Value="Extended"/>
-        <Setter Property="SelectionUnit" Value="CellOrRowHeader"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
     </Style>
 
     <Style TargetType="DataGridRowHeader">
@@ -77,6 +78,14 @@
     <Style TargetType="DataGridRow">
         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
         <Setter Property="MinHeight" Value="26"/>
+        <!--<Setter Property="Visibility">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource FilterTextVisibilityConverter}">
+                    <Binding RelativeSource="{RelativeSource Self}" Path="DataContext" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(filtering:FilterProperties.FilterText)" />
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>-->
     </Style>
 
     <Style TargetType="DataGridColumnHeader">
@@ -165,11 +174,11 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background" Value="{StaticResource GridCellBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource GridCellBackgroundBrush}"/>
-        <Setter Property="ui:SearchProperties.IsMatch">
+        <Setter Property="filtering:FilterProperties.IsMatch">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource SearchTermConverter}">
+                <MultiBinding Converter="{StaticResource FilterTextBooleanConverter}">
                     <Binding RelativeSource="{RelativeSource Self}" Path="Content.Text" />
-                    <Binding RelativeSource="{RelativeSource Self}" Path="(ui:SearchProperties.SearchTerm)" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(filtering:FilterProperties.FilterText)" />
                 </MultiBinding>
             </Setter.Value>
         </Setter>
@@ -199,7 +208,7 @@
                             <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundBrush}"/>
                             <Setter Property="TextElement.Foreground" Value="{StaticResource HoverAccentBrush}"/>
                         </Trigger>
-                        <Trigger Property="ui:SearchProperties.IsMatch" Value="True">
+                        <Trigger Property="filtering:FilterProperties.IsMatch" Value="True">
                             <Setter Property="Background" Value="{StaticResource MatchBackgroundBrush}"/>
                             <Setter Property="BorderBrush" Value="{StaticResource MatchBackgroundBrush}"/>
                             <Setter Property="TextElement.Foreground" Value="{StaticResource HoverAccentBrush}"/>

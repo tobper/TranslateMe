@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace TranslateMe.UI.Controls
 {
@@ -12,26 +11,26 @@ namespace TranslateMe.UI.Controls
             typeof(SearchBox),
             new UIPropertyMetadata(string.Empty));
 
-        public static readonly DependencyPropertyKey SearchTermPropertyKey = DependencyProperty.RegisterReadOnly(
-            "SearchTerm",
+        public static readonly DependencyPropertyKey FilterTextPropertyKey = DependencyProperty.RegisterReadOnly(
+            "FilterText",
             typeof(string),
             typeof(SearchBox),
             new UIPropertyMetadata(string.Empty));
 
-        public static readonly DependencyProperty SearchTermProperty = SearchTermPropertyKey.DependencyProperty;
+        public static readonly DependencyProperty FilterTextProperty = FilterTextPropertyKey.DependencyProperty;
 
         public SearchBox()
         {
             InitializeComponent();
-            TextBox.IsKeyboardFocusedChanged += (s, e) => UpdateSearchTerm();
-            TextBox.TextChanged += (s, e) => UpdateSearchTerm();
+            TextBox.IsKeyboardFocusedChanged += (s, e) => UpdateFilterText();
+            TextBox.TextChanged += (s, e) => UpdateFilterText();
         }
 
-        private void UpdateSearchTerm()
+        private void UpdateFilterText()
         {
             var value = (TextBox.IsKeyboardFocused) ? Text : string.Empty;
 
-            SetValue(SearchTermPropertyKey, value);
+            SetValue(FilterTextPropertyKey, value);
         }
 
         public string Text
@@ -40,22 +39,14 @@ namespace TranslateMe.UI.Controls
             set { SetValue(TextProperty, value); }
         }
 
-        public string SearchTerm
+        public string FilterText
         {
-            get { return (string)GetValue(SearchTermProperty); }
+            get { return (string)GetValue(FilterTextProperty); }
         }
 
         private void SearchBox_OnGotFocus(object sender, RoutedEventArgs e)
         {
             TextBox.Focus();
-        }
-
-        private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void TextBox_OnKeyDown(object sender, KeyEventArgs e)
-        {
         }
     }
 }
