@@ -9,7 +9,7 @@
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource SeparatorBrush}"/>
         <Setter Property="HeadersVisibility" Value="All"/>
-        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="SelectionMode" Value="Extended"/>
         <Setter Property="SelectionUnit" Value="CellOrRowHeader"/>
     </Style>
 
