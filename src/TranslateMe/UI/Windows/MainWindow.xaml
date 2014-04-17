@@ -135,7 +135,7 @@
                 VerticalAlignment="Stretch"
                 DataContext="{Binding ElementName=Window, Path=Document}"
                 Visibility="{Binding ElementName=Window, Path=IsDocumentOpen, Converter={StaticResource BoolToVisibilityConverter}}"
-                filtering:FilterProperties.FilterText="{Binding ElementName=SearchBox, Path=FilterText, NotifyOnTargetUpdated=True}"/>
+                filtering:FilterProperties.FilterText="{Binding ElementName=SearchBox, Path=Text, NotifyOnTargetUpdated=True}"/>
 
             <Grid
                 x:Name="Overlay"
