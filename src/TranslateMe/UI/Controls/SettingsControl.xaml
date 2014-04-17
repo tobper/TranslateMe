@@ -41,6 +41,11 @@
                       Checked="ToggleButton_OnChecked"
                       Unchecked="ToggleButton_OnChecked"
                       Content="Generate resources on save"/>
+
+            <CheckBox IsChecked="{Binding EnableRowFiltering, Mode=TwoWay, Source={x:Static p:Settings.Default}}"
+                      Checked="ToggleButton_OnChecked"
+                      Unchecked="ToggleButton_OnChecked"
+                      Content="Enable row filtering"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Style="{StaticResource ButtonPanel}">

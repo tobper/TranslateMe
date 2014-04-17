@@ -78,14 +78,14 @@
     <Style TargetType="DataGridRow">
         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
         <Setter Property="MinHeight" Value="26"/>
-        <!--<Setter Property="Visibility">
+        <Setter Property="Visibility">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource FilterTextVisibilityConverter}">
                     <Binding RelativeSource="{RelativeSource Self}" Path="DataContext" />
                     <Binding RelativeSource="{RelativeSource Self}" Path="(filtering:FilterProperties.FilterText)" />
                 </MultiBinding>
             </Setter.Value>
-        </Setter>-->
+        </Setter>
     </Style>
 
     <Style TargetType="DataGridColumnHeader">

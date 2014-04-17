@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using TranslateMe.Properties;
 
 namespace TranslateMe.Filtering
 {
@@ -9,6 +10,9 @@ namespace TranslateMe.Filtering
     {
         public object Convert(object[] converterValues, Type targetType, object parameter, CultureInfo culture)
         {
+            if (Settings.Default.EnableRowFiltering == false)
+                return Visibility.Visible;
+
             var filterText = (string)converterValues[1];
             if (filterText.Length == 0)
                 return Visibility.Visible;
