@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
+using TranslateMe.Filtering;
 
 namespace TranslateMe.Model
 {
     [DebuggerDisplay("{Name,nq}")]
-    public class Phrase : DependencyObject
+    public class Phrase : DependencyObject, IFilterValueProvider
     {
         public static readonly DependencyProperty NameProperty = DependencyProperty.Register(
             "Name",
@@ -24,6 +26,16 @@ namespace TranslateMe.Model
         {
             get { return (string)GetValue(NameProperty); }
             set { SetValue(NameProperty, value); }
+        }
+
+        public IEnumerable<string> GetFilterValues()
+        {
+            yield return Name;
+
+            foreach (var translation in Translations)
+            {
+                yield return translation.Text;
+            }
         }
     }
 }

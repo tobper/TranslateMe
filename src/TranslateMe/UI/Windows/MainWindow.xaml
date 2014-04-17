@@ -5,6 +5,7 @@
         xmlns:c="clr-namespace:TranslateMe.UI.Controls"
         xmlns:cmd="clr-namespace:TranslateMe.Commands"
         xmlns:ui="clr-namespace:TranslateMe.UI"
+        xmlns:filtering="clr-namespace:TranslateMe.Filtering"
         Background="{StaticResource ControlBrush}"
         Closing="Window_Closing"
         Loaded="Window_Loaded"
@@ -134,7 +135,7 @@
                 VerticalAlignment="Stretch"
                 DataContext="{Binding ElementName=Window, Path=Document}"
                 Visibility="{Binding ElementName=Window, Path=IsDocumentOpen, Converter={StaticResource BoolToVisibilityConverter}}"
-                ui:SearchProperties.SearchTerm="{Binding ElementName=SearchBox, Path=SearchTerm, NotifyOnTargetUpdated=True}"/>
+                filtering:FilterProperties.FilterText="{Binding ElementName=SearchBox, Path=Text, NotifyOnTargetUpdated=True}"/>
 
             <Grid
                 x:Name="Overlay"

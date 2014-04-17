@@ -8,6 +8,9 @@
     <Setting Name="AutoCheckForUpdates" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="EnableRowFiltering" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="WindowSize" Type="System.Windows.Size" Scope="User">
       <Value Profile="(Default)">525,350</Value>
     </Setting>

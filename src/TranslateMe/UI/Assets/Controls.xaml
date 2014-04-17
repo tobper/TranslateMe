@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="clr-namespace:TranslateMe.UI">
+    xmlns:filtering="clr-namespace:TranslateMe.Filtering">
 
-    <ui:SearchTermConverter x:Key="SearchTermConverter" />
+    <filtering:FilterTextVisibilityConverter x:Key="FilterTextVisibilityConverter" />
+    <filtering:FilterTextBooleanConverter x:Key="FilterTextBooleanConverter" />
 
     <Style x:Key="Title" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource TitleAccentBrush}"/>

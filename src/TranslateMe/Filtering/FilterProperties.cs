@@ -1,30 +1,30 @@
 ﻿using System.Windows;
 
-namespace TranslateMe.UI
+namespace TranslateMe.Filtering
 {
-    public static class SearchProperties
+    public static class FilterProperties
     {
-        public static readonly DependencyProperty SearchTermProperty = DependencyProperty.RegisterAttached(
-            "SearchTerm",
+        public static readonly DependencyProperty FilterTextProperty = DependencyProperty.RegisterAttached(
+            "FilterText",
             typeof(string),
-            typeof(SearchProperties),
+            typeof(FilterProperties),
             new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.Inherits));
 
         /* Using a DependencyProperty as the backing store for IsMatch.  This enables animation, styling, binding, etc...*/
         public static readonly DependencyProperty IsMatchProperty = DependencyProperty.RegisterAttached(
             "IsMatch",
             typeof(bool),
-            typeof(SearchProperties),
+            typeof(FilterProperties),
             new UIPropertyMetadata(false));
 
-        public static string GetSearchTerm(DependencyObject obj)
+        public static string GetFilterText(DependencyObject obj)
         {
-            return (string)obj.GetValue(SearchTermProperty);
+            return (string)obj.GetValue(FilterTextProperty);
         }
 
-        public static void SetSearchTerm(DependencyObject obj, string value)
+        public static void SetFilterText(DependencyObject obj, string value)
         {
-            obj.SetValue(SearchTermProperty, value);
+            obj.SetValue(FilterTextProperty, value);
         }
 
         public static bool GetIsMatch(DependencyObject obj)
