@@ -40,6 +40,7 @@ namespace TranslateMe.UI.Windows
         private readonly DocumentFileWriter _documentFileWriter;
         private readonly ResourceFileReader _resourceFileReader;
         private readonly ResourceFileWriter _resourceFileWriter;
+        private readonly ExcelFileReader _excelFileReader;
 
         public MainWindow()
         {
@@ -53,6 +54,7 @@ namespace TranslateMe.UI.Windows
             _documentFileWriter = new DocumentFileWriter();
             _resourceFileReader = new ResourceFileReader();
             _resourceFileWriter = new ResourceFileWriter();
+            _excelFileReader = new ExcelFileReader();
 
             InitializeComponent();
             SetupInitialWindow();
@@ -109,7 +111,12 @@ namespace TranslateMe.UI.Windows
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "TranslateMe files (*.tmd, *.resx)|*.tmd;*.resx|Translation files (*.tmd)|*.tme|Resource files (*.resx)|*.resx|All Files (*.*)|*.*"
+                Filter =
+                    "TranslateMe files (*.tmd, *.resx, *.xlsx, *.xls)|*.tmd;*.resx;*.xlsx;*.xls|" +
+                    "Translation files (*.tmd)|*.tme|" +
+                    "Resource files (*.resx)|*.resx|" +
+                    "Excel files|*.xls;*.xlsx|" +
+                    "All Files (*.*)|*.*"
             };
 
             if (dialog.ShowDialog() == true)
@@ -124,18 +131,31 @@ namespace TranslateMe.UI.Windows
 
             switch (fileExtension)
             {
+                case ".tmd":
+                    OpenDocumentFile(fileName);
+                    break;
+
                 case ".resx":
                     OpenResourceFile(fileName);
                     break;
 
-                case ".tmd":
-                    OpenDocumentFile(fileName);
+                case ".xls":
+                case ".xlsx":
+                    OpenImportFile(fileName);
                     break;
 
                 default:
                     DisplayFileFormatWarning();
                     break;
             }
+        }
+
+        private void OpenDocumentFile(string fileName)
+        {
+            if (IsDocumentOpen && !CloseDocument())
+                return;
+
+            Document = _documentFileReader.LoadDocument(fileName);
         }
 
         private void OpenResourceFile(string fileName)
@@ -148,23 +168,24 @@ namespace TranslateMe.UI.Windows
                 var resourceMatchesDocument = string.Equals(Document.Name, documentName, StringComparison.CurrentCultureIgnoreCase);
                 if (resourceMatchesDocument)
                 {
-                    LoadResourcesFile(fileName);
+                    LoadResourceFile(fileName);
                 }
                 else
                 {
-                    var appendConfirmation = QuestionBox.Show("Resource file name does not match loaded document." + Environment.NewLine + "Close current document and load resource in a new document?");
+                    var closeConfirmation = QuestionBox.Show("Resource file name does not match loaded document." + Environment.NewLine + "Close current document and load resource in a new document?");
 
-                    switch (appendConfirmation)
+                    switch (closeConfirmation)
                     {
                         case MessageBoxResult.Yes:
                             if (!CloseDocument())
                                 return;
 
                             CreateNewDocument(workingDirectory, documentName);
+                            LoadResourceFiles(workingDirectory);
                             return;
 
                         case MessageBoxResult.No:
-                            LoadResourcesFile(fileName);
+                            LoadResourceFile(fileName);
                             return;
 
                         default:
@@ -175,28 +196,51 @@ namespace TranslateMe.UI.Windows
             else
             {
                 CreateNewDocument(workingDirectory, documentName);
+                LoadResourceFiles(workingDirectory);
                 IsDocumentModified = false;
             }
         }
 
-        private void OpenDocumentFile(string fileName)
+        private void OpenImportFile(string fileName)
         {
-            if (IsDocumentOpen && !CloseDocument())
-                return;
+            var workingDirectory = Path.GetDirectoryName(fileName);
+            var documentName = Path.GetFileNameWithoutExtension(fileName);
 
-            Document = _documentFileReader.LoadDocument(fileName);
+            if (IsDocumentOpen)
+            {
+                var importMatchesDocument = string.Equals(Document.Name, documentName, StringComparison.CurrentCultureIgnoreCase);
+                if (importMatchesDocument == false)
+                {
+                    var closeConfirmation = QuestionBox.Show("Import file name does not match loaded document." + Environment.NewLine + "Close current document and load resources in a new document?");
+
+                    switch (closeConfirmation)
+                    {
+                        case MessageBoxResult.Yes:
+                            if (!CloseDocument())
+                                return;
+
+                            CreateNewDocument(workingDirectory, documentName);
+                            break;
+
+                        case MessageBoxResult.No:
+                            break;
+
+                        default:
+                            // Cancel
+                            return;
+                    }
+                }
+            }
+            else
+            {
+                CreateNewDocument(workingDirectory, documentName);
+            }
+
+            LoadImportFile(Document, fileName);
         }
 
-        private void LoadResourcesFile(string fileName)
+        private void LoadResourceFiles(string directory)
         {
-            _resourceFileReader.LoadResource(Document, fileName);
-            IsDocumentModified = true;
-        }
-
-        private void CreateNewDocument(string directory, string documentName)
-        {
-            Document = new Document(directory, documentName);
-
             var resourceFiles =
                 from fileName in Directory.GetFiles(directory, Document.Name + "*.resx")
                 let resourceName = _resourceFileReader.GetName(fileName)
@@ -205,8 +249,25 @@ namespace TranslateMe.UI.Windows
 
             foreach (var resourceFile in resourceFiles)
             {
-                LoadResourcesFile(resourceFile);
+                LoadResourceFile(resourceFile);
             }
+        }
+
+        private void LoadResourceFile(string fileName)
+        {
+            _resourceFileReader.LoadResource(Document, fileName);
+            IsDocumentModified = true;
+        }
+
+        private void LoadImportFile(Document document, string fileName)
+        {
+            if (_excelFileReader.LoadResources(document, fileName))
+                IsDocumentModified = true;
+        }
+
+        private void CreateNewDocument(string directory, string documentName)
+        {
+            Document = new Document(directory, documentName);
         }
 
         private static void DisplayFileFormatWarning()

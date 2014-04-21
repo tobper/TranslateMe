@@ -22,7 +22,7 @@ namespace TranslateMe.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TranslateMe.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TranslateMe.Properties.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace TranslateMe.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace TranslateMe.Properties {
         /// <summary>
         ///   Looks up a localized string similar to TranslateMe.
         /// </summary>
-        internal static string ApplicationName {
+        public static string ApplicationName {
             get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
             }
@@ -72,16 +72,25 @@ namespace TranslateMe.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;Default&gt;.
         /// </summary>
-        internal static string InvariantLanguageName {
+        public static string InvariantLanguageName {
             get {
                 return ResourceManager.GetString("InvariantLanguageName", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Key.
+        /// </summary>
+        public static string KeyColumnName {
+            get {
+                return ResourceManager.GetString("KeyColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TranslateMe.
         /// </summary>
-        internal static string MessageBoxTitle {
+        public static string MessageBoxTitle {
             get {
                 return ResourceManager.GetString("MessageBoxTitle", resourceCulture);
             }

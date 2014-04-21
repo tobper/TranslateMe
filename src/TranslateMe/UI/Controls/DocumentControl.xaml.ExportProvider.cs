@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using TranslateMe.Model;
+using TranslateMe.Properties;
 
 namespace TranslateMe.UI.Controls
 {
@@ -22,6 +23,11 @@ namespace TranslateMe.UI.Controls
             }
         }
 
+        public string DocumentName
+        {
+            get { return _document.Name; }
+        }
+
         public IEnumerable<string[]> GetRows(CultureInfo[] cultures, bool selectionOnly)
         {
             var phrases = (selectionOnly)
@@ -30,7 +36,7 @@ namespace TranslateMe.UI.Controls
 
             // Return header row
             var headerRow = new string[cultures.Length + 1];
-            headerRow[0] = Grid.Columns[0].Header.ToString();
+            headerRow[0] = Strings.KeyColumnName;
 
             for (var i = 0; i < cultures.Count(); i++)
             {

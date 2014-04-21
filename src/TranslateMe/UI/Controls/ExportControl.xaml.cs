@@ -77,6 +77,7 @@ namespace TranslateMe.UI.Controls
         {
             var dialog = new SaveFileDialog
             {
+                FileName = ExportProvider.DocumentName + ".xlsx",
                 Filter = "Excel files (*.xlsx)|*.xlsx|All Files (*.*)|*.*"
             };
 

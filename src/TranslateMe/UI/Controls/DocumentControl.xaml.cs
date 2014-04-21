@@ -10,6 +10,8 @@ namespace TranslateMe.UI.Controls
 {
     public partial class DocumentControl : UserControl
     {
+        private Document _document;
+
         public DocumentControl()
         {
             InitializeComponent();
@@ -37,6 +39,8 @@ namespace TranslateMe.UI.Controls
 
                 document.Cultures.CollectionChanged += CulturesOnCollectionChanged;
             }
+
+            _document = (Document)e.NewValue;
         }
 
         private void CulturesOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)

@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ExclamationBox.cs" />
+    <Compile Include="FileHandling\ExcelFileReader.cs" />
     <Compile Include="FileHandling\ExcelFileWriter.cs" />
     <Compile Include="QuestionBox.cs" />
     <Compile Include="UI\Controls\DataGridCultureColumn.cs" />
@@ -192,7 +193,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />

@@ -123,6 +123,9 @@
   <data name="InvariantLanguageName" xml:space="preserve">
     <value>&lt;Default&gt;</value>
   </data>
+  <data name="KeyColumnName" xml:space="preserve">
+    <value>Key</value>
+  </data>
   <data name="MessageBoxTitle" xml:space="preserve">
     <value>TranslateMe</value>
   </data>
