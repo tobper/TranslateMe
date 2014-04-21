@@ -112,10 +112,10 @@ namespace TranslateMe.UI.Windows
             var dialog = new OpenFileDialog
             {
                 Filter =
-                    "TranslateMe files (*.tmd, *.resx, *.xlsx, *.xls)|*.tmd;*.resx;*.xlsx;*.xls|" +
+                    "TranslateMe files (*.tmd, *.resx, *.xlsx)|*.tmd;*.resx;*.xlsx|" +
                     "Translation files (*.tmd)|*.tme|" +
                     "Resource files (*.resx)|*.resx|" +
-                    "Excel files|*.xls;*.xlsx|" +
+                    "Excel files|*.xlsx|" +
                     "All Files (*.*)|*.*"
             };
 
@@ -139,7 +139,6 @@ namespace TranslateMe.UI.Windows
                     OpenResourceFile(fileName);
                     break;
 
-                case ".xls":
                 case ".xlsx":
                     OpenImportFile(fileName);
                     break;
