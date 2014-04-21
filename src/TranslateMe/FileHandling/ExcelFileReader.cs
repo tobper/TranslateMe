@@ -39,8 +39,7 @@ namespace TranslateMe.FileHandling
 
                 if (culture == null)
                 {
-                    ExclamationBox.Show("Language could not be identified: " + cultureName);
-                    return false;
+                    continue;
                 }
 
                 for (var
