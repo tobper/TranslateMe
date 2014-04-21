@@ -39,11 +39,8 @@ namespace TranslateMe.Commands
 
         private static bool ConfirmDownload(Version releaseVersion)
         {
-            var result = MessageBox.Show(
-                string.Format("A new version ({0}) has been released.{1}{1}Do you want to download and install it?", releaseVersion, Environment.NewLine),
-                Strings.MessageBoxTitle,
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
+            var question = string.Format("A new version ({0}) has been released.{1}{1}Do you want to download and install it?", releaseVersion, Environment.NewLine);
+            var result = QuestionBox.Show(question, false);
 
             return result == MessageBoxResult.Yes;
         }

@@ -152,11 +152,7 @@ namespace TranslateMe.UI.Windows
                 }
                 else
                 {
-                    var appendConfirmation = MessageBox.Show(
-                        "Resource file name does not match loaded document." + Environment.NewLine + "Close current document and load resource in a new document?",
-                        Strings.MessageBoxTitle,
-                        MessageBoxButton.YesNoCancel,
-                        MessageBoxImage.Question);
+                    var appendConfirmation = QuestionBox.Show("Resource file name does not match loaded document." + Environment.NewLine + "Close current document and load resource in a new document?");
 
                     switch (appendConfirmation)
                     {
@@ -247,11 +243,7 @@ namespace TranslateMe.UI.Windows
             {
                 if (IsDocumentModified)
                 {
-                    var closeConfirmation = MessageBox.Show(
-                        "Save changes to current document?",
-                        Strings.MessageBoxTitle,
-                        MessageBoxButton.YesNoCancel,
-                        MessageBoxImage.Question);
+                    var closeConfirmation = QuestionBox.Show("Save changes to current document?");
 
                     switch (closeConfirmation)
                     {

@@ -70,6 +70,7 @@
     </ApplicationDefinition>
     <Compile Include="ExclamationBox.cs" />
     <Compile Include="FileHandling\ExcelFileWriter.cs" />
+    <Compile Include="QuestionBox.cs" />
     <Compile Include="UI\Controls\DataGridCultureColumn.cs" />
     <Compile Include="UI\Controls\DocumentControl.xaml.ExportProvider.cs">
       <DependentUpon>DocumentControl.xaml</DependentUpon>
