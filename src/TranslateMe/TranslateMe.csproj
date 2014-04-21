@@ -42,9 +42,13 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -64,6 +68,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ExclamationBox.cs" />
+    <Compile Include="FileHandling\ExcelFileReader.cs" />
+    <Compile Include="FileHandling\ExcelFileWriter.cs" />
+    <Compile Include="QuestionBox.cs" />
+    <Compile Include="UI\Controls\DataGridCultureColumn.cs" />
+    <Compile Include="DependantCollection.cs" />
+    <Compile Include="UI\Controls\DocumentControl.xaml.ExportProvider.cs">
+      <DependentUpon>DocumentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ExportControl.xaml.Models.cs">
+      <DependentUpon>ExportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\IExportProvider.cs" />
+    <Compile Include="UI\Windows\MainWindow.xaml.Events.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\MainWindow.xaml.Export.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="UI\Assets\DataGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +116,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Controls\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\ExportControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,8 +169,8 @@
     <Compile Include="Filtering\FilterProperties.cs" />
     <Compile Include="Filtering\FilterTextBooleanConverter.cs" />
     <Compile Include="Filtering\FilterTextVisibilityConverter.cs" />
-    <Compile Include="UI\Windows\MainWindow.Events.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="UI\Controls\ExportControl.xaml.cs">
+      <DependentUpon>ExportControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileHandling\DocumentFileWriter.cs" />
     <Compile Include="UI\Windows\MainWindow.xaml.cs">
@@ -170,9 +197,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

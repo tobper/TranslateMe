@@ -4,7 +4,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:c="clr-namespace:TranslateMe.UI.Controls"
         xmlns:cmd="clr-namespace:TranslateMe.Commands"
-        xmlns:ui="clr-namespace:TranslateMe.UI"
         xmlns:filtering="clr-namespace:TranslateMe.Filtering"
         Background="{StaticResource ControlBrush}"
         Closing="Window_Closing"
@@ -21,6 +20,7 @@
         <cmd:CheckForUpdatesCommand x:Key="CheckForUpdatesCommand" />
         <RoutedUICommand x:Key="ExitCommand" Text="E_xit" />
         <RoutedUICommand x:Key="EscapeKeyCommand"/>
+        <RoutedUICommand x:Key="OpenExportPanelCommand" Text="_Export"/>
         <RoutedUICommand x:Key="GenerateResourcesCommand" Text="_Generate resources"/>
         <RoutedUICommand x:Key="ReloadResourcesCommand" Text="_Reload resources"/>
         <Storyboard x:Key="DisplayOverlay">
@@ -73,6 +73,7 @@
         <CommandBinding Command="Find" Executed="Find_Executed" CanExecute="DocumentCommand_CanExecute" />
         <CommandBinding Command="{StaticResource ExitCommand}" Executed="Exit_Executed" />
         <CommandBinding Command="{StaticResource EscapeKeyCommand}" Executed="EscapeKey_Executed" />
+        <CommandBinding Command="{StaticResource OpenExportPanelCommand}" CanExecute="OpenExportPanelCommand_CanExecute" Executed="OpenExportPanelCommand_Executed" />
         <CommandBinding Command="{StaticResource GenerateResourcesCommand}" CanExecute="DocumentCommand_CanExecute" Executed="GenerateResources_Executed" />
         <CommandBinding Command="{StaticResource ReloadResourcesCommand}" CanExecute="DocumentCommand_CanExecute" Executed="ReloadResources_Executed" />
     </Window.CommandBindings>
@@ -82,7 +83,8 @@
         <KeyBinding Gesture="" Key="S" Modifiers="Control" Command="Save" />
         <KeyBinding Key="Escape" Command="{StaticResource EscapeKeyCommand}" />
         <KeyBinding Key="G" Modifiers="Control" Command="{StaticResource GenerateResourcesCommand}"/>
-        <KeyBinding Key="R" Modifiers="Control" Command="{StaticResource GenerateResourcesCommand}"/>
+        <KeyBinding Key="R" Modifiers="Control" Command="{StaticResource ReloadResourcesCommand}"/>
+        <KeyBinding Key="E" Modifiers="Control" Command="{StaticResource OpenExportPanelCommand}"/>
     </Window.InputBindings>
 
     <DockPanel>
@@ -97,6 +99,8 @@
                     <MenuItem Header="_Save" InputGestureText="Ctrl+S" Command="Save" />
                     <MenuItem Header="_Save as..." InputGestureText="Ctrl+Shift+S" Command="SaveAs" />
                     <MenuItem Header="_Close" Command="Close" />
+                    <Separator/>
+                    <MenuItem InputGestureText="Ctrl+E" Command="{StaticResource OpenExportPanelCommand}"/>
                     <Separator/>
                     <MenuItem InputGestureText="Ctrl+G" Command="{StaticResource GenerateResourcesCommand}"/>
                     <MenuItem InputGestureText="Ctrl+R" Command="{StaticResource ReloadResourcesCommand}"/>
@@ -129,16 +133,30 @@
               MouseLeftButtonDown="Grid_MouseLeftButtonDown"
               KeyboardNavigation.TabNavigation="Cycle">
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
             <c:DocumentControl
                 x:Name="DocumentControl"
+                Grid.Column="0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 DataContext="{Binding ElementName=Window, Path=Document}"
                 Visibility="{Binding ElementName=Window, Path=IsDocumentOpen, Converter={StaticResource BoolToVisibilityConverter}}"
                 filtering:FilterProperties.FilterText="{Binding ElementName=SearchBox, Path=Text, NotifyOnTargetUpdated=True}"/>
 
+            <c:ExportControl
+                x:Name="ExportPanel"
+                Grid.Column="1"
+                Document="{Binding ElementName=Window, Path=Document}"
+                ExportProvider="{Binding ElementName=DocumentControl}"
+                Visibility="Collapsed"/>
+
             <Grid
                 x:Name="Overlay"
+                Grid.ColumnSpan="2"
                 Background="{Binding Background, ElementName=Window}"
                 Visibility="Collapsed"
                 Opacity="0">

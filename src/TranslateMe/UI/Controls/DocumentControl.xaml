@@ -1,6 +1,8 @@
 ﻿<UserControl x:Class="TranslateMe.UI.Controls.DocumentControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:p="clr-namespace:TranslateMe.Properties"
+             DataContextChanged="DocumentControl_OnDataContextChanged">
     <UserControl.Resources>
         <Style x:Key="DocumentLoadedVisible">
             <Setter Property="FrameworkElement.Visibility" Value="Visible"/>
@@ -34,10 +36,9 @@
         <DataGrid x:Name="Grid"
                   AutoGenerateColumns="False"
                   ItemsSource="{Binding Phrases}"
-                  FrozenColumnCount="1"
-                  DataContextChanged="Grid_OnDataContextChanged">
+                  FrozenColumnCount="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name"
+                <DataGridTextColumn Header="{x:Static p:Strings.KeyColumnName}"
                                     Binding="{Binding Name}"
                                     EditingElementStyle="{StaticResource DataGridTextBoxStyle}"
                                     MinWidth="100"/>
