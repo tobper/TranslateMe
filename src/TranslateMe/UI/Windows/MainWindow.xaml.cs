@@ -215,11 +215,7 @@ namespace TranslateMe.UI.Windows
 
         private static void DisplayFileFormatWarning()
         {
-            MessageBox.Show(
-                "Unknown file format.",
-                Strings.MessageBoxTitle,
-                MessageBoxButton.OK,
-                MessageBoxImage.Exclamation);
+            ExclamationBox.Show("Unknown file format.");
         }
 
         private void SaveDocument()

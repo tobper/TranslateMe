@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Threading;
-using TranslateMe.Properties;
 
 namespace TranslateMe
 {
@@ -16,11 +15,7 @@ namespace TranslateMe
         {
             if (e.Exception is NotImplementedException)
             {
-                MessageBox.Show(
-                    "The requested feature has unfortunately not yet been implemented.",
-                    Strings.MessageBoxTitle,
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Exclamation);
+                ExclamationBox.Show("The requested feature has unfortunately not yet been implemented.");
 
                 e.Handled = true;
             }
