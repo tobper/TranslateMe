@@ -26,11 +26,6 @@ namespace TranslateMe.FileHandling
             }
 
             var worksheet = package.Workbook.Worksheets.First();
-            if (worksheet.Cells["A1"].Text != Strings.KeyColumnName)
-            {
-                ExclamationBox.Show("First column does not appear to be a key column.");
-                return false;
-            }
 
             for (var
                 columnIndex = worksheet.Dimension.Start.Column + 1;
