@@ -15,7 +15,7 @@ namespace TranslateMe.UI.Controls
             InitializeComponent();
         }
 
-        private void Grid_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void DocumentControl_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             ResetColumns(Grid.Columns);
 
@@ -49,9 +49,8 @@ namespace TranslateMe.UI.Controls
 
         private void AddColumn(CultureInfo culture)
         {
-            var column = new DataGridTextColumn
+            var column = new DataGridCultureColumn(culture)
             {
-                Header = culture.DisplayName,
                 Binding = new Binding("Translations[" + culture.Name + "].Text"),
                 EditingElementStyle = (Style)FindResource("DataGridTextBoxStyle"),
                 MinWidth = 100,
@@ -60,7 +59,6 @@ namespace TranslateMe.UI.Controls
 
             if (culture.Equals(CultureInfo.InvariantCulture))
             {
-                column.Header = "<Default>";
                 Grid.Columns.Insert(1, column);
             }
             else
