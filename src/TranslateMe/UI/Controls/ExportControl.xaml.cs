@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -7,11 +6,18 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.Win32;
 using TranslateMe.FileHandling;
+using TranslateMe.Model;
 
 namespace TranslateMe.UI.Controls
 {
     public partial class ExportControl : UserControl
     {
+        public static readonly DependencyProperty DocumentProperty = DependencyProperty.Register(
+            "Document",
+            typeof(Document),
+            typeof(ExportControl),
+            new UIPropertyMetadata(Document_PropertyChanged));
+
         public static readonly DependencyProperty ExportProviderProperty = DependencyProperty.Register(
             "ExportProvider",
             typeof(IExportProvider),
@@ -27,24 +33,31 @@ namespace TranslateMe.UI.Controls
             InitializeComponent();
         }
 
+        public Document Document
+        {
+            get { return (Document)GetValue(DocumentProperty); }
+            set { SetValue(DocumentProperty, value); }
+        }
+
         public IExportProvider ExportProvider
         {
             get { return (IExportProvider)GetValue(ExportProviderProperty); }
             set { SetValue(ExportProviderProperty, value); }
         }
 
-        private void BindDataContext()
+        private void ResetDataContext()
+        {
+            var viewModel = (IDisposable)DataContext;
+            if (viewModel != null)
+                viewModel.Dispose();
+        }
+
+        private void BindDataContext(Document document)
         {
             var hasSelection = ExportProvider.HasSelection;
+            var viewModel = new ExportViewModel(hasSelection, document.Cultures);
 
-            DataContext = new ExportViewModel
-            {
-                ScopeSelection = hasSelection,
-                ScopeAll = !hasSelection,
-                Languages = ExportProvider.Cultures.
-                    Select(culture => new LanguageViewModel(culture)).
-                    ToArray()
-            };
+            DataContext = viewModel;
         }
 
         private void CloseControl()
@@ -52,32 +65,38 @@ namespace TranslateMe.UI.Controls
             Visibility = Visibility.Collapsed;
         }
 
-        private void ExportControl_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private static void Document_PropertyChanged(DependencyObject dependency, DependencyPropertyChangedEventArgs eventArgs)
         {
-            if (IsVisible)
-                BindDataContext();
+            var control = (ExportControl)dependency;
+
+            control.ResetDataContext();
+
+            var newDocument = (Document)eventArgs.NewValue;
+            if (newDocument != null)
+            {
+                control.BindDataContext(newDocument);
+            }
         }
 
-        private void CloseCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void CloseCommand_OnExecuted(object sender, ExecutedRoutedEventArgs eventArgs)
         {
             CloseControl();
         }
 
-        private void ExportCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void ExportCommand_CanExecute(object sender, CanExecuteRoutedEventArgs eventArgs)
         {
             var viewModel = (ExportViewModel)DataContext;
 
-            e.CanExecute =
+            eventArgs.CanExecute =
                 viewModel != null &&
                 viewModel.Languages.Any(l => l.IsSelected);
-
         }
 
         private void ExportCommand_OnExecuted(object sender, ExecutedRoutedEventArgs eventArgs)
         {
             var dialog = new SaveFileDialog
             {
-                FileName = ExportProvider.DocumentName + ".xlsx",
+                FileName = Document.Name + ".xlsx",
                 Filter = "Excel files (*.xlsx)|*.xlsx|All Files (*.*)|*.*"
             };
 
@@ -109,31 +128,6 @@ namespace TranslateMe.UI.Controls
 
                 CloseControl();
             }
-        }
-
-        class ExportViewModel
-        {
-            public bool ScopeSelection { get; set; }
-            public bool ScopeAll { get; set; }
-            public LanguageViewModel[] Languages { get; set; }
-        }
-
-        class LanguageViewModel
-        {
-            public LanguageViewModel(CultureInfo culture)
-            {
-                var isInvariantCulture = culture.IsInvariantCulture();
-
-                Culture = culture;
-                Name = culture.GetName();
-                IsSelected = isInvariantCulture;
-                IsEnabled = !isInvariantCulture;
-            }
-
-            public CultureInfo Culture { get; private set; }
-            public string Name { get; private set; }
-            public bool IsSelected { get; set; }
-            public bool IsEnabled { get; private set; }
         }
     }
 }

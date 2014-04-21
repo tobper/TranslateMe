@@ -73,8 +73,12 @@
     <Compile Include="FileHandling\ExcelFileWriter.cs" />
     <Compile Include="QuestionBox.cs" />
     <Compile Include="UI\Controls\DataGridCultureColumn.cs" />
+    <Compile Include="DependantCollection.cs" />
     <Compile Include="UI\Controls\DocumentControl.xaml.ExportProvider.cs">
       <DependentUpon>DocumentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ExportControl.xaml.Models.cs">
+      <DependentUpon>ExportControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\IExportProvider.cs" />
     <Compile Include="UI\Windows\MainWindow.xaml.Events.cs">
