@@ -48,7 +48,7 @@
 
     <ComponentGroup Id="Application" Directory="INSTALLDIR" Source="$(var.BinDir)\">
       <Component Id="App" Guid="9CBD0904-FA07-40B8-8288-E341EBB6A55E">
-        <File Id="TranslateMe.exe" Name="TranslateMe.exe" />
+        <File Id="TranslateMe.exe" Name="TranslateMe.exe" KeyPath="yes" />
 
         <Shortcut Id="TranslateMe.Shortcut" Directory="ProgramMenuFolder" Name="TranslateMe" WorkingDirectory="APPLICATIONFOLDER" Target="[#TranslateMe.exe]" />
 
@@ -80,7 +80,11 @@
       </Component>
 
       <Component Id="AppConf" Guid="7D3BDEB8-BEF6-426E-BF79-0DE8CFF1F0EB">
-        <File Name="TranslateMe.exe.config" />
+        <File Name="TranslateMe.exe.config" KeyPath="yes" />
+      </Component>
+
+      <Component Id="EPPlus" Guid="503117AC-E9D7-4345-8060-15400174A1A3">
+        <File Name="EPPlus.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>
 
