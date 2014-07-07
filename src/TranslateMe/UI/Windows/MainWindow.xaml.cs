@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using Microsoft.Win32;
@@ -114,6 +115,7 @@ namespace TranslateMe.UI.Windows
         {
             var dialog = new OpenFileDialog
             {
+                Multiselect = true,
                 Filter =
                     "TranslateMe files (*.tmd, *.resx, *.xlsx)|*.tmd;*.resx;*.xlsx|" +
                     "Translation files (*.tmd)|*.tme|" +
@@ -124,7 +126,15 @@ namespace TranslateMe.UI.Windows
 
             if (dialog.ShowDialog() == true)
             {
-                OpenFile(dialog.FileName);
+                OpenFiles(dialog.FileNames);
+            }
+        }
+
+        private void OpenFiles(IEnumerable<string> files)
+        {
+            foreach (var file in files)
+            {
+                OpenFile(file);
             }
         }
 
