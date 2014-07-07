@@ -49,11 +49,7 @@ namespace TranslateMe.FileHandling
                 var xmlException = e.InnerException as XmlException;
                 if (xmlException != null)
                 {
-                    var message = string.Format(
-                        "{0}{1}{1}{2}",
-                        Strings.ResXFileLoadFailed,
-                        Environment.NewLine,
-                        e.Message);
+                    var message = string.Format(Strings.ResXFileLoadFailed, fileName, e.Message);
 
                     throw new FileLoadException(message, e);
                 }

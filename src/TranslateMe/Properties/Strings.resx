@@ -121,10 +121,18 @@
     <value>TranslateMe</value>
   </data>
   <data name="DocumentLoadFailed" xml:space="preserve">
-    <value>Document could not be loaded.</value>
+    <value>Document could not be loaded.
+
+{0}
+
+{1}</value>
   </data>
   <data name="ExcelFileLoadFailed" xml:space="preserve">
-    <value>Resources could not be loaded from Excel file.</value>
+    <value>Resources could not be loaded from Excel file.
+
+{0}
+
+{1}</value>
   </data>
   <data name="ExcelFileMissingWorksheets" xml:space="preserve">
     <value>Excel file does not contain any worksheets.</value>
@@ -143,6 +151,15 @@
 Close current document and load resources in a new document?</value>
   </data>
   <data name="ResXFileLoadFailed" xml:space="preserve">
-    <value>Resources could not be loaded from ResX file.</value>
+    <value>Resources could not be loaded from ResX file.
+
+{0}
+
+{1}</value>
+  </data>
+  <data name="FileLoad_InvalidFileFormat" xml:space="preserve">
+    <value>Unknown file type.
+
+{0}</value>
   </data>
 </root>

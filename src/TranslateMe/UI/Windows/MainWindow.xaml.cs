@@ -159,10 +159,9 @@ namespace TranslateMe.UI.Windows
                         break;
 
                     default:
-                        DisplayFileFormatWarning();
+                        DisplayFileFormatWarning(fileName);
                         break;
                 }
-
             }
             catch (FileLoadException e)
             {
@@ -227,9 +226,11 @@ namespace TranslateMe.UI.Windows
             return new Document(directory, documentName);
         }
 
-        private static void DisplayFileFormatWarning()
+        private static void DisplayFileFormatWarning(string fileName)
         {
-            ExclamationBox.Show("Unknown file format.");
+            var message = string.Format(Strings.FileLoad_InvalidFileFormat, fileName);
+
+            ExclamationBox.Show(message);
         }
 
         private void SaveDocument()

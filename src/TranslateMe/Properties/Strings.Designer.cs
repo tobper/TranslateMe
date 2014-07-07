@@ -70,7 +70,11 @@ namespace TranslateMe.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Document could not be loaded..
+        ///   Looks up a localized string similar to Document could not be loaded.
+        ///
+        ///{0}
+        ///
+        ///{1}.
         /// </summary>
         public static string DocumentLoadFailed {
             get {
@@ -79,7 +83,11 @@ namespace TranslateMe.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resources could not be loaded from Excel file..
+        ///   Looks up a localized string similar to Resources could not be loaded from Excel file.
+        ///
+        ///{0}
+        ///
+        ///{1}.
         /// </summary>
         public static string ExcelFileLoadFailed {
             get {
@@ -93,6 +101,17 @@ namespace TranslateMe.Properties {
         public static string ExcelFileMissingWorksheets {
             get {
                 return ResourceManager.GetString("ExcelFileMissingWorksheets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown file type.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string FileLoad_InvalidFileFormat {
+            get {
+                return ResourceManager.GetString("FileLoad_InvalidFileFormat", resourceCulture);
             }
         }
         
@@ -134,7 +153,11 @@ namespace TranslateMe.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resources could not be loaded from ResX file..
+        ///   Looks up a localized string similar to Resources could not be loaded from ResX file.
+        ///
+        ///{0}
+        ///
+        ///{1}.
         /// </summary>
         public static string ResXFileLoadFailed {
             get {

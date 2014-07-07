@@ -61,11 +61,7 @@ namespace TranslateMe.FileHandling
             }
             catch (IOException e)
             {
-                var message = string.Format(
-                    "{0}{1}{1}{2}",
-                    Strings.ExcelFileLoadFailed,
-                    Environment.NewLine,
-                    e.Message);
+                var message = string.Format(Strings.ExcelFileLoadFailed, fileName, e.Message);
 
                 throw new FileLoadException(message, e);
             }

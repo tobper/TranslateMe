@@ -54,11 +54,7 @@ namespace TranslateMe.FileHandling
             }
             catch (XmlException e)
             {
-                var message = string.Format(
-                    "{0}{1}{1}{2}",
-                    Strings.DocumentLoadFailed,
-                    Environment.NewLine,
-                    e.Message);
+                var message = string.Format(Strings.DocumentLoadFailed, fileName, e.Message);
 
                 throw new FileLoadException(message, e);
             }
