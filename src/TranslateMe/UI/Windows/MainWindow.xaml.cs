@@ -308,9 +308,10 @@ namespace TranslateMe.UI.Windows
         private void LoadCommandLineFile()
         {
             var args = Environment.GetCommandLineArgs();
-            if (args.Length > 1)
+
+            for (var i = 1; i < args.Length; i++)
             {
-                OpenFile(args[1]);
+                OpenFile(args[i]);
             }
         }
 
