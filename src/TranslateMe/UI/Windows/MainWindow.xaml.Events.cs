@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -100,20 +101,20 @@ namespace TranslateMe.UI.Windows
 
         private void Window_OnDrag(object sender, DragEventArgs e)
         {
-            var isDataValid = false;
+            var hasValidFiles = false;
             var files = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (files != null && files.Length > 0)
             {
-                var file = files[0];
-                var ext = Path.GetExtension(file);
+                var validFiles =
+                    from file in files
+                    let ext = Path.GetExtension(file)
+                    where ext == ".resx" || ext == ".tmd" || ext == ".xlsx"
+                    select file;
 
-                if (ext == ".resx" || ext == ".tmd" || ext == ".xlsx")
-                {
-                    isDataValid = true;
-                }
+                hasValidFiles = validFiles.Any();
             }
 
-            e.Effects = isDataValid ? DragDropEffects.Move : DragDropEffects.None;
+            e.Effects = hasValidFiles ? DragDropEffects.Move : DragDropEffects.None;
             e.Handled = true;
         }
 
@@ -123,7 +124,7 @@ namespace TranslateMe.UI.Windows
 
             if (files != null && files.Length > 0)
             {
-                OpenFile(files[0]);
+                OpenFiles(files);
             }
         }
 
