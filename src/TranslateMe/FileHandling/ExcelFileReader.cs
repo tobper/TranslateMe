@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -7,23 +8,18 @@ using TranslateMe.Properties;
 
 namespace TranslateMe.FileHandling
 {
-    class ExcelFileReader
+    class ExcelFileReader : IResourceFileReader
     {
-        public bool LoadResources(Document document, string fileName)
+        public string GetDocumentName(string fileName)
         {
-            var file = new FileInfo(fileName);
-            if (file.Exists == false)
-                return false;
+            return Path.GetFileNameWithoutExtension(fileName);
+        }
 
-            var package = OpenPackage(file);
-            if (package == null)
-                return false;
-
+        public void LoadResources(Document document, string fileName)
+        {
+            var package = OpenPackage(fileName);
             if (package.Workbook.Worksheets.Count == 0)
-            {
-                ExclamationBox.Show("Excel file does not contain any worksheets.");
-                return false;
-            }
+                throw new FileLoadException(Strings.ExcelFileMissingWorksheets);
 
             var worksheet = package.Workbook.Worksheets.First();
 
@@ -53,20 +49,25 @@ namespace TranslateMe.FileHandling
                     document[name, culture] = value;
                 }
             }
-
-            return true;
         }
 
-        private static ExcelPackage OpenPackage(FileInfo file)
+        private static ExcelPackage OpenPackage(string fileName)
         {
+            var file = new FileInfo(fileName);
+
             try
             {
                 return new ExcelPackage(file);
             }
             catch (IOException e)
             {
-                ExclamationBox.Show(e.Message);
-                return null;
+                var message = string.Format(
+                    "{0}{1}{1}{2}",
+                    Strings.ExcelFileLoadFailed,
+                    Environment.NewLine,
+                    e.Message);
+
+                throw new FileLoadException(message, e);
             }
         }
 

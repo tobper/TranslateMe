@@ -107,7 +107,7 @@ namespace TranslateMe.UI.Windows
                 var file = files[0];
                 var ext = Path.GetExtension(file);
 
-                if (ext == ".resx" || ext == ".tmd")
+                if (ext == ".resx" || ext == ".tmd" || ext == ".xlsx")
                 {
                     isDataValid = true;
                 }

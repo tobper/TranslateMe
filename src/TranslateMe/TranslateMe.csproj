@@ -70,10 +70,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ExclamationBox.cs" />
+    <Compile Include="FileHandling\IResourceFileReader.cs" />
+    <Compile Include="UI\ErrorBox.cs" />
+    <Compile Include="UI\ExclamationBox.cs" />
     <Compile Include="FileHandling\ExcelFileReader.cs" />
     <Compile Include="FileHandling\ExcelFileWriter.cs" />
-    <Compile Include="QuestionBox.cs" />
+    <Compile Include="UI\QuestionBox.cs" />
     <Compile Include="UI\Controls\DataGridCultureColumn.cs" />
     <Compile Include="DependantCollection.cs" />
     <Compile Include="UI\Controls\DocumentControl.xaml.ExportProvider.cs">
@@ -89,6 +91,7 @@
     <Compile Include="UI\Windows\MainWindow.xaml.Export.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileHandling\FileLoadException.cs" />
     <Page Include="UI\Assets\DataGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,7 +141,7 @@
     <Compile Include="Commands\Support\GitHubClient.cs" />
     <Compile Include="Commands\UpdateApplicationCommand.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="FileHandling\ResourceFileWriter.cs" />
+    <Compile Include="FileHandling\ResXFileWriter.cs" />
     <Compile Include="Filtering\FilterExtensions.cs" />
     <Compile Include="Filtering\IFilterValueProvider.cs" />
     <Compile Include="IMethodThrottle.cs" />
@@ -151,7 +154,7 @@
     <Compile Include="Model\Phrase.cs" />
     <Compile Include="Model\Support\IndexedCollection.cs" />
     <Compile Include="Model\Translation.cs" />
-    <Compile Include="FileHandling\ResourceFileReader.cs" />
+    <Compile Include="FileHandling\ResXFileReader.cs" />
     <Compile Include="FileHandling\DocumentFileReader.cs" />
     <Compile Include="Model\TranslationCollection.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

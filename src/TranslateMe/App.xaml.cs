@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Threading;
+using TranslateMe.UI;
 
 namespace TranslateMe
 {
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {

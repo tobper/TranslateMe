@@ -1,8 +1,11 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using TranslateMe.Model;
+using TranslateMe.Properties;
 
 namespace TranslateMe.FileHandling
 {
@@ -13,8 +16,9 @@ namespace TranslateMe.FileHandling
             var workingDirectory = Path.GetDirectoryName(fileName);
             var documentName = Path.GetFileNameWithoutExtension(fileName);
             var document = new Document(workingDirectory, documentName);
+            var xml = LoadXml(fileName);
 
-            var texts = from textElement in XElement.Load(fileName).Elements("text")
+            var texts = from textElement in xml.Elements("text")
                         from valueElement in textElement.Elements("value")
                         select new
                         {
@@ -40,6 +44,24 @@ namespace TranslateMe.FileHandling
             }
 
             return document;
+        }
+
+        private static XElement LoadXml(string fileName)
+        {
+            try
+            {
+                return XElement.Load(fileName);
+            }
+            catch (XmlException e)
+            {
+                var message = string.Format(
+                    "{0}{1}{1}{2}",
+                    Strings.DocumentLoadFailed,
+                    Environment.NewLine,
+                    e.Message);
+
+                throw new FileLoadException(message, e);
+            }
         }
     }
 }

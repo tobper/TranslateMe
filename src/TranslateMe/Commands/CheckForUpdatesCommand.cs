@@ -4,6 +4,7 @@ using System.Windows;
 using TranslateMe.Commands.Support;
 using TranslateMe.Model.GitHub;
 using TranslateMe.Properties;
+using TranslateMe.UI;
 using TranslateMe.UI.Windows;
 
 namespace TranslateMe.Commands

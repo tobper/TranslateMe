@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using TranslateMe.Properties;
 
-namespace TranslateMe
+namespace TranslateMe.UI
 {
     public static class ExclamationBox
     {

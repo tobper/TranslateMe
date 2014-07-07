@@ -6,7 +6,7 @@ using TranslateMe.Model;
 
 namespace TranslateMe.FileHandling
 {
-    class ResourceFileWriter
+    class ResXFileWriter
     {
         public void SaveResources(Document document)
         {

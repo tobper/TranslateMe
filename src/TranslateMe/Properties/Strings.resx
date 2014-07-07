@@ -120,6 +120,15 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>TranslateMe</value>
   </data>
+  <data name="DocumentLoadFailed" xml:space="preserve">
+    <value>Document could not be loaded.</value>
+  </data>
+  <data name="ExcelFileLoadFailed" xml:space="preserve">
+    <value>Resources could not be loaded from Excel file.</value>
+  </data>
+  <data name="ExcelFileMissingWorksheets" xml:space="preserve">
+    <value>Excel file does not contain any worksheets.</value>
+  </data>
   <data name="InvariantLanguageName" xml:space="preserve">
     <value>&lt;Default&gt;</value>
   </data>
@@ -128,5 +137,12 @@
   </data>
   <data name="MessageBoxTitle" xml:space="preserve">
     <value>TranslateMe</value>
+  </data>
+  <data name="ResourceFileLoad_CloseConfirmation" xml:space="preserve">
+    <value>File name does not match loaded document.
+Close current document and load resources in a new document?</value>
+  </data>
+  <data name="ResXFileLoadFailed" xml:space="preserve">
+    <value>Resources could not be loaded from ResX file.</value>
   </data>
 </root>
