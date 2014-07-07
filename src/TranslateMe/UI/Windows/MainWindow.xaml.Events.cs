@@ -134,6 +134,7 @@ namespace TranslateMe.UI.Windows
 
         private void ReloadResources_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            throw new NotImplementedException();
         }
     }
 }
