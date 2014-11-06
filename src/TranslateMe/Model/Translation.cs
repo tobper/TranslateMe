@@ -15,7 +15,7 @@ namespace TranslateMe.Model
             "Text",
             typeof(string),
             typeof(Translation),
-            new PropertyMetadata(null));
+            new PropertyMetadata(""));
 
         public static readonly DependencyProperty CultureProperty = CulturePropertyKey.DependencyProperty;
 
