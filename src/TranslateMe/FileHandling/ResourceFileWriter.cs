@@ -20,11 +20,13 @@ namespace TranslateMe.FileHandling
         {
             var fileName = GetResourceFileName(document, culture);
             var texts = from phrase in document.Phrases
+                        let value = phrase.Translations[culture].Text
+                        where !string.IsNullOrEmpty(value)
                         orderby phrase.Name
                         select new
                         {
                             phrase.Name,
-                            Value = phrase.Translations[culture].Text
+                            Value = value
                         };
 
             using (var writer = new ResXResourceWriter(fileName))
